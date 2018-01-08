@@ -1,0 +1,83 @@
+@import "../../styles/config";
+
+.hana-form-text {
+  line-height: $size-middle-height;
+}
+
+.hana-form-field {
+  font-size: 14px;
+  color: #333;
+
+  @include display-flex;
+
+  & > .hana-form-label {
+    width: $form-label-width;
+    line-height: $size-middle-height;
+    font-size: $size-middle-font-size;
+    text-align: right;
+    margin-right: 10px;
+  }
+
+  & > .hana-form-element {
+    @include flex-number;
+  }
+}
+
+.hana-form-group {
+  & > .hana-form-element {
+    @include display-flex;
+
+    & > .hana-form-item {
+      @include flex-number;
+
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.hana-form-info {
+  font-size: 12px;
+  height: 12px;
+  line-height: 12px;
+  color: $normal-color;
+  padding: 2px 0 5px 3px;
+}
+
+.hana-form-item {
+  &-error .hana-form-info {
+    color: $error-color;
+  }
+
+  &-error .hana-select .hana-select-selection,
+  &-error .hana-text-input,
+  &-error .hana-text-area-input {
+    border-color: $error-color;
+  }
+
+  &-success .hana-form-info {
+    color: $success-color;
+  }
+
+  &-warn .hana-form-info {
+    color: $warning-color;
+  }
+}
+
+.hana-form-top {
+  @include flex-direction-column;
+
+  & .hana-form-field {
+    @include flex-direction-column;
+  }
+
+  & .hana-form-label {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+  }
+}

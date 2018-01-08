@@ -1,0 +1,165 @@
+@import "../../styles/config";
+
+.hana-menu {
+  font-size: 14px;
+  border: 1px solid $menu-default-color;
+  border-radius: 5px;
+  background: #fff;
+  color: #333;
+}
+
+.hana-submenu {
+  cursor: pointer;
+
+  &-title {
+    display: block;
+    padding: 10px;
+    position: relative;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      color: $menu-active-color;
+
+      &::after {
+        color: $menu-active-color;
+      }
+
+      .hanaicon {
+        color: $menu-active-color;
+      }
+    }
+
+    &::after {
+      content: "\E657";
+      font-family: "hanaicon";
+      font-size: 12px;
+      color: #666;
+      position: absolute;
+      right: 10px;
+      transition: all 0.3s linear;
+    }
+
+    & .hanaicon {
+      margin-right: 5px;
+      color: #666;
+      vertical-align: top;
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  &-active {
+    > .hana-submenu-title {
+      &::after {
+        color: $menu-active-color;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-disabled {
+    color: $menu-default-color;
+    cursor: not-allowed;
+
+    & .hana-submenu-title {
+      color: $menu-default-color;
+
+      &::after {
+        color: $menu-default-color;
+      }
+    }
+  }
+
+  &-elements {
+    border-top: 1px solid $menu-default-color;
+    padding: 5px 0 5px 10px;
+    transition: padding 0.2s ease-in-out;
+    transform-origin: left top;
+    overflow: hidden;
+  }
+
+  &-transition {
+    &-enter {
+      opacity: 0;
+
+      &-active {
+        opacity: 1;
+      }
+    }
+
+    &-exit {
+      opacity: 1;
+
+      &-active {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.hana-menuitem {
+  font-size: 14px;
+  padding: 10px 0 10px 10px;
+  cursor: pointer;
+  transition: padding 0.2s ease-in;
+
+  & .hanaicon {
+    font-size: 14px;
+    color: #666;
+    margin-right: 5px;
+    vertical-align: top;
+    transition: all 0.2s ease-in;
+  }
+
+  &:hover,
+  &-active {
+    color: $menu-active-color;
+
+    & .hanaicon {
+      color: $menu-active-color;
+    }
+  }
+
+  &-disabled {
+    color: $menu-disabled-color;
+    cursor: not-allowed;
+
+    &:hover {
+      color: $menu-disabled-color;
+    }
+  }
+}
+
+// horizonal
+.hana-menu-horizonal {
+  & .hana-menuitem {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+// horizonal-base
+.hana-menu-horizonal {
+  &.hana-menu-default .hana-menuitem {
+    border-right: 1px solid $menu-default-color;
+  }
+}
+
+.hana-menu-linear {
+  border: none;
+
+  &.hana-menu-vertical .hana-menuitem {
+    border-right: 2px solid transparent;
+  }
+
+  &.hana-menu-vertical .hana-menuitem-active {
+    border-color: $menu-active-color;
+  }
+
+  &.hana-menu-horizonal .hana-menuitem {
+    border-bottom: 2px solid transparent;
+  }
+
+  &.hana-menu-horizonal .hana-menuitem-active {
+    border-color: $menu-active-color;
+  }
+}

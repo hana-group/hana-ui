@@ -1,0 +1,48 @@
+@import "../../styles/config";
+
+.hana-progress {
+  height: $progress-size-middle;
+  background: $progress-default-color;
+  border-radius: 5px;
+  margin-top: 24px;
+
+  &-small {
+    height: $progress-size-small;
+  }
+
+  &-large {
+    height: $progress-size-large;
+  }
+
+  &-inner {
+    border-radius: 5px;
+    background: $progress-active-color;
+    height: inherit;
+    transition: 0.2s width ease-in-out;
+    position: relative;
+  }
+
+  &-icon {
+    position: absolute;
+    right: -9px;
+    top: -4px;
+    color: darken($progress-active-color, 20%);
+    transition: all 0.2s linear;
+    text-align: center;
+    font-size: 14px;
+
+    & .hana-progress-percent {
+      position: absolute;
+      line-height: 14px;
+      height: 14px;
+      top: -18px;
+      right: 0;
+    }
+
+    & .hanaicon {
+      font-size: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@import "../../styles/config";
+
+.hana-card {
+  margin-bottom: 40px;
+  padding-top: 10px;
+  position: relative;
+  background: #fff;
+
+  & &-container {
+    border: 1px solid $normal-color;
+    border-radius: 5px;
+    padding: 15px 15px 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: 2px 2px 3px 0 rgba(30, 30, 30, 0.15);
+    }
+  }
+
+  & &-title {
+    color: #01b5fd;
+    position: absolute;
+    font-size: 16px;
+    top: 0;
+    left: 15px;
+    background: #fff;
+    padding: 0 10px;
+
+    & .hanaicon {
+      margin-right: 10px;
+      vertical-align: top;
+    }
+  }
+
+  &-subtitle {
+    color: #999;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  &-expand {
+    padding-top: 0;
+    border: 1px solid $normal-color;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: 2px 2px 3px 0 rgba(30, 30, 30, 0.15);
+    }
+  }
+
+  &-expand &-title {
+    color: #333;
+    padding-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+
+    & > .hanaicon {
+      margin-right: 10px;
+      vertical-align: top;
+    }
+  }
+
+  &-expand &-container {
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    max-height: 0;
+    transition: 0.5s max-height ease-in-out, 0.5s border-color ease-in-out;
+  }
+
+  &-expand &-container-wrap {
+    padding: 10px;
+  }
+
+  &-expand &-expand-icon-wrap {
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+
+  &-expand &-expand-icon {
+    display: block;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s transform linear;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &-expand-open &-expand-icon {
+    color: $primary-color;
+    transform: rotate(180deg);
+  }
+
+  &-expand-open &-container {
+    border-color: $normal-color;
+    max-height: 1000px;
+  }
+}

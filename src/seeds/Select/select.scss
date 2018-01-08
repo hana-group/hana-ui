@@ -1,0 +1,208 @@
+@import "../../styles/config";
+
+.hana-select {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  min-width: $select-min-width;
+  width: 100%;
+  font-size: $size-middle-font-size;
+
+  & .hana-select-selection {
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid $select-default-color;
+    height: $size-middle-height;
+    min-height: $size-middle-height;
+    line-height: $size-middle-height;
+    border-radius: 2px;
+    padding-left: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease-in;
+  }
+
+  &-multiple.hana-select {
+    .hana-select-selection{
+      height: auto;
+      white-space: normal;
+    }
+  }
+
+  &-small {
+    font-size: $size-small-font-size;
+
+    & .hana-select-selection {
+      height: $size-small-height;
+      min-height: $size-small-height;
+      line-height: $size-small-height;
+    }
+  }
+
+  &-large {
+    font-size: $size-large-font-size;
+
+    & .hana-select-selection {
+      height: $size-large-height;
+      min-height: $size-large-height;
+      line-height: $size-large-height;
+    }
+  }
+
+  &-arrow {
+    color: #666;
+    position: absolute;
+    right: 10px;
+    top: -1px;
+    transition: all 0.3s linear;
+
+    & .hanaicon {
+      font-size: 12px;
+    }
+  }
+
+  &-down {
+    .hana-select-optwrap {
+      top: $size-middle-height - 1;
+    }
+
+    &.hana-select-small {
+      & .hana-select-optwrap {
+        top: $size-small-height - 1;
+      }
+    }
+
+    &.hana-select-large {
+      & .hana-select-optwrap {
+        top: $size-large-height - 1;
+      }
+    }
+  }
+
+  &-up {
+    .hana-select-optwrap {
+      bottom: $size-middle-height - 1;
+    }
+
+    &.hana-select-small {
+      & .hana-select-optwrap {
+        bottom: $size-small-height - 1;
+      }
+    }
+
+    &.hana-select-large {
+      & .hana-select-optwrap {
+        bottom: $size-large-height - 1;
+      }
+    }
+  }
+}
+
+.hana-select-optwrap {
+  z-index: $z-index-select;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+
+  // top: $size-middle-height + 4px + 1px
+  border: 1px solid $select-default-color;
+  background: #fff;
+  transition: opacity 0.3s ease-in;
+  overflow-y: auto;
+
+  &.hana-select-transition-enter {
+    opacity: 0;
+  }
+
+  &.hana-select-transition-enter-active {
+    opacity: 1;
+  }
+
+  &.hana-select-transition-exit {
+    opacity: 1;
+  }
+
+  &.hana-select-transition-exit-active {
+    opacity: 0;
+  }
+
+  & .hana-select-option {
+    line-height: $size-middle-height;
+    padding-left: 10px;
+    cursor: pointer;
+    border-top: 1px solid #f4f4f4;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:hover {
+      background-color: rgba(200, 200, 200, 0.2);
+    }
+
+    &:last-child {
+      border-radius: 0 0 2px 2px;
+    }
+
+    &.hana-select-option-selected {
+      background-color: rgba(200, 200, 200, 0.2);
+    }
+
+    &.hana-select-option-disabled {
+      color: $select-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.hana-select-small .hana-select-option {
+  line-height: $size-small-height;
+}
+
+.hana-select-large .hana-select-option {
+  line-height: $size-large-height;
+}
+
+.hana-select-active {
+  & .hana-select-selection {
+    border-color: $select-active-color;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 2px 2px 3px 0 rgba(30, 30, 30, 0.15);
+
+    .hana-select-arrow {
+      color: $select-active-color;
+      transform: rotate(-180deg);
+    }
+  }
+
+  & .hana-select-optwrap {
+    border-color: $select-active-color;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 2px 2px 3px 0 rgba(30, 30, 30, 0.15);
+  }
+
+  &.hana-select-up {
+    & .hana-select-selection {
+      border-top-color: transparent;
+      border-bottom-color: $select-active-color;
+    }
+
+    & .hana-select-optwrap {
+      border-radius: 2px 2px 0 0;
+      border-top: 1px solid $select-active-color;
+      box-shadow: 2px 0 3px 0 rgba(30, 30, 30, 0.15);
+    }
+  }
+}
+
+.hana-select-disabled {
+  & .hana-select-selection {
+    background: #eee;
+    color: $select-disabled-color;
+    cursor: not-allowed;
+  }
+}

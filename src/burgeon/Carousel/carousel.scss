@@ -1,0 +1,163 @@
+@import "../../styles/config";
+
+.hana-carousel{
+  overflow: hidden;
+  position: relative;
+
+  &-list{
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // transition: 1s left ease-in-out;
+  }
+
+  &-dot{
+    display: inline-block;
+    background: rgba($primary-color, .6);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &-active{
+      background: $primary-color;
+    }
+  }
+
+  &-option{
+    &-control{
+      box-sizing: border-box;
+      font-style: normal;
+      color: $primary-color;
+      position: absolute;
+      background: rgba(255, 255, 255, .8);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 14px;
+      border: 1px solid rgba($primary-color, .5);
+      cursor: pointer;
+
+      &:hover{
+        background: $primary-color;
+        &:after{
+          border-color: #fff;
+        }
+      }
+
+      &:after{
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        border: 2px solid $primary-color;
+        border-width: 2px 0 0 2px;
+      }
+    }
+  }
+
+  &-horizontal &-dot-group{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  &-horizontal &-option{
+    &-control{
+      top: 50%;
+      margin-top: -20px;
+      line-height: 42px;
+
+      &:hover{
+        color: darken($primary-color, 20%);
+      }
+    }
+
+    &-prev{
+      left: 0;
+      margin-left: -20px;
+      padding-left: 20px;
+
+      &:after{
+        margin: 14px 0 0 5px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &-next{
+      right: 0;
+      margin-right: -20px;
+      padding-left: 5px;
+
+      &:after{
+        margin: 14px 0 0 0;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  // slide
+  //
+  &-slide &-item{
+    float: left;
+  }
+
+  &-slide.hana-carousel-vertical &-item{
+    display: block;
+  }
+
+  // fade
+  &-fade{
+    & .hana-carousel-item{
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: .6s opacity ease-in-out;
+    }
+    & .hana-carousel-item-active{
+      opacity: 1;
+    }
+  }
+
+  // vertical mode
+  //
+  &-vertical &-dot-group{
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+
+  &-vertical &-option{
+    &-control{
+      text-align: center;
+      left: 50%;
+      margin-left: -20px;
+    }
+
+    &-prev{
+      top: 0;
+      margin-top: -20px;
+
+      &:after{
+        margin: 24px 0 0 14px;
+        transform: rotate(45deg);
+      }
+    }
+
+    &-next{
+      bottom: 0;
+      margin-bottom: -20px;
+
+      &:after{
+        margin: 4px 0 0 14px;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}

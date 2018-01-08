@@ -1,0 +1,40 @@
+@import "../../styles/config";
+
+.hana-slider{
+  background: $normal-color;
+  height: 10px;
+  border-radius: 5px;
+  position: relative;
+  font-size: 12px;
+  margin-top: 20px;
+
+  &-inner{
+    background: $primary-color;
+    height: inherit;
+    border-radius: inherit;
+    position: relative;
+  }
+
+  &-button{
+    position: absolute;
+    right: -11px;
+    top: -5px;
+    background-color: darken($primary-color, 20%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover{
+      background-color: darken($primary-color, 30%);
+    }
+  }
+
+  &-value{
+    user-select: none;
+    position: absolute;
+    right: -11px;
+    top: -20px;
+    color: $primary-color
+  }
+}
