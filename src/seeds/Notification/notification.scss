@@ -1,0 +1,86 @@
+@import "../../styles/config";
+
+$info-shadow-color: rgba(0, 0, 0, 0.16);
+$info-light-shadow-color: rgba(0, 0, 0, 0.08);
+$error-shadow-color: rgba($error-color, 0.16);
+$error-light-shadow-color: rgba($error-color, 0.08);
+$success-shadow-color: rgba($success-color, 0.16);
+$success-light-shadow-color: rgba($success-color, 0.08);
+
+%text-break {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.hana-notification {
+  bottom: auto;
+  height: auto;
+  left: 50%;
+  max-width: 320px;
+  min-width: 300px;
+  position: fixed;
+  top: 20%;
+  z-index: $z-index-notification;
+
+  .hana-notification-item {
+    background-color: $white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    min-width: 350px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+  }
+
+  .notification-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  .notification-content {
+    @extend %text-break;
+
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+.hana-notification-enter {
+  margin-top: 20px;
+  opacity: 0;
+
+  &.hana-notification-enter-active {
+    margin-top: 0;
+    opacity: 1;
+    transition: 0.25s ease-in;
+  }
+}
+
+.hana-notification-leave {
+  margin-top: 0;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+
+  &.hana-notification-leave-active {
+    margin-top: -20px;
+    opacity: 0;
+    transition: 0.25s ease-in;
+  }
+}
+
+.hana-notification-info {
+  box-shadow: 0 2px 2px 0 $info-shadow-color, 0 0 0 1px $info-light-shadow-color;
+}
+
+.hana-notification-success {
+  border: 1px solid $success-color;
+  box-shadow: 0 2px 2px 0 $success-shadow-color, 0 0 0 1px $success-light-shadow-color;
+  color: $success-color;
+}
+
+.hana-notification-error {
+  border: 1px solid $error-color;
+  box-shadow: 0 2px 2px 0 $error-shadow-color, 0 0 0 1px $error-light-shadow-color;
+  color: $error-color;
+}

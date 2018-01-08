@@ -1,0 +1,43 @@
+@import "../../styles/config";
+
+.hana-title {
+  border-radius: 4px;
+  cursor: default;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 10px;
+  position: relative;
+
+  &-content {
+    display: inline-block;
+    line-height: 1.2;
+    vertical-align: middle;
+  }
+
+  i {
+    display: inline-block;
+    font-family: hanaicon;
+    font-size: 30px;
+    font-style: inherit;
+    margin-right: 8px;
+  }
+
+  div {
+    &[class^='icon-'] {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+
+  .icon-right {
+    position: absolute;
+    right: 10px;
+  }
+
+  &-sub {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 1.6;
+  }
+}

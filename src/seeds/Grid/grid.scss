@@ -1,0 +1,100 @@
+/*!
+ * Use 12 columns grid layout
+ */
+@import "../../styles/config";
+
+// short name of grid column
+$list: half third fourth fifth sixth three-fourth;
+
+.hana-grid {
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  width: 100%;
+
+  &::after {
+    clear: both;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  div {
+    &[class^='hana-grid-'] {
+      box-sizing: border-box;
+    }
+  }
+
+  &-1 {
+    width: 8.3333%;
+  }
+
+  &-2,
+  &-sixth {
+    width: 16.6667%;
+  }
+
+  &-3,
+  .hana-grid-fourth {
+    width: 24.6333%;
+  }
+
+  &-4,
+  &-third {
+    width: 33.3333%;
+  }
+
+  &-5 {
+    width: 41.6667%;
+  }
+
+  &-fifth {
+    width: 20%;
+  }
+
+  &-6,
+  &-half {
+    width: 50%;
+  }
+
+  &-7 {
+    width: 58.3333%;
+  }
+
+  &-8 {
+    width: 66.6667%;
+  }
+
+  &-9,
+  &-three-fourth {
+    width: 75%;
+  }
+
+  &-10 {
+    width: 83.3333%;
+  }
+
+  &-11 {
+    width: 91.6667%;
+  }
+
+  &-12 {
+    width: 100%;
+  }
+}
+
+@for $i from 1 to 12 {
+  .hana-grid-#{$i} {
+    float: left;
+  }
+}
+
+// generate short column name
+@each $item in $list {
+  .hana-grid-#{$item} {
+    float: left;
+  }
+}

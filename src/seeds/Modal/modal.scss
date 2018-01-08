@@ -1,0 +1,104 @@
+@import "../../styles/config";
+$border-color: rgba(0, 0, 0, 0.16);
+$overlay-color: rgba($black, 0.46);
+%close-button {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+
+.hana-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: $z-index-modal;
+  &-overlay {
+    background-color: $overlay-color;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $z-index-modal-mask;
+  }
+  &-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 4px;
+    min-height: 130px;
+    min-width: 600px;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    z-index: $z-index-modal;
+    .hana-modal-title-wrapper {
+      font-size: 18px;
+      min-height: 38px;
+      position: relative;
+      .hana-modal-title {
+        padding: 10px 15px;
+      }
+      .icon-close {
+        @extend %close-button;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .hana-modal-content {
+      margin-bottom: 35px;
+      max-height: 635px;
+      overflow: auto;
+      padding: 15px 20px;
+      overflow-y: auto;
+      &+.icon-close {
+        @extend %close-button;
+      }
+    }
+    .hana-modal-button {
+      bottom: 5px;
+      position: absolute;
+      right: 5px;
+    }
+  }
+}
+
+.hana-overlay-enter {
+  opacity: 0;
+  transition: all 0.15s ease-in;
+  &.hana-overlay-enter-active {
+    transition: all 0.15s ease-in;
+    opacity: 1;
+  }
+}
+
+.hana-overlay-exit {
+  opacity: 0;
+  transition: all 0.15s ease-in;
+  &.hana-overlay-exit-active {
+    transition: all 0.15s ease-in;
+    opacity: 1;
+  }
+}
+
+.hana-modal-enter {
+  opacity: 0;
+  transition: all 0.15s ease-in;
+  &.hana-modal-enter-active {
+    transition: all 0.15s ease-in;
+    opacity: 1;
+  }
+}
+
+.hana-modal-exit {
+  opacity: 1; // top: 0;
+  transition: all 0.15s ease-in;
+  &.hana-modal-exit-active {
+    transition: all 0.15s ease-in;
+    opacity: 0;
+  }
+}

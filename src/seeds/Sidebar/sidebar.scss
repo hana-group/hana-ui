@@ -1,0 +1,55 @@
+@import "../../styles/config";
+
+$border-color: #ddd;
+$scroll-color: rgba(0, 0, 0, 0.22);
+
+.hana-sidebar {
+  background-color: $white;
+  bottom: 0;
+  overflow: auto;
+  position: fixed;
+  border: 1px solid $border-color;
+  top: 0;
+  width: 400px;
+  z-index: 9;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px $scroll-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px $scroll-color;
+  }
+
+  &.hana-sidebar-open {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.5s ease-in-out;
+  }
+
+  &.hana-sidebar-right {
+    right: 0;
+
+    &.hana-sidebar-close {
+      opacity: 0;
+      transform: translateX(100%);
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  &.hana-sidebar-left {
+    left: 0;
+
+    &.hana-sidebar-close {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: 0.5s ease-in-out;
+    }
+  }
+}
