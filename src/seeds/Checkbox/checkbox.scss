@@ -1,0 +1,88 @@
+@import "../../styles/config";
+
+.hana-checkbox-inner {
+  // TODO reset material-ui box-sizing
+  box-sizing: content-box;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  font-size: 16px;
+  width: $checkbox-default-size;
+  height: $checkbox-default-size;
+  border: 1px solid $checkbox-default-color;
+  border-radius: 2px;
+  vertical-align: middle;
+
+  &::after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border-color: darken($checkbox-active-color, 30%);
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in;
+  }
+}
+
+.hana-checkbox-custom {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.hana-checkbox {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+
+  & span {
+    vertical-align: middle;
+    line-height: $size-middle-height;
+  }
+
+  &:hover .hana-checkbox-inner {
+    border-color: $checkbox-active-color;
+  }
+}
+
+.hana-checkbox-checked {
+  & .hana-checkbox-inner {
+    border: 1px solid $checkbox-active-color;
+  }
+
+  & .hana-checkbox-inner::after {
+    border-color: $checkbox-active-color;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    display: block;
+  }
+}
+
+.hana-checkbox-disabled {
+  cursor: not-allowed;
+  color: $checkbox-disabled-color;
+
+  &:hover .hana-checkbox-inner {
+    border-color: $normal-color;
+  }
+
+  &.hana-checkbox-checked .hana-checkbox-inner {
+    border-color: $normal-color;
+
+    &::after {
+      border-color: $normal-color;
+    }
+  }
+}
+
+// ========= CheckboxGroup ==========
+.hana-checkbox-group {
+  & .hana-checkbox {
+    margin-right: 10px;
+  }
+}

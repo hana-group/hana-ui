@@ -1,0 +1,45 @@
+@import "../../styles/config";
+
+@keyframes maware {
+  from { transform: rotateZ(0deg) }
+  to { transform: rotateZ(-360deg) }
+}
+
+.hana-loading-wrap {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index-loading;
+}
+
+.hana-loading {
+  position: fixed;
+  padding: 10px;
+  min-height: 80px;
+  min-width: 80px;
+  background-color: $loading-background-color;
+  border-radius: 5px;
+  color: $loading-color;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  & .hanaicon {
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  &.hana-loading-rotate .hanaicon {
+    animation: maware 2s linear infinite;
+  }
+}
+
+.hana-loading-content {
+  margin-top: 15px;
+  font-size: 14px;
+}

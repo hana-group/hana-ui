@@ -1,0 +1,46 @@
+@import "../../styles/config";
+
+$image-tiny-size: 50px !default;
+$image-small-size: 100px !default;
+$image-middle-size: 150px !default;
+$image-large-size: 250px !default;
+$image-huge-size: 400px !default;
+
+$hana-image-size: (
+  tiny $image-tiny-size,
+  small $image-small-size,
+  middle $image-middle-size,
+  large $image-large-size,
+  huge image-huge-size
+);
+
+@each $key, $value in $hana-image-size {
+  .hana-image {
+    &-#{$key} {
+      width: $value;
+
+      &.hana-image-circular {
+        height: $value;
+      }
+    }
+  }
+}
+
+.hana-image {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+}
+
+.hana-image-circular {
+  border-radius: 50%;
+}
+
+.hana-imagegroup {
+  padding: 5px;
+  display: inline-block;
+
+  & .hana-image {
+    margin: 0 5px;
+  }
+}

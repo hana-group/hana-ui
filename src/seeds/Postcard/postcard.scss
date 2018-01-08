@@ -1,0 +1,48 @@
+@import "../../styles/config";
+
+.hana-postcard {
+  width: 100%;
+  border: 1px solid #eee;
+  box-shadow: 2px 3px 10px 0 rgba(30, 30, 30, 0.2);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  background: #fff;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    z-index: 99;
+    border-color: $primary-color;
+  }
+
+  &-title {
+    padding: 20px 10px 10px;
+    font-size: 18px;
+  }
+
+  &-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin-left: 5px;
+  }
+
+  &-content {
+    padding: 10px;
+  }
+
+  &-group .hana-postcard {
+    margin: 0 5px;
+  }
+}
+
+.hana-postcard-group {
+  &-clothesline {
+    & .hana-postcard {
+      transform: perspective(600px) rotateY(30deg);
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

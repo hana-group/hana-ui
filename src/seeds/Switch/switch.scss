@@ -1,0 +1,67 @@
+@import "../../styles/config";
+
+.hana-switch {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2 * $switch-default-size;
+  position: relative;
+  cursor: pointer;
+  margin-left: 5px;
+
+  &::before {
+    content: "";
+    font-family: "hanaicon";
+    display: inline-block;
+    color: darken($switch-default-color, 10%);
+    font-size: $switch-icon-size;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left: -8px;
+    top: -($switch-icon-size - 8px) / 2;
+    transform: rotate(45deg);
+    transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    margin-left: $switch-default-size / 2;
+    width: $switch-default-size;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $switch-default-color;
+    transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+  }
+
+  &:hover {
+    &::before {
+      border-color: $switch-active-color;
+    }
+  }
+
+  &.hana-switch-active::before {
+    border-color: $switch-active-color;
+    color: darken($switch-active-color, 10%);
+    left: $switch-default-size + 3px;
+    transform: rotate(135deg);
+  }
+
+  &.hana-switch-active::after {
+    background-color: $switch-active-color;
+  }
+
+  &.hana-switch-disabled {
+    cursor: not-allowed;
+
+    // background-color: #dcdcdc
+    &::before {
+      color: $switch-disabled-color;
+    }
+
+    &::after {
+      background-color: $switch-disabled-color;
+    }
+  }
+}

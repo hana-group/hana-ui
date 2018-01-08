@@ -1,0 +1,41 @@
+@import "../../styles/config";
+
+.hana-tag {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid $normal-color;
+  border-radius: 5px;
+  font-size: $size-middle-font-size;
+  height: $size-middle-height - 6;
+  line-height: $size-middle-height - 8;
+  padding: 0 5px;
+  color: #666;
+  background: #fff;
+  margin-right: 10px;
+  cursor: default;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  & .hanaicon {
+    margin-left: 3px;
+
+    &:hover {
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.hana-tag-small {
+  font-size: $size-small-font-size;
+  height: $size-small-height - 6;
+  line-height: $size-small-height - 8;
+}
+
+.hana-tag-large {
+  font-size: $size-large-font-size;
+  height: $size-large-height - 6;
+  line-height: $size-large-height - 8;
+}
