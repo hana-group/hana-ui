@@ -1,0 +1,79 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 2017/2/20
+ */
+@import "../../styles/config";
+
+.hana-popover {
+  max-width: none;
+  padding: 0;
+
+  &-top {
+    padding: 8px;
+  }
+
+  &-title {
+    display: block;
+    text-align: left;
+    width: calc(100% - 20px);
+    font-size: $size-large-font-size;
+  }
+
+  &-sub-title {
+    font-size: $size-small-font-size;
+  }
+
+  &-close {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+
+    &-icon {
+      @include hana-icon(close);
+
+      font-size: $size-large-font-size;
+      color: darken($popover-theme-color, 5);
+    }
+  }
+
+  &-content {
+    padding: 8px;
+  }
+
+  &-border &-hr {
+    background-color: $popover-theme-color;
+    height: 1px;
+  }
+}
+
+.hana-popover.hana-tooltip-content {
+  z-index: $z-index-popover;
+
+  &-top {
+    &:after {
+      border: none;
+    }
+  }
+
+  &-bottom {
+    &:after {
+      border: none;
+    }
+  }
+
+  &-left {
+    &:after {
+      border: none;
+    }
+  }
+
+  &-right {
+    &:after {
+      border: none;
+    }
+  }
+}
+
+.hana-popover.hana-tooltip-content-border {
+  border: 1px solid $popover-theme-color;
+}

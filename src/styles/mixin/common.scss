@@ -1,0 +1,167 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 2017/2/23
+ */
+
+@mixin size($w: null, $h: null) {
+  @if($w) {
+    width: $w;
+  }
+
+  @if($h) {
+    height: $h;
+  }
+}
+
+@mixin max-size($w: null, $h: null) {
+  @if($w) {
+    max-width: $w;
+  }
+
+  @if($h) {
+    max-height: $h;
+  }
+}
+
+@mixin min-size($w: null, $h: null) {
+  @if($w) {
+    min-width: $w;
+  }
+
+  @if($h) {
+    min-height: $h;
+  }
+}
+
+@mixin position($t: null, $r: null, $l: null, $b: null, $all: null) {
+  @if $all {
+    left: $all;
+    right: $all;
+    top: $all;
+    bottom: $all;
+  }
+  @else {
+    @if($l) {
+      left: $l;
+    }
+
+    @if($r) {
+      right: $r;
+    }
+
+    @if($t) {
+      top: $t;
+    }
+
+    @if($b) {
+      bottom: $b;
+    }
+  }
+}
+
+@mixin position-prefix($prefix, $t: null, $r: null, $b: null, $l: null, $all: null) {
+  @if $all {
+    #{$prefix}: $all;
+  }
+  @else {
+    @if($l) {
+      #{$prefix}-left: $l;
+    }
+
+    @if($r) {
+      #{$prefix}-right: $r;
+    }
+
+    @if($t) {
+      #{$prefix}-top: $t;
+    }
+
+    @if($b) {
+      #{$prefix}-bottom: $b;
+    }
+  }
+}
+
+@mixin padding($t: null, $r: null, $b: null, $l: null, $all: null) {
+  @include position-prefix(padding, $t, $r, $b, $l, $all);
+}
+
+@mixin margin($t: null, $r: null, $b: null, $l: null, $all: null) {
+  @include position-prefix(margin, $t, $r, $b, $l, $all);
+}
+
+@mixin border($t: null, $r: null, $b: null, $l: null, $all: null, $rad: null, $color: null, $spac: null, $width: null) {
+  @include position-prefix(border, $t, $r, $b, $l, $all);
+
+  @if($rad) {
+    border-radius: $rad;
+  }
+
+  @if($color) {
+    border-color: $color;
+  }
+
+  @if($spac) {
+    border-spacing: $spac;
+  }
+
+  @if($width) {
+    border-width: $width;
+  }
+}
+
+@mixin background($all: null, $size: null, $pos: null, $re: null, $clip: null, $image: null, $color: null) {
+  @if($all) {
+    background: $all;
+  }
+
+  @if($size) {
+    background-size: $size;
+  }
+
+  @if($pos) {
+    background-position: $pos;
+  }
+
+  @if($re) {
+    background-repeat: $re;
+  }
+
+  @if($clip) {
+    background-clip: $clip;
+  }
+
+  @if($image) {
+    background-image: $image;
+  }
+
+  @if($color) {
+    background-color: $color;
+  }
+}
+
+@mixin text($size: null, $color: null, $align: null, $deco: null, $weight: null, $style: null) {
+  @if($size) {
+    font-size: $size;
+  }
+
+  @if($color) {
+    color: $color;
+  }
+
+  @if($align) {
+    text-align: $align;
+  }
+
+  @if($deco) {
+    text-decoration: $deco;
+  }
+
+  @if($weight) {
+    font-weight: $weight;
+  }
+
+  @if($style) {
+    font-style: $style;
+  }
+}

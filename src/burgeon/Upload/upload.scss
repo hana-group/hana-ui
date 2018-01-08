@@ -1,0 +1,272 @@
+/*
+  Author: ひまわり(dtysky<dtysky@outlook.com>)
+  Github: https://github.com/dtysky
+  Create: 2017/3/6
+  */
+@import "../../styles/config";
+
+@mixin transition {
+  transition: all 0.3s ease-out;
+}
+
+@mixin translation-group($selector, $enter-time, $leave-time) {
+  #{$selector}-enter {
+    opacity: 0;
+  }
+
+  #{$selector}-enter-active {
+    opacity: 1;
+    transition: all $enter-time ease-in;
+  }
+
+  #{$selector}-exit {
+    opacity: 1;
+  }
+
+  #{$selector}-exit-active {
+    opacity: 0;
+    transition: all $leave-time ease-out;
+  }
+}
+
+.hana-upload {
+  height: 100%;
+
+  &-input {
+    display: none;
+  }
+
+  &-base {
+    &-top {
+      @include auto-prefixed-flex;
+    }
+
+    &-select {
+    }
+
+    &-confirm {
+      margin-left: 8px;
+    }
+
+    &-list {
+      @include transition;
+      border: 1px solid $inactive-color;
+
+      &:hover {
+        border: 1px solid $primary-color;
+      }
+      border-radius: 5px;
+      margin-top: 8px;
+      padding: 4px;
+    }
+    @include translation-group(#{&}-list, 400ms, 300ms);
+
+    &-list-item {
+      @include auto-prefixed-flex;
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    @include translation-group(#{&}-list-item, 300ms, 200ms);
+
+    &-list-item-icon {
+      @include hana-icon(yukibana-o);
+      font-size: 20px;
+      color: $primary-color;
+    }
+
+    &-list-item-content {
+      position: relative;
+      width: 100%;
+      margin-left: 4px;
+    }
+
+    &-list-item-name {
+      margin-left: 2px;
+      font-size: $size-small-font-size;
+    }
+
+    &-list-item-progress {
+      @include auto-prefixed-flex;
+      margin-top: 3px;
+      height: 3px;
+      border-radius: 2px;
+      width: 100%;
+
+      &-uploading {
+        @include transition;
+        background-color: $primary-color;
+      }
+
+      &-success {
+        @include transition;
+        background-color: $success-color;
+      }
+
+      &-error {
+        @include transition;
+        background-color: $error-color;
+      }
+
+      &-after {
+        @include transition;
+        background-color: $inactive-color;
+      }
+    }
+
+    &-list-item-delete {
+      @include hana-icon(close);
+      position: absolute;
+      font-size: 12px;
+      color: $error-color;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+
+  &-box {
+    @include transition;
+    min-height: 240px;
+    position: relative;
+    height: 100%;
+    border: 1px solid $inactive-color;
+
+    &:hover {
+      border: 1px solid $primary-color;
+    }
+
+    &-top {
+      @include auto-prefixed-flex;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      font-size: 13px;
+      background-color: $primary-color;
+      color: white;
+      bottom: 0;
+      cursor: pointer;
+    }
+
+    &-select {
+      @include flex-number(1);
+      padding: 4px;
+    }
+
+    &-confirm {
+      @include flex-number(1);
+      padding: 4px;
+      border-left: 1px solid white;
+    }
+
+    &-list {
+      @include auto-prefixed-flex;
+      width: 100%;
+      height: 100%;
+      flex-wrap: wrap;
+      overflow: auto;
+    }
+
+    &-list-item {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      //border-radius: 4px 4px 0 0;
+      //border: 1px solid $inactive-color;
+      background-color: rgba(#ddd, 0.5);
+      margin: 4px;
+    }
+    @include translation-group(#{&}-list-item, 300ms, 200ms);
+
+    &-list-item-icon {
+      @include hana-icon(yukibana-o);
+      font-size: 28px;
+      margin-top: 18px;
+      text-align: center;
+      color: $primary-color;
+    }
+
+    &-list-item-preview {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &-list-item-content {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 0;
+    }
+
+    &-list-item-name {
+      position: absolute;
+      width: 100%;
+      bottom: 4px;
+      text-align: center;
+      font-size: 12px;
+      height: 12px;
+      color: #333;
+      overflow: hidden;
+    }
+
+    &-list-item-progress {
+      @include auto-prefixed-flex;
+      position: absolute;
+      bottom: 0;
+      height: 20px;
+      width: 100%;
+
+      &-uploading {
+        @include transition;
+        background-color: rgba($primary-color, 0.6);
+      }
+
+      &-success {
+        @include transition;
+        background-color: rgba($success-color, 0.6);
+      }
+
+      &-error {
+        @include transition;
+        background-color: rgba($error-color, 0.6);
+      }
+
+      &-after {
+        @include transition;
+        background-color: rgba(#888, 0.6);
+      }
+    }
+
+    &-list-item-fn-mask {
+      @include transition;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        background-color: rgba(#888, 0.6);
+      }
+    }
+
+    &-list-item-delete {
+      @include hana-icon(delete);
+      @include transition;
+      position: absolute;
+      font-size: 16px;
+      color: transparent;
+      margin-top: 50%;
+      margin-left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+
+    &-list-item-fn-mask:hover &-list-item-delete {
+      color: white;
+    }
+  }
+}

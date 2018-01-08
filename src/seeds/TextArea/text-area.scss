@@ -1,0 +1,203 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 2017/2/7
+ */
+@import "../../styles/config";
+
+@mixin text-style($size) {
+  @if $size == large {
+    font-size: $size-large-font-size;
+    line-height: $size-large-font-size + 4;
+  }
+  @else if $size == middle {
+    font-size: $size-middle-font-size;
+    line-height: $size-middle-font-size + 4;
+  }
+  @else if $size == small {
+    font-size: $size-small-font-size;
+    line-height: $size-small-font-size + 4;
+  }
+}
+
+@mixin text-transition {
+  transition: color 0.5s linear, border-color 0.5s linear, height 0.3s ease-out;
+}
+
+$text-desc-offset-large: $size-large-font-size / 2;
+$text-desc-offset-middle: $size-middle-font-size / 2;
+$text-desc-offset-small: $size-small-font-size / 2;
+
+// container
+.hana-text-area {
+  width: 100%;
+  position: relative;
+
+  &-with-icon {
+    margin-top: $text-desc-offset-large;
+  }
+}
+
+// content
+.hana-text-area-content {
+  width: 100%;
+  height: 100%;
+}
+
+// input
+.hana-text-area-input {
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: $text-color;
+  font-weight: 300;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+
+  @include text-transition;
+
+  &-large {
+    @include text-style(large);
+
+    padding: ($size-large-font-size + 4) 8px;
+  }
+
+  &-middle {
+    @include text-style(middle);
+
+    padding: ($size-middle-font-size + 4) 6px;
+  }
+
+  &-small {
+    @include text-style(small);
+
+    padding: ($size-small-font-size + 4) 4px;
+  }
+
+  &-normal {
+    border-color: genInactiveColor(1);
+  }
+
+  &-focus {
+    border-color: genPrimaryColor(0.9);
+  }
+
+  &-error {
+    border-color: genErrorColor(0.9);
+  }
+
+  &-warning {
+    border-color: genWaringColor(0.9);
+  }
+
+  &-success {
+    border-color: genSuccessColor(0.9);
+  }
+
+  &-disabled {
+    border-color: genDisabledColor(0.9);
+    cursor: not-allowed;
+  }
+}
+
+// desc
+.hana-text-area-desc {
+  @include auto-prefixed-flex;
+  @include text-transition;
+
+  position: absolute;
+  padding-left: 2px;
+  padding-right: 2px;
+
+  &-large {
+    top: -$text-desc-offset-large - 2;
+    left: $text-desc-offset-large * 2;
+  }
+
+  &-middle {
+    top: -$text-desc-offset-middle - 1;
+    left: $text-desc-offset-middle * 2;
+  }
+
+  &-small {
+    top: -$text-desc-offset-small;
+    left: $text-desc-offset-small * 2;
+  }
+
+  &-normal {
+    color: genInactiveColor(0.9);
+  }
+
+  &-focus {
+    color: genPrimaryColor(0.9);
+  }
+
+  &-error {
+    color: genErrorColor(0.9);
+  }
+
+  &-warning {
+    color: genWaringColor(0.9);
+  }
+
+  &-success {
+    color: genSuccessColor(0.9);
+  }
+
+  &-disabled {
+    color: genDisabledColor(0.9);
+  }
+}
+
+// icon
+.hana-text-area-icon {
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  &-default {
+    @include hana-icon(yukibana-o);
+
+    font-style: normal;
+  }
+
+  &-large {
+    @include text-style(large);
+  }
+
+  &-middle {
+    @include text-style(middle);
+  }
+
+  &-small {
+    @include text-style(small);
+  }
+}
+
+// hint
+.hana-text-area-hint {
+  display: block;
+  line-height: 1;
+  width: 100%;
+  padding-top: 2px;
+  padding-left: 4px;
+  text-align: right;
+  word-break: normal;
+  overflow: hidden;
+
+  &-large {
+    font-size: $size-large-font-size;
+    height: $size-large-font-size + 2;
+  }
+
+  &-middle {
+    font-size: $size-middle-font-size;
+    height: $size-middle-font-size + 2;
+  }
+
+  &-small {
+    font-size: $size-small-font-size;
+    height: $size-small-font-size + 2;
+  }
+}

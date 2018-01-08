@@ -1,0 +1,17 @@
+.idea
+.DS_Store
+.vscode
+package-lock.json
+
+*.log
+*.psd
+
+demo/server.js
+demo/main.*
+demo/react-vendor.js
+demo/syntax-vendor.js
+demo/static/hana-song
+dist
+node_modules
+./upload
+.history

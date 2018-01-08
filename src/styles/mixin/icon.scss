@@ -1,0 +1,83 @@
+$icons: (
+  "\e600" ("yukibana-o", "snowflake-o"),
+  "\e601" ("hana", "flower", "himawari", "sunflower"),
+  "\e642" "smile",
+  "\e6da" "sad",
+  "\e625" "warn",
+  "\e60e" "error",
+  "\e60c" "success",
+  "\e633" "close",
+  "\e619" "edit",
+  "\e6e7" "clover",
+  "\e6e8" "leaf-left",
+  "\e66a" "leaf-right",
+  "\e657" "leaf",
+  "\e60b" ("delete", "gomi"),
+  "\e607" "menu",
+  "\e60f" "preview",
+  "\e63d" "backward",
+  "\e688" "deploy",
+  "\e702" "save",
+  "\e662" "gear",
+  "\e703" "up",
+  "\e608" "down",
+  "\e639" "left",
+  "\e704" "right",
+  "\e60d" "date",
+  "\e613" "time",
+  "\e647" "draft",
+  "\e61f" "package",
+  "\e71c" "online",
+  "\e71d" "offline",
+  "\e64e" "reuse",
+  "\e655" "expand",
+  "\e734" "contract",
+  "\e615" "plus",
+  "\e60a" "add",
+  "\e674" "picture",
+  "\e659" "video",
+  "\e603" "list",
+  "\e664" "data",
+  "\e612" "chat",
+  "\e602" "note",
+  "\e606" "log",
+  "\e604" "gift",
+  "\e65a" "users",
+  "\e605" "chart",
+  "\e631" "heart",
+  "\e6b5" "heart-o",
+  "\e656" "paint",
+  "\e641" "lucky",
+  "\e610" "copy",
+  "\e614" "play",
+  "\e711" "pause",
+  "\e609" "volume-full",
+  "\e643" "volume-zero",
+  "\e611" "template",
+  "\e6c2" "cinema",
+  "\e61b" "full-screen",
+  "\e618" "media-pre",
+  "\e8a7" "media-next",
+  "\e672" "media-cycle",
+  "\ebae" "media-repeat",
+  "\e6b7" "media-normal",
+  "\ebbb" "media-random",
+  "\e61a" "vote",
+  "\e6c7" "github"
+);
+
+
+@each $key, $value in $icons {
+  @each $item in $value {
+    %icon-#{$item}:before {
+      content: $key;
+    }
+  }
+}
+
+%hanaicon{
+  font-family: 'hanaicon';
+  font-size: $size-middle-font-size;
+  font-style: normal;
+  vertical-align: middle;
+}

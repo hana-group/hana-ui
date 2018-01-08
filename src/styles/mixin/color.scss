@@ -1,0 +1,23 @@
+@function genPrimaryColor($alpha) {
+  @return rgba($primary-color, $alpha);
+}
+
+@function genInactiveColor($alpha) {
+  @return rgba($inactive-color, $alpha);
+}
+
+@function genDisabledColor($alpha) {
+  @return rgba($disabled-color, $alpha);
+}
+
+@function genErrorColor($alpha) {
+  @return rgba($error-color, $alpha);
+}
+
+@function genWaringColor($alpha) {
+  @return rgba($warning-color, $alpha);
+}
+
+@function genSuccessColor($alpha) {
+  @return rgba($success-color, $alpha);
+}

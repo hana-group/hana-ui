@@ -1,0 +1,39 @@
+@import './config.scss';
+@import './mixin/reset.scss';
+@import './mixin/icon.scss';
+
+// Fonts - for Test
+// sass-lint:disable-all
+$url: "//at.alicdn.com/t/font_210616_nb6zhgomnygphkt9";
+
+@font-face {
+  font-family: "hanaicon";
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  src: url("#{$url}.eot");
+  src: url("#{$url}.eot?#iefix") format("embedded-opentype"), url("#{$url}.woff") format("woff"), url("#{$url}.ttf") format("truetype"), url("#{$url}.svg#hanaicon") format("svg");
+}
+
+@each $key, $value in $icons {
+  @each $item in $value {
+    .icon-#{$item}:before {
+      content: $key;
+    }
+  }
+}
+
+.hanaicon{
+  font-family: 'hanaicon';
+  font-size: $size-middle-font-size;
+  font-style: normal;
+  vertical-align: middle;
+
+  &.hanaicon-small{
+    font-size: $size-small-font-size
+  }
+
+  &.hanaicon-large{
+    font-size: $size-large-font-size
+  }
+}

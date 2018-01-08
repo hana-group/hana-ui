@@ -1,0 +1,43 @@
+body,
+.outer-bg{
+  background: url(/demo/static/images/bg.png) no-repeat fixed;
+  background-size: cover;
+}
+
+.inner-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+// for highlight
+.sign{
+  color: #6cf
+}
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+a {
+  color: inherit;
+}
+
+.demo-container {
+  padding: '100px 20px 20px 20px';
+  width: 1180;
+  margin: '0 auto';
+  position: 'relative';
+}
+
+.deme-content {
+  borderRadius: 5;
+  padding: 20;
+  position: 'relative';
+}

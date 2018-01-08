@@ -1,0 +1,304 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 2017/2/9
+ */
+@import "../../styles/config";
+
+.hana-video-player {
+  position: relative;
+  width: 100%;
+  outline: none;
+
+  &-video {
+    width: 100%;
+  }
+
+  &-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    //background: rgba(20, 20, 20, .7);
+    //transition: all .3s ease-out;
+    cursor: pointer;
+
+    //&:hover {
+    //  opacity: 1;
+    //}
+
+    //&-play {
+    //  @include hana-icon(play);
+    //}
+    //
+    //&-pause {
+    //  @include hana-icon(pause);
+    //}
+
+    //&:before {
+    //  @include flow-center;
+    //  position: absolute;
+    //  font-size: 32px;
+    //  color: white;
+    //}
+  }
+
+  &-ctr {
+    @include flow-center-x;
+    position: absolute;
+    height: 48px;
+    bottom: 42px;
+    margin: 0 auto;
+    background: rgba(#333, .5);
+    padding: 0 12px;
+
+    &-icon {
+      display: block;
+      font-style: normal;
+      color: white;
+      cursor: pointer;
+    }
+
+    &-bg {
+      position: absolute;
+    }
+
+    &-fg {
+      @include display-flex;
+      height: 100%;
+      align-items: center;
+      font-size: 18px;
+
+      >* {
+        position: relative;
+        padding: 0 14px;
+      }
+    }
+
+    &-play {
+      @include hana-icon(play);
+    }
+
+    &-pre {
+      @include hana-icon(media-pre);
+    }
+
+    &-next {
+      @include hana-icon(media-next);
+    }
+
+    &-pause {
+      @include hana-icon(pause);
+    }
+
+    &-volume-f {
+      @include hana-icon(volume-full);
+    }
+
+    &-volume-z {
+      @include hana-icon(volume-zero);
+    }
+
+    &-view-c {
+      @include hana-icon(cinema);
+    }
+
+    &-view-f {
+      @include hana-icon(full-screen);
+    }
+
+    &-mode {
+
+    }
+
+    &-mode-normal {
+      @include hana-icon(media-normal);
+    }
+
+    &-mode-cycle {
+      @include hana-icon(media-cycle);
+    }
+
+    &-mode-repeat {
+      @include hana-icon(media-repeat);
+    }
+
+    &-mode-random {
+      @include hana-icon(media-random);
+    }
+
+    &-list {
+      @include hana-icon(list);
+    }
+  }
+
+  &-progress {
+    position: relative;
+    background: rgba(#fff, .7);
+    cursor: pointer;
+    transition: all .2s ease-out;
+
+    &-bf {
+      position: absolute;
+      height: 100%;
+      background: rgba(#999, .7);
+      transition: all .2s ease-out;
+    }
+
+    &-bar {
+      position: absolute;
+      height: 100%;
+      background: rgba(0, 200, 250, .5);
+      transition: all .2s ease-out;
+    }
+
+    &-current {
+      @include hana-icon(hana);
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate(-8px, -50%);
+      font-style: normal;
+      transition: all .2s ease-out;
+      color: rgba(0, 200, 250, .9);
+      font-size: 16px;
+      opacity: 0;
+    }
+
+    &:hover &-current, &-changing &-current {
+      opacity: 1;
+    }
+
+    &-time {
+      width: 480px;
+      height: 4px;
+      border-radius: 2px;
+      margin: 0 12px;
+    }
+
+    &-volume {
+      @include flow-center-x;
+      position: absolute;
+      width: 36px;
+      height: 4px;
+      border-radius: 2px;
+      bottom: -8px;
+    }
+
+    &-volume &-current {
+      opacity: 1;
+      font-size: 14px;
+    }
+  }
+
+  &-time-bar {
+    @include display-flex;
+    @include flow-center-x;
+    position: absolute;
+    bottom: 24px;
+    align-items: center;
+    justify-content: space-between;
+
+    >p {
+      display: block;
+      color: rgba(#bbb, .8);
+      font-size: 14px;
+    }
+  }
+
+  &-ctr-volume &-progress {
+    opacity: 0;
+  }
+
+  &-ctr-volume:hover &-progress {
+    opacity: 1;
+  }
+
+  $list-width: 240px;
+  &-list {
+    transition: all .4s ease-out;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, .8);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &-open {
+      width: $list-width;
+      opacity: 1;
+    }
+
+    &-close {
+      width: 0;
+      opacity: 0;
+    }
+  }
+
+  &-item {
+    $height: 64px;
+    $cover-margin: 6px;
+    $cover-height: $height - $cover-margin * 2;
+    $cover-width: $cover-height * 16 / 9;
+    padding: 8px 0;
+    height: $cover-height;
+    cursor: pointer;
+    background-color: rgba(0, 200, 250, 0);
+    transition: all .4s ease-out;
+
+    &-poster {
+      float: left;
+      width: $cover-width;
+      height: $cover-height;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin: 0 $cover-margin;
+    }
+
+    &-info {
+      width: $list-width - $height;
+      padding-left: $cover-height;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 13px;
+        margin-top: 4px;
+      }
+    }
+
+    &:hover, &-active {
+      background-color: rgba(0, 200, 250, .3);
+    }
+  }
+
+  $list-width: 360px;
+  $height: 96px;
+  $cover-margin: 8px;
+  $cover-height: $height - $cover-margin * 2;
+  $cover-width: $cover-height * 16 / 9;
+  &-full &-list-open {
+    width: $list-width;
+  }
+
+  &-full &-item {
+    height: $cover-height;
+    padding: 8px 0;
+
+    &-poster {
+      width: $cover-width;
+      height: $cover-height;
+      margin: 0 $cover-margin;
+    }
+
+    &-info {
+      width: $list-width - $height;
+      padding-left: $cover-height;
+    }
+  }
+}

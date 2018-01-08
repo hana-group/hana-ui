@@ -1,0 +1,36 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 17/1/11
+ */
+
+@mixin auto-prefixed-flex {
+  display: -webkit-box;
+  display: -o-box;
+  display: -ms-box;
+  display: -box;
+  display: -pie;
+  display: flex;
+}
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-number($flex: 1) {
+  -webkit-box-flex: $flex;
+  -webkit-flex: $flex;
+  -ms-flex: $flex;
+  flex: $flex;
+}
+
+@mixin flex-direction-column {
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}

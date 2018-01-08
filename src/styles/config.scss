@@ -1,0 +1,166 @@
+// z-index
+// hana use the church-numerals to define the z-index
+// (define zero 2)
+// (define (f x) (* x zero))
+// (define one (f zero))
+// (define two (f one))
+// ......
+// (define modal nine)
+// (define popover ten)
+// (define picker eleven)
+// (define select eleven)
+// (define tooltip eleven)
+// (define notification twelve)
+// check it [here](https://en.wikipedia.org/wiki/Church_encoding) if you are interested in it
+$z-index-modal-mask: 512 !default;
+$z-index-modal: 512 !default;
+$z-index-popover: 1024 !default;
+$z-index-picker: 1024 !default;
+$z-index-select: 1024 !default;
+$z-index-tooltip: 1024 !default;
+$z-index-notification: 2048 !default;
+$z-index-loading: 2048 !default;
+
+// Color
+$primary-color: #6cf !default;
+$normal-color: #ccc !default;
+$inactive-color: #ccc !default;
+$disabled-color: #ccc !default;
+$error-color: #d56767 !default;
+$warning-color: #e8964a !default;
+$success-color: #4fc478 !default;
+$text-color: #808080 !default;
+$black: #000 !default;
+$white: #fff !default;
+$l-blue: #01b5fd !default;
+
+// Icon
+// text-before or text-after
+$text-icon: yokibana !default;
+
+// Size
+// small
+$size-small-font-size: 12px !default;
+$size-small-height: 22px !default;
+
+// middle
+$size-middle-font-size: 14px !default;
+$size-middle-height: 30px !default;
+
+// large
+$size-large-font-size: 16px !default;
+$size-large-height: 40px !default;
+
+// divider
+$divider-color: $normal-color;
+$divider-height: 1px;
+$divider-margin: 8px 0;
+
+//date-picker
+$date-picker-theme-back-color: #fff !default;
+$date-picker-theme-front-color: #55b3dc !default;
+$date-picker-font-main-color: #000 !default;
+$date-picker-font-sub-color: #888 !default;
+$date-picker-pre-icon: leaf-left !default;
+$date-picker-next-icon: leaf-right !default;
+$date-picker-month-icons: clover, clover, clover, clover, clover, clover, clover, clover, clover, clover, clover, clover !default;
+
+//time-picker
+$time-picker-theme-back-color: #fff !default;
+$time-picker-theme-front-color: #55b3dc !default;
+$time-picker-font-main-color: #000 !default;
+$time-picker-font-sub-color: #888 !default;
+$time-picker-pre-icon: left !default;
+$time-picker-next-icon: right !default;
+
+//pagination
+$pagination-icon-pre: left !default;
+$pagination-icon-next: right !default;
+
+$pagination-default-color-text: $text-color !default;
+$pagination-disabled-color-text: $disabled-color !default;
+$pagination-hovered-color-text: $primary-color !default;
+$pagination-active-color-text: $primary-color !default;
+
+$pagination-default-color-text-fill: $pagination-default-color-text !default;
+$pagination-disabled-color-text-fill: #fff !default;
+$pagination-hovered-color-text-fill: #fff !default;
+$pagination-active-color-text-fill: #fff !default;
+
+$pagination-default-color-bg: none !default;
+$pagination-disabled-color-bg: rgba($disabled-color, 0.8) !default;
+$pagination-hovered-color-bg: $primary-color !default;
+$pagination-active-color-bg: $primary-color !default;
+
+$pagination-default-color-border: $inactive-color !default;
+$pagination-disabled-color-border: darken($pagination-disabled-color-bg, 15) !default;
+$pagination-hovered-color-border: darken($pagination-hovered-color-bg, 15) !default;
+$pagination-active-color-border: darken($pagination-active-color-bg, 15) !default;
+
+//popover
+$popover-theme-color: $primary-color !default;
+
+//tooltip
+$tooltip-tail-size: 4px !default;
+
+$tooltip-color-text-fill: #fff !default;
+$tooltip-color-bg-fill: darken(rgba($primary-color, 0.9), 25) !default;
+$tooltip-color-border-fill: darken(rgba($primary-color, 0.9), 25) !default;
+
+$tooltip-color-text-border: $text-color !default;
+$tooltip-color-bg-border: #fff !default;
+$tooltip-color-border-border: darken($primary-color, 25) !default;
+
+// checkbox
+$checkbox-default-size: 15px !default;
+$checkbox-default-color: $normal-color !default;
+$checkbox-active-color: $primary-color !default;
+$checkbox-disabled-color: $disabled-color !default;
+
+// form
+$form-label-width: 30% !default;
+
+// loading
+$loading-background-color: rgba(0, 0, 0, 0.5) !default;
+$loading-color: #fff !default;
+
+// progress
+$progress-size-small: 6px !default;
+$progress-size-middle: 10px !default;
+$progress-size-large: 16px !default;
+$progress-active-color: $primary-color !default;
+$progress-default-color: $normal-color !default;
+
+// radio
+$radio-default-size: 15px !default;
+$radio-font-size: 14px !default;
+$radio-default-color: $normal-color !default;
+$radio-active-color: $primary-color !default;
+$radio-disabled-color: $disabled-color !default;
+
+// select
+$select-min-width: 100px !default;
+$select-default-color: $normal-color !default;
+$select-active-color: $primary-color !default;
+$select-disabled-color: $disabled-color !default;
+
+// switch
+$switch-default-size: 20px !default;
+$switch-icon-size: 24px !default;
+$switch-default-color: $normal-color !default;
+$switch-active-color: $primary-color !default;
+$switch-disabled-color: $disabled-color !default;
+
+// image
+$image-tiny-size: 50px !default;
+$image-small-size: 100px !default;
+$image-middle-size: 150px !default;
+$image-large-size: 250px !default;
+$image-huge-size: 400px !default;
+
+// menu
+$menu-default-color: $normal-color !default;
+$menu-active-color: $primary-color !default;
+$menu-disabled-color: $disabled-color !default;
+
+@import "./mixin/index";

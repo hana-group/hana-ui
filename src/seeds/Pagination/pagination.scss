@@ -1,0 +1,139 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 2017/2/9
+ */
+@import "../../styles/config";
+
+@mixin each-style($size) {
+  @if $size == large {
+    font-size: $size-large-font-size;
+    min-width: $size-large-height;
+    height: $size-large-height;
+    line-height: $size-large-height - 2;
+    margin: 0 8px;
+  }
+  @else if $size == middle {
+    font-size: $size-middle-font-size;
+    min-width: $size-middle-height;
+    height: $size-middle-height;
+    line-height: $size-middle-height - 2;
+    margin: 0 6px;
+  }
+  @else if $size == small {
+    font-size: $size-small-font-size;
+    min-width: $size-small-height;
+    height: $size-small-height;
+    line-height: $size-small-height - 2;
+    margin: 0 4px;
+  }
+}
+
+@mixin each-transition {
+  transition: all 0.3s linear;
+}
+
+.hana-pagination {
+  list-style: none;
+  text-align: center;
+  box-sizing: border-box;
+
+  &-each {
+    @include each-transition;
+
+    display: inline-block;
+    cursor: pointer;
+    color: $pagination-default-color-text;
+    border-color: $pagination-default-color-border;
+    box-sizing: border-box;
+
+    &-large {
+      @include each-style(large);
+    }
+
+    &-middle {
+      @include each-style(middle);
+    }
+
+    &-small {
+      @include each-style(small);
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      border-color: $pagination-disabled-color-border;
+      color: $pagination-disabled-color-text;
+    }
+
+    &-hover {
+      border-color: $pagination-hovered-color-border;
+      color: $pagination-hovered-color-text;
+    }
+
+    &-active {
+      border-color: $pagination-active-color-border;
+      color: $pagination-active-color-text;
+    }
+
+    &-box {
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+    }
+
+    &-circle {
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 50%;
+    }
+
+    &-box, &-circle {
+      background-color: $pagination-default-color-bg;
+      color: $pagination-default-color-text-fill;
+    }
+
+    &-box#{&}-disabled, &-circle#{&}-disabled {
+      background-color: $pagination-disabled-color-bg;
+      color: $pagination-disabled-color-text-fill;
+    }
+
+    &-box#{&}-hover, &-circle#{&}-hover {
+      background-color: $pagination-hovered-color-bg;
+      color: $pagination-hovered-color-text-fill;
+    }
+
+    &-box#{&}-active, &-circle#{&}-active {
+      background-color: $pagination-active-color-bg;
+      color: $pagination-active-color-text-fill;
+    }
+
+    &-simple#{&}-active {
+      color: $pagination-active-color-text;
+    }
+  }
+
+  &-icon-default {
+    &-pre {
+      @include hana-icon($pagination-icon-pre);
+    }
+
+    &-next {
+      @include hana-icon($pagination-icon-next);
+    }
+  }
+
+  &-jumper {
+    display: inline-block;
+  }
+
+  &-jumper#{&}-each-large {
+    width: 84px;
+  }
+
+  &-jumper#{&}-each-middle {
+    width: 72px;
+  }
+
+  &-jumper#{&}-each-small {
+    width: 56px;
+  }
+}

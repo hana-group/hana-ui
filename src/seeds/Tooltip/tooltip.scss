@@ -1,0 +1,124 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 17/1/4
+ */
+@import "../../styles/config";
+
+$tail-size: $tooltip-tail-size;
+
+.hana-tooltip {
+  display: inline-block;
+  position: relative;
+
+  &-node {
+    display: inline-block;
+  }
+
+  &-content {
+    z-index: $z-index-tooltip;
+    position: fixed;
+    line-height: $size-small-font-size + 4;
+    font-size: $size-small-font-size;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    word-break: break-all;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter#{&}-enter-active {
+      opacity: 1;
+      transition: opacity 400ms ease-out;
+    }
+
+    &-leave {
+      opacity: 1;
+    }
+
+    &-leave#{&}-leave-active {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+    }
+
+    &-border {
+      background-color: $tooltip-color-bg-border;
+      border: 1px solid $tooltip-color-border-border;
+      color: $tooltip-color-text-border;
+    }
+
+    &-fill {
+      background-color: $tooltip-color-bg-fill;
+      border-color: $tooltip-color-border-fill;
+      color: $tooltip-color-text-fill;
+    }
+
+    &-top {
+      transform: translate(-50%, -100%);
+      margin-top: -$tail-size - 4;
+
+      &:after {
+        top: 100%;
+        left: 50%;
+        margin-left: -$tail-size;
+        border-top: $tail-size solid;
+        border-color: inherit;
+        border-right: $tail-size solid transparent;
+        border-left: $tail-size solid transparent;
+      }
+    }
+
+    &-bottom {
+      transform: translate(-50%, $tail-size);
+      margin-top: 4px;
+
+      &:after {
+        top: -$tail-size;
+        left: 50%;
+        margin-left: -$tail-size;
+        border-bottom: $tail-size solid;
+        border-color: inherit;
+        border-right: $tail-size solid transparent;
+        border-left: $tail-size solid transparent;
+      }
+    }
+
+    &-left {
+      transform: translate(calc(-100%), -50%);
+      margin-left: -$tail-size - 4;
+
+      &:after {
+        top: 50%;
+        left: 100%;
+        margin-top: -$tail-size;
+        border-left: $tail-size solid;
+        border-color: inherit;
+        border-top: $tail-size solid transparent;
+        border-bottom: $tail-size solid transparent;
+      }
+    }
+
+    &-right {
+      transform: translate($tail-size, -50%);
+      margin-left: 4px;
+
+      &:after {
+        top: 50%;
+        left: -$tail-size;
+        margin-top: -$tail-size;
+        border-right: $tail-size solid;
+        border-color: inherit;
+        border-top: $tail-size solid transparent;
+        border-bottom: $tail-size solid transparent;
+      }
+    }
+  }
+}

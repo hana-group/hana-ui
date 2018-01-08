@@ -1,0 +1,312 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Created: 16/12/26
+ */
+@import "../../styles/config";
+
+$icon-size-large: $size-large-font-size + 4;
+$icon-size-middle: $size-middle-font-size + 3;
+$icon-size-small: $size-small-font-size + 2;
+
+@mixin text-style($size) {
+  @if $size == large {
+    font-size: $size-large-font-size;
+    height: $size-large-height;
+  }
+  @else if $size == middle {
+    font-size: $size-middle-font-size;
+    height: $size-middle-height;
+  }
+  @else if $size == small {
+    font-size: $size-small-font-size;
+    height: $size-small-height;
+  }
+}
+
+@mixin text-icon-style($size) {
+  @if $size == large {
+    font-size: $icon-size-large;
+    height: $size-large-height;
+  }
+  @else if $size == middle {
+    font-size: $icon-size-middle;
+    height: $size-middle-height;
+  }
+  @else if $size == small {
+    font-size: $icon-size-small;
+    height: $size-small-height;
+  }
+}
+
+@mixin text-transition {
+  transition: all 0.5s linear;
+}
+
+// container
+.hana-text {
+  @include auto-prefixed-flex;
+  width: 100%;
+
+  &-large {
+    @include text-style(large);
+  }
+
+  &-middle {
+    @include text-style(middle);
+  }
+
+  &-small {
+    @include text-style(small);
+  }
+}
+
+// content
+.hana-text-content {
+  width: 100%;
+}
+
+// input
+.hana-text-input {
+  @include text-transition;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  background: transparent;
+  color: $text-color;
+  font-weight: 300;
+  width: 100%;
+
+  &-underline {
+    border-bottom: 1px solid;
+  }
+
+  &-box {
+    padding-left: 4px;
+    border: 1px solid;
+    border-radius: 5px;
+
+    &.hana-text-input-with-icon-before {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &.hana-text-input-with-icon-after {
+      border-radius: 5px 0 0 5px;
+    }
+  }
+
+  &-large {
+    @include text-style(large);
+  }
+
+  &-middle {
+    @include text-style(middle);
+  }
+
+  &-small {
+    @include text-style(small);
+  }
+
+  &-normal {
+    border-color: genInactiveColor(1);
+  }
+
+  &-focus {
+    border-color: genPrimaryColor(0.9);
+  }
+
+  &-error {
+    border-color: genErrorColor(0.9);
+  }
+
+  &-warning {
+    border-color: genWaringColor(0.9);
+  }
+
+  &-success {
+    border-color: genSuccessColor(0.9);
+  }
+
+  &-disabled {
+    border-color: genDisabledColor(0.9);
+    cursor: not-allowed;
+  }
+}
+
+// hint
+.hana-text-hint {
+  @include text-transition;
+  display: block;
+  width: 100%;
+  padding-top: 2px;
+  text-align: right;
+  word-break: break-all;
+  overflow: hidden;
+
+  &-large {
+    font-size: $size-large-font-size - 2;
+    height: $size-large-font-size;
+    line-height: $size-large-font-size;
+  }
+
+  &-middle {
+    font-size: $size-middle-font-size - 2;
+    height: $size-middle-font-size;
+    line-height: $size-middle-font-size;
+  }
+
+  &-small {
+    font-size: $size-small-font-size - 2;
+    height: $size-small-font-size;
+    line-height: $size-small-font-size;
+  }
+
+  &-normal {
+    color: genInactiveColor(0.9);
+  }
+
+  &-focus {
+    color: genPrimaryColor(0.9);
+  }
+
+  &-error {
+    color: genErrorColor(0.9);
+  }
+
+  &-warning {
+    color: genWaringColor(0.9);
+  }
+
+  &-success {
+    color: genSuccessColor(0.9);
+  }
+}
+
+// icon
+$text-icon-padding-large: $size-large-height - $icon-size-large;
+$text-icon-padding-middle: $size-middle-height - $icon-size-middle;
+$text-icon-padding-small: $size-small-height - $icon-size-small;
+
+$text-icon-box-padding-large: $text-icon-padding-large / 2;
+$text-icon-box-padding-middle: $text-icon-padding-middle / 2;
+$text-icon-box-padding-small: $text-icon-padding-small / 2;
+
+.hana-text-icon {
+  @include text-transition;
+  float: left;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: normal;
+
+  &-default {
+    @include hana-icon(yukibana-o);
+
+    font-style: normal;
+  }
+
+  &-large {
+    @include text-icon-style(large);
+  }
+
+  &-middle {
+    @include text-icon-style(middle);
+  }
+
+  &-small {
+    @include text-icon-style(small);
+  }
+}
+
+.hana-text-icon-underline {
+  padding-right: 4px;
+
+  &.hana-text-icon-large {
+    padding-top: $text-icon-padding-large - 8;
+  }
+
+  &.hana-text-icon-middle {
+    padding-top: $text-icon-padding-middle - 5;
+  }
+
+  &.hana-text-icon-small {
+    padding-top: $text-icon-padding-small - 3;
+  }
+
+  &.hana-text-icon-normal {
+    color: genInactiveColor(0.9);
+  }
+
+  &.hana-text-icon-focus {
+    color: genPrimaryColor(0.9);
+  }
+
+  &.hana-text-icon-error {
+    color: genErrorColor(0.9);
+  }
+
+  &.hana-text-icon-warning {
+    color: genWaringColor(0.9);
+  }
+
+  &.hana-text-icon-success {
+    color: genSuccessColor(0.9);
+  }
+
+  &.hana-text-icon-disabled {
+    color: genDisabledColor(0.9);
+  }
+}
+
+.hana-text-icon-box {
+  color: #fff;
+  text-align: center;
+
+  &.hana-text-icon-large {
+    padding: 0 $text-icon-box-padding-large;
+    line-height: $size-large-height;
+  }
+
+  &.hana-text-icon-middle {
+    padding: 0 $text-icon-box-padding-middle;
+    line-height: $size-middle-height;
+  }
+
+  &.hana-text-icon-small {
+    padding: 0 $text-icon-box-padding-small;
+    line-height: $size-small-height;
+  }
+
+  &.hana-text-icon-before {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &.hana-text-icon-after {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &.hana-text-icon-normal {
+    background-color: genInactiveColor(0.9);
+  }
+
+  &.hana-text-icon-focus {
+    background-color: genPrimaryColor(0.9);
+  }
+
+  &.hana-text-icon-error {
+    background-color: genErrorColor(0.9);
+  }
+
+  &.hana-text-icon-warning {
+    background-color: genWaringColor(0.9);
+  }
+
+  &.hana-text-icon-success {
+    background-color: genSuccessColor(0.9);
+  }
+
+  &.hana-text-icon-disabled {
+    background-color: genDisabledColor(0.9);
+  }
+}

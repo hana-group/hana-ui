@@ -1,0 +1,12 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 17/1/3
+ */
+@import "../../styles/config";
+
+.hana-divider {
+  margin: $divider-margin;
+  height: $divider-height;
+  border: none;
+  background-color: $divider-color;
+}
