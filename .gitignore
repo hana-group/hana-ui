@@ -8,8 +8,8 @@ package-lock.json
 
 demo/server.js
 demo/main.*
-demo/react-vendor.js
-demo/syntax-vendor.js
+demo/*.xml
+demo/*-vendor.js
 demo/static/hana-song
 dist
 node_modules
