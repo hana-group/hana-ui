@@ -122,7 +122,9 @@ export default class Select extends Component {
               classNames="hana-time-picker-select-open"
               className={cx('hana-time-picker-select-content', 'hana-time-picker-select-open')}
             >
-              {values.map((value, index) => this.renderOption(index, value, labels[index]))}
+              <div>
+                {values.map((value, index) => this.renderOption(index, value, labels[index]))}
+              </div>
             </CSSTransition>
           )}
         </TransitionGroup>
