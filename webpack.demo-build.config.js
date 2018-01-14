@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     main: './demo/src/index.js',
     'react-vendor': ['react', 'react-dom', 'react-router', 'react-transition-group', 'react-docgen'],
-    'syntax-vendor': ['highlight.js', 'esprima', 'recast']
+    'syntax-vendor': ['highlight.js/lib/highlight', 'highlight.js/lib/languages/javascript', 'highlight.js/lib/languages/bash', 'esprima', 'recast']
   },
 
   output: {

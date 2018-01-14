@@ -7,27 +7,31 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import marked from 'marked';
 import cx from 'classnames';
-import highlightjs from 'highlight.js';
+import highlightjs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import bash from 'highlight.js/lib/languages/bash';
 
 import './markdown.css';
 import './github.css';
 
+highlightjs.registerLanguage('javascript', javascript);
+highlightjs.registerLanguage('bash', bash);
+
 const styles = {
-  root: {
-    marginTop: 20,
-    marginBottom: 20,
-    padding: '10px',
-    background: 'rgba(255, 255, 255, .8)',
-    borderRadius: 5
-  }
+  // root: {
+  //   marginTop: 20,
+  //   marginBottom: 20,
+  //   padding: '10px',
+  //   background: 'rgba(255, 255, 255, .8)',
+  //   borderRadius: 5
+  // }
 };
 
 export default class MarkdownElement extends Component {
-
   static propTypes = {
     style: PropTypes.object,
     className: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     children: PropTypes.node
   };
 

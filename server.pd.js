@@ -16,10 +16,10 @@ import App from './demo/src/App';
 
 /* -- wtf ? -- */
 if (typeof window === 'undefined') {
-  global.window = {}
+  global.window = {};
 }
 if (typeof document === 'undefined') {
-  global.document = {}
+  global.document = {};
 }
 /* -- wtf ! -- */
 
@@ -36,13 +36,9 @@ app.post('/upload', upload.any(), (req, res) => {
   return res.status(200).send('蛤蛤');
 });
 
-app.use('/demo',
-  express.static(path.resolve(__dirname, './demo'))
-);
+app.use('/demo', express.static(path.resolve(__dirname, './demo')));
 
-app.get('/sitmap', (req, res) =>
-  res.sendFile(path.resolve(__dirname, './demo/sitemap.xml'))
-);
+app.get('/sitmap', (req, res) => res.sendFile(path.resolve(__dirname, './demo/sitemap.xml')));
 
 const cache = {};
 function ssr(req, res) {
@@ -54,14 +50,18 @@ function ssr(req, res) {
     res.setHeader('Content-Encoding', 'gzip');
     return res.send(cache[url]);
   }
-  
+
   const context = {};
   const markup = renderToString(
     <StaticRouter location={url} context={context}>
       <App />
     </StaticRouter>
   );
-  
+
+  if (context.url) {
+    return res.redirect(302, context.url);
+  }
+
   cache[url] = zlib.gzipSync(
     template.replace('{{MARKUP}}', markup),
     {level: 9}

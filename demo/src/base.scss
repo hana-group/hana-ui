@@ -1,6 +1,7 @@
 body,
 .outer-bg{
-  background: url(/demo/static/images/bg.png) no-repeat fixed;
+  background: rgba(255, 255, 255, .4) url(/demo/static/images/hana.jpg) no-repeat fixed;
+  background-blend-mode: color;
   background-size: cover;
 }
 

@@ -1,0 +1,49 @@
+.demo-footer {
+  position: relative;
+  width: 100%;
+  height: 156px;
+  margin-top: 24px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-links {
+    width: 20%;
+    padding-left: 20%;
+    font-size: 18px;
+
+    .hana-link {
+      display: block;
+      margin-top: 12px;
+    }
+  }
+
+  &-license {
+    width: 40%;
+    padding-right: 10%;
+    display: flex;
+    align-items: center;
+
+    >a {
+      display: block;
+
+      >img {
+        border-radius: 50%;
+        height: 96px;
+      }
+    }
+
+    >div {
+      margin-left: 16px;
+      font-size: 17px;
+
+      >p {
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+    }
+  }
+}

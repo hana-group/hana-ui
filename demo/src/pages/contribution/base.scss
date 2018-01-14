@@ -1,0 +1,44 @@
+.demo-contribution {
+  width: 60%;
+  margin: 24px auto;
+  border-radius: 5px;
+  min-width: 800px;
+
+  background: rgba(255, 255, 255, .7);
+  padding: 24px;
+
+  .author-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .author-item {
+    width: 30%;
+    padding: 0 1%;
+  }
+
+  .author-avater {
+    display: block;
+
+    >img {
+      height: 128px;
+    }
+  }
+
+  .author-info {
+    overflow: hidden;
+
+    >p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    >.hana-link {
+      display: block;
+      margin: 0;
+      white-space: nowrap;
+    }
+  }
+}
