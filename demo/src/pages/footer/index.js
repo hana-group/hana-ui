@@ -8,6 +8,7 @@ import cx from 'classnames';
 import {withRouter} from 'react-router-dom';
 
 import MultiLang from 'demo/MultiLang';
+import Link from 'demo/Link';
 import './base.scss';
 
 const Footer = ({location}) => {
@@ -20,37 +21,45 @@ const Footer = ({location}) => {
   return (
     <div className={cx('demo-footer')}>
       <MultiLang
-        className={cx('demo-community')}
+        className={cx('demo-footer-links')}
         cn={
-          <div className={cx('demo-community')}>
-            <a href={''}>Github工程</a>
-            <a href={''}>提交问题</a>
-            <a href={''}>参与讨论</a>
-          </div>
+          <React.Fragment>
+            <Link href={''} icon={'hana'}>Github工程</Link>
+            <Link href={''} icon={'hana'}>提交问题</Link>
+            <Link href={''} icon={'hana'}>参与讨论</Link>
+          </React.Fragment>
         }
         en={
-          <div className={cx('demo-community')}>
-            <a href={''}>Github Repo</a>
-            <a href={''}>Submit Issues</a>
-            <a href={''}>Join our Chat</a>
-          </div>
+          <React.Fragment>
+            <Link href={''} icon={'hana'}>Github Repo</Link>
+            <Link href={''} icon={'hana'}>Submit Issues</Link>
+            <Link href={''} icon={'hana'}>Join our Chat</Link>
+          </React.Fragment>
         }
       />
       <MultiLang
-        className={cx('demo-community')}
+        className={cx('demo-footer-license')}
         cn={
-          <div className={cx('demo-license')}>
-            <img src={''} alt={'hana-group'}/>
-            <p>hana-ui是一个开源项目，使用<a href={'https://opensource.org/licenses/MIT'}>MIT</a>许可协议，由<a href={''}>hana-group</a>开发并维护。</p>
-            <p>欢迎加入我们！</p>
-          </div>
+          <React.Fragment>
+            <a href={'https://github.com/hana-group'} targer={'_blank'}>
+              <img src={'/demo/static/images/hana-icon.jpg'} alt={'hana-group'} />
+            </a>
+            <div>
+              <p>hana-ui是一个开源项目，使用<Link href={'https://opensource.org/licenses/MIT'}>MIT</Link>许可协议，由<Link href={''}>hana-group</Link>开发并维护。</p>
+              <p>欢迎加入我们！</p>
+            </div>
+          </React.Fragment>
         }
         en={
-          <div className={cx('demo-license')}>
-            <img src={''} alt={'hana-group'}/>
-            <p>hana-ui is an open-source project with <a href={'https://opensource.org/licenses/MIT'}>MIT</a> license by <a href={'https://github.com/hana-group'}>hana-group</a>.</p>
-            <p>Welcome to join us !</p>
-          </div>
+          <React.Fragment>
+            <a href={'https://github.com/hana-group'} targer={'_blank'}>
+              <img src={'/demo/static/images/hana-icon.jpg'} alt={'hana-group'} />
+            </a>
+            <div>
+              <p>hana-ui is an open-source project with <Link href={'https://opensource.org/licenses/MIT'}>MIT</Link> license by <Link href={'https://github.com/hana-group'}>hana-group</Link>.</p>
+              <p>Welcome to join us !</p>
+            </div>
+          </React.Fragment>
         }
       />
     </div>

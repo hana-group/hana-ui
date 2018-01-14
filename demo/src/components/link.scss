@@ -1,0 +1,17 @@
+@import '../../../src/styles/config';
+
+.hana-link {
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  color: $text-color !important;
+
+  &:hover {
+    color: $primary-color !important;
+  }
+
+  .hanaicon {
+    margin-right: 2px;
+    font-size: inherit;
+    color: inherit;
+  }
+}

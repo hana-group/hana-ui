@@ -20,6 +20,8 @@ config = {
     "sitemap_name": "sitemap"
 }
 
+langs = ['en', 'cn']
+
 template = {
     "begin": """<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -65,9 +67,10 @@ def generate():
     }
     for root, dirs, files in os.walk(config["in_dir"]):
       for d in dirs:
-        url = root.replace('demo/src/pages', config["site_root"]) + "/" + d.lower()
-        urls["http"].append("http://" + url)
-        urls["https"].append("https://" + url)
+        for lang in langs:
+            url = root.replace('demo/src/pages', config["site_root"] + '/' + lang) + "/" + d.lower()
+            urls["http"].append("http://" + url)
+            urls["https"].append("https://" + url)
 
     for postfix in ['http', 'https']:
         with open("demo/" + config["sitemap_name"] + "-" + postfix + ".xml", "w") as f:
