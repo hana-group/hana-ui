@@ -6,9 +6,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Switch, Route, Redirect} from 'react-router-dom';
+import cx from 'classnames';
 
 import components from './config';
 import SideBar from './SideBar';
+
+import './base.scss';
 
 const genCategory = (key) => ({match}) => (
   <Switch>
@@ -26,37 +29,17 @@ const genCategory = (key) => ({match}) => (
 );
 
 const Document = ({match}) => (
-  <div
-    style={{
-      padding: '100px 20px 20px 20px',
-      width: 1180,
-      margin: '0 auto',
-      position: 'relative'
-    }}
-  >
-    <div
-      style={{
-        borderRadius: 5,
-        padding: 20,
-        position: 'relative'
-      }}
-    >
-      <SideBar match={match} />
-      <div
-        style={{
-          width: 900,
-          paddingLeft: 240
-        }}
-      >
-        <Switch>
-          {
-            components.categories.map(({key, path}) => (
-              <Route key={key} path={`${match.url}/${path}`} render={genCategory(key)} />
-            ))
-          }
-          <Route render={() => (<Redirect to={`${match.url}/${components.categories[0].path}`} />)} />
-        </Switch>
-      </div>
+  <div className={cx('demo-document')}>
+    <SideBar match={match} />
+    <div className={cx('demo-document-content')}>
+      <Switch>
+        {
+          components.categories.map(({key, path}) => (
+            <Route key={key} path={`${match.url}/${path}`} render={genCategory(key)} />
+          ))
+        }
+        <Route render={() => (<Redirect to={`${match.url}/${components.categories[0].path}`} />)} />
+      </Switch>
     </div>
   </div>
 );

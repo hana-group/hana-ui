@@ -17,16 +17,6 @@ import './github.css';
 highlightjs.registerLanguage('javascript', javascript);
 highlightjs.registerLanguage('bash', bash);
 
-const styles = {
-  // root: {
-  //   marginTop: 20,
-  //   marginBottom: 20,
-  //   padding: '10px',
-  //   background: 'rgba(255, 255, 255, .8)',
-  //   borderRadius: 5
-  // }
-};
-
 export default class MarkdownElement extends Component {
   static propTypes = {
     style: PropTypes.object,
@@ -36,7 +26,8 @@ export default class MarkdownElement extends Component {
   };
 
   static defaultProps = {
-    text: ''
+    text: '',
+    className: 'demo-markdown-element'
   };
 
   componentWillMount() {
@@ -64,7 +55,7 @@ export default class MarkdownElement extends Component {
     /* eslint-disable react/no-danger */
     return (
       <div
-        style={Object.assign({}, styles.root, style)}
+        style={Object.assign({}, style)}
         className={cx('markdown-body', className)}
       >
         <div dangerouslySetInnerHTML={{__html: marked(text)}} />
