@@ -1,0 +1,23 @@
+.demo-document {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  min-width: 960px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.demo-document-sidebar {
+  position: relative;
+  width: 20%;
+  max-width: 200px;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.demo-document-content {
+  position: relative;
+  width: 78%;
+  // width: 900px;
+}

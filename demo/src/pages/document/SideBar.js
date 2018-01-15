@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import {Link, withRouter} from 'react-router-dom';
 import {Menu, SubMenu, MenuItem} from 'hana-ui';
 
@@ -17,13 +18,7 @@ const SideBar = ({match, location}) => {
   return (
     <Menu
       value={location.pathname}
-      style={{
-        backgroundColor: 'rgba(255, 255, 255, .8)',
-        width: 200,
-        position: 'absolute',
-        left: 20,
-        top: 20
-      }}
+      className={cx('demo-document-sidebar')}
     >
       {
         components.categories.map(({label, path, key}) => (
