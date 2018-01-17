@@ -1,21 +1,5 @@
-body,
-.outer-bg{
-  background: rgba(255, 255, 255, .4) url(/demo/static/images/hana.jpg) no-repeat fixed;
-  background-blend-mode: color;
-  background-size: cover;
-}
-
-.inner-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 5px;
-}
-
 // for highlight
-.sign{
+.sign {
   color: #6cf
 }
 
@@ -31,14 +15,22 @@ a {
 }
 
 .demo-container {
-  padding: '100px 20px 20px 20px';
-  width: 1180;
-  margin: '0 auto';
-  position: 'relative';
+  
+}
+
+.demo-bg {
+  position: fixed;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, .5) url(/demo/static/images/hana.jpg);
+  background-blend-mode: color;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 
 .deme-content {
-  borderRadius: 5;
+  border-radius: 5;
   padding: 20;
   position: 'relative';
 }

@@ -62,9 +62,9 @@ ${en}
             </a>
             <div className={'author-info'}>
               <p>{name}</p>
-              {blog && <Link href={blog}>{blog}</Link>}
-              <Link href={github}>{github}</Link>
-              <Link href={email}>{email}</Link>
+              {blog && <Link href={blog} icon={''}>{blog}</Link>}
+              <Link href={github} icon={''}>{github}</Link>
+              <Link href={email} icon={''}>{email}</Link>
             </div>
           </li>
         ))
