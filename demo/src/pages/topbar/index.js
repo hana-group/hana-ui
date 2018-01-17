@@ -23,19 +23,19 @@ const navs = [
     path: 'guide',
     en: 'Guide',
     cn: '开始',
-    icon: 'himawari'
+    icon: 'snowflake-o'
   },
   {
     path: 'document',
     en: 'Document',
     cn: '文档',
-    icon: 'himawari'
+    icon: 'clover'
   },
   {
     path: 'contribution',
     en: 'Contribution',
     cn: '贡献',
-    icon: 'himawari'
+    icon: 'mum'
   },
   {
     path: 'https://github.com/hana-group/hana-ui',

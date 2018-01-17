@@ -48,7 +48,8 @@ export default class App extends Component {
     langManager.set(match.url.substr(1));
 
     return (
-      <div className={cx('demo-container')}>
+      <React.Fragment>
+        <div className={cx('demo-bg')} />
         <Topbar onChangeLang={this.handleChangeLang} />
         <div className={cx('demo-content')}>
           <Switch>
@@ -60,7 +61,7 @@ export default class App extends Component {
           </Switch>
         </div>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }
