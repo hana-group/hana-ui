@@ -2,9 +2,10 @@
 @import './mixin/reset.scss';
 @import './mixin/icon.scss';
 
-// Fonts - for Test
+// Fonts
 // sass-lint:disable-all
-$url: "//at.alicdn.com/t/font_210616_yje4shjfgktke29";
+// $url: "//at.alicdn.com/t/font_210616_yje4shjfgktke29";
+$url: "../assets/fonts/hanafont";
 
 @font-face {
   font-family: "hanaicon";
@@ -30,10 +31,10 @@ $url: "//at.alicdn.com/t/font_210616_yje4shjfgktke29";
   vertical-align: middle;
 
   &.hanaicon-small{
-    font-size: $size-small-font-size
+    font-size: $size-small-font-size;
   }
 
   &.hanaicon-large{
-    font-size: $size-large-font-size
+    font-size: $size-large-font-size;
   }
 }

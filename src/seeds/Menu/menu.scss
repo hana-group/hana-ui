@@ -72,7 +72,8 @@
   &-elements {
     border-top: 1px solid $menu-default-color;
     padding: 5px 0 5px 10px;
-    transition: padding 0.2s ease-in-out;
+    // transition: padding 0.2s ease-in-out;
+    transition: opacity .3s ease-in-out;
     transform-origin: left top;
     overflow: hidden;
   }
@@ -100,7 +101,7 @@
   font-size: 14px;
   padding: 10px 0 10px 10px;
   cursor: pointer;
-  transition: padding 0.2s ease-in;
+  // transition: padding 0.2s ease-in;
 
   & .hanaicon {
     font-size: 14px;

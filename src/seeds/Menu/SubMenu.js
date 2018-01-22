@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {Icon} from '../../index';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {Icon} from '../../index';
 
 import {getRestProps, childrenToArray} from '../../utils';
 
@@ -124,20 +124,25 @@ export default class SubMenu extends Component {
           {!!icon && <Icon type={icon} />}
           {title}
         </span>
-        <TransitionGroup className={cx({'hana-submenu-elements': active})}>
+        <TransitionGroup>
           {active &&
-            childrenToArray(children).map((item, index) => (
-              <CSSTransition key={index} classNames="hana-submenu-transition" timeout={{enter: 0, exit: 0}}>
-                {React.cloneElement(item, {
-                  // level item >> parent >> noop
-                  onClick: item.props.onClick || this.props.onClick || noop,
-                  key: item.props.value || index,
-                  disabled: disabled || item.props.disabled,
-                  // level isItemActive >> has context value && context value ==item value
-                  active: item.props.active || (!!this.context.value && this.context.value === item.props.value)
-                })}
-              </CSSTransition>
-            ))}
+            <CSSTransition classNames="hana-submenu-transition" timeout={300}>
+              <div className={cx({'hana-submenu-elements': active})}>
+                {
+                  childrenToArray(children).map((item, index) => (
+                    React.cloneElement(item, {
+                      // level item >> parent >> noop
+                      onClick: item.props.onClick || this.props.onClick || noop,
+                      key: item.props.value || index,
+                      disabled: disabled || item.props.disabled,
+                      // level isItemActive >> has context value && context value ==item value
+                      active: item.props.active || (!!this.context.value && this.context.value === item.props.value)
+                    })
+                  ))
+                }
+              </div>
+            </CSSTransition>
+          }
         </TransitionGroup>
       </div>
     );
