@@ -146,7 +146,9 @@ export default class Radio extends Component {
   }
 
   render() {
-    const {disabled, style, label, checkedIcon, unCheckedIcon, value, name} = this.props;
+    const {
+      disabled, style, label, checkedIcon, unCheckedIcon, value, name
+    } = this.props;
     const {checked} = this.state;
     const cls = cx('hana-radio', {
       'hana-radio-checked': checked,

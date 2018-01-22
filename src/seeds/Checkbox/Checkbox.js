@@ -131,7 +131,9 @@ export default class Checkbox extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.checked !== this.state.checked) this.setState({checked: nextProps.checked});
+    if (nextProps.auto === false && nextProps.checked !== this.state.checked) {
+      this.setState({checked: nextProps.checked});
+    }
   }
 
   handleClick = e => {
@@ -152,7 +154,9 @@ export default class Checkbox extends PureComponent {
   };
 
   render() {
-    const {disabled, style, label, checkedIcon, unCheckedIcon, value, className} = this.props;
+    const {
+      disabled, style, label, checkedIcon, unCheckedIcon, value, className
+    } = this.props;
     const {checked} = this.state;
     const cls = cx('hana-checkbox', className, {
       'hana-checkbox-checked': checked,
