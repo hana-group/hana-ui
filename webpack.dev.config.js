@@ -47,7 +47,7 @@ module.exports = {
         exclude: /(node_modules)/
       },
       {
-        test: /\.css|sass|scss$/,
+        test: /\.(css|sass|scss)$/,
         use: [
           {
             loader: 'style-loader'
@@ -105,11 +105,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.woff|\.woff2|\.eot|\.ttf|\.svg/,
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
         use: {
           loader: 'url-loader',
           options: {
-            // limit: 80000
+            limit: 100000
           }
         }
       }
