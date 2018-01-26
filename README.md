@@ -20,6 +20,16 @@ yarn add hana-ui
 
 ### Usage
 
+#### Configuration
+
+Before using hana-ui, you should import the default configuration of styles to ensure hana could build application successfully:  
+
+```js
+import 'hana-ui/hana-style.scss';
+```
+
+On the other hand, for allowing user to use their own themes and import independent component, please add loaders for **scss** files in configuration file of webpack and ensure **the `node_modules` is not added to rule `exclude`.**
+
 #### import hana-ui in your page
 
 Example:
@@ -28,7 +38,7 @@ Example:
 import React from 'react';
 import {Button} from 'hana-ui';
 // or just import Button
-import Button from 'hana-ui/dist/seeds/Button';
+import {Button} from 'hana-ui/dist/seeds/Button';
 
 export default () => (
   <Button size={'middle'}>
@@ -38,6 +48,32 @@ export default () => (
 ```
 
 More components usage please checkout [Documents](https://hana-ui.moe/en/document) page.
+
+#### Custom Theme
+
+hana allows you to use your own themes by using **[sass-resource-loader](https://github.com/shakacode/sass-resources-loader)**, you can pass a scss file includes configurations of theme to use it:  
+
+```js
+{
+  test: /\.(css|sass|scss)$/,
+  use: [
+    ......
+    {
+      loader: 'sass-loader'
+    },
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        resources: './themes/himawari.scss'
+      }
+    }
+  ],
+  exclude: /node_modules/
+},
+```
+
+You can check here for template of configurations: [himawari.scss](https://github.com/hana-group/hana-ui/blob/master/themes/himawari.scss).
+
 
 ## Contribution
 

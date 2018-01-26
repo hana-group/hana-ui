@@ -9,22 +9,21 @@
 $mode-main: underline;
 
 // Color
-$primary-color: #a4ffa0;
+$primary-color: #6cf;
 $normal-color: #ccc;
 $inactive-color: #ccc;
-$disabled-color: #aaa;
+$disabled-color: #ccc;
 $error-color: #d56767;
 $warning-color: #e8964a;
 $success-color: #4fc478;
 $text-color: #808080;
-$tooltip-color: #fff;
 $black: #000;
 $white: #fff;
 $l-blue: #01b5fd;
 
 // Icon
 // text-before or text-after
-$text-icon: hamawari;
+$text-icon: yokibana;
 
 // Size
 // small
@@ -39,15 +38,18 @@ $size-middle-height: 30px;
 $size-large-font-size: 16px;
 $size-large-height: 40px;
 
+// divider
+$divider-color: $normal-color;
+$divider-height: 1px;
+$divider-margin: 8px 0;
+
 //date-picker
 $date-picker-theme-back-color: #fff;
 $date-picker-theme-front-color: #55b3dc;
 $date-picker-font-main-color: #000;
 $date-picker-font-sub-color: #888;
-
 $date-picker-pre-icon: leaf-left;
 $date-picker-next-icon: leaf-right;
-
 $date-picker-month-icons: clover, clover, clover, clover, clover, clover, clover, clover, clover, clover, clover, clover;
 
 //time-picker
@@ -55,6 +57,95 @@ $time-picker-theme-back-color: #fff;
 $time-picker-theme-front-color: #55b3dc;
 $time-picker-font-main-color: #000;
 $time-picker-font-sub-color: #888;
-
 $time-picker-pre-icon: left;
 $time-picker-next-icon: right;
+
+//pagination
+$pagination-icon-pre: left;
+$pagination-icon-next: right;
+
+$pagination-default-color-text: $text-color;
+$pagination-disabled-color-text: $disabled-color;
+$pagination-hovered-color-text: $primary-color;
+$pagination-active-color-text: $primary-color;
+
+$pagination-default-color-text-fill: $pagination-default-color-text;
+$pagination-disabled-color-text-fill: #fff;
+$pagination-hovered-color-text-fill: #fff;
+$pagination-active-color-text-fill: #fff;
+
+$pagination-default-color-bg: none;
+$pagination-disabled-color-bg: rgba($disabled-color, 0.8);
+$pagination-hovered-color-bg: $primary-color;
+$pagination-active-color-bg: $primary-color;
+
+$pagination-default-color-border: $inactive-color;
+$pagination-disabled-color-border: darken($pagination-disabled-color-bg, 15);
+$pagination-hovered-color-border: darken($pagination-hovered-color-bg, 15);
+$pagination-active-color-border: darken($pagination-active-color-bg, 15);
+
+//popover
+$popover-theme-color: $primary-color;
+
+//tooltip
+$tooltip-tail-size: 4px;
+
+$tooltip-color-text-fill: #fff;
+$tooltip-color-bg-fill: darken(rgba($primary-color, 0.9), 25);
+$tooltip-color-border-fill: darken(rgba($primary-color, 0.9), 25);
+
+$tooltip-color-text-border: $text-color;
+$tooltip-color-bg-border: #fff;
+$tooltip-color-border-border: darken($primary-color, 25);
+
+// checkbox
+$checkbox-default-size: 15px;
+$checkbox-default-color: $normal-color;
+$checkbox-active-color: $primary-color;
+$checkbox-disabled-color: $disabled-color;
+
+// form
+$form-label-width: 30%;
+
+// loading
+$loading-background-color: rgba(0, 0, 0, 0.5);
+$loading-color: #fff;
+
+// progress
+$progress-size-small: 6px;
+$progress-size-middle: 10px;
+$progress-size-large: 16px;
+$progress-active-color: $primary-color;
+$progress-default-color: $normal-color;
+
+// radio
+$radio-default-size: 15px;
+$radio-font-size: 14px;
+$radio-default-color: $normal-color;
+$radio-active-color: $primary-color;
+$radio-disabled-color: $disabled-color;
+
+// select
+$select-min-width: 100px;
+$select-default-color: $normal-color;
+$select-active-color: $primary-color;
+$select-disabled-color: $disabled-color;
+
+// switch
+$switch-default-size: 20px;
+$switch-icon-size: 24px;
+$switch-default-color: $normal-color;
+$switch-active-color: $primary-color;
+$switch-disabled-color: $disabled-color;
+
+// image
+$image-tiny-size: 50px;
+$image-small-size: 100px;
+$image-middle-size: 150px;
+$image-large-size: 250px;
+$image-huge-size: 400px;
+
+// menu
+$menu-default-color: $normal-color;
+$menu-active-color: $primary-color;
+$menu-disabled-color: $disabled-color;

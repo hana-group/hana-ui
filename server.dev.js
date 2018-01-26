@@ -7,7 +7,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.dev.config');
 
 const PORT = 8000;
-const HOST = 'localhost';
+const HOST = '0.0.0.0';
 
 const multer = require('multer');
 const Express = require('express');
@@ -43,6 +43,7 @@ function devServer () {
     progress: true,
     hot: true,
     open: true,
+    host: HOST,
     publicPath: config.output.publicPath,
     contentBase: path.resolve(__dirname, 'dist'),
     watchContentBase: true,
