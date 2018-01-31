@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "node server.dev.js",
     "build": "babel src --out-dir dist --copy-files",
-    "demo-build": "npm run demo-build-client && npm run demo-build-server && python ./demo/sitemap.py",
+    "demo-build": "npm run demo-build-client && npm run demo-build-server && python3 ./demo/sitemap.py",
     "demo-build-client": "webpack -p --config ./webpack.demo-build.config.js",
     "demo-build-server": "webpack --config ./webpack.demo-server.config.js",
     "demo-run": "node demo/server.js",

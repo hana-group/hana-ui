@@ -42,7 +42,7 @@ app.get('/sitmap', (req, res) => res.sendFile(path.resolve(__dirname, './demo/si
 
 const cache = {};
 function ssr(req, res) {
-  const url = req.url;
+  const {url} = req;
 
   if (cache[url]) {
     // logInfo('Get from cache: ', frontUrl, ', backend: ', backUrl);
