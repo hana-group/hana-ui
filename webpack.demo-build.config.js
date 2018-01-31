@@ -1,6 +1,15 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const outPath = path.resolve(__dirname, 'demo/dist');
+const outHtml = fs.readFileSync(path.resolve(__dirname, './demo/index.html'), 'utf8')
+  .split('\n').filter(line => !/((main|vendor)\.(js|css))/g.test(line))
+  .join('\n');
 
 // remove webpack-loader confused warning: https://github.com/webpack/loader-utils/issues/56
 process.noDeprecation = true;
@@ -13,9 +22,9 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'demo'),
-    filename: '[name].js',
-    publicPath: '/'
+    path: outPath,
+    filename: '[name].[hash].js',
+    publicPath: '/demo'
   },
 
   resolve: {
@@ -27,8 +36,12 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(
+      ['*'],
+      {root: outPath}
+    ),
     new ExtractTextPlugin({
-      filename: 'main.css',
+      filename: 'main.[hash].css',
       allChunks: true
     }),
     new webpack.DefinePlugin({
@@ -39,6 +52,16 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['react-vendor', 'syntax-vendor'],
       minChunks: 2
+    }),
+    new HtmlWebpackPlugin({
+      templateContent: outHtml
+    }),
+    new CompressionPlugin({
+      asset: '[path]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ],
 
