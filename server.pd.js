@@ -27,7 +27,7 @@ const port = 8000;
 const storage = multer.memoryStorage();
 const upload = multer({storage});
 const app = new express();
-const template = fs.readFileSync(path.resolve(__dirname, './demo/index.html'), 'utf8');
+const template = fs.readFileSync(path.resolve(__dirname, './demo/dist/index.html'), 'utf8');
 
 app.post('/upload', upload.any(), (req, res) => {
   if (!req.files) {
@@ -36,7 +36,16 @@ app.post('/upload', upload.any(), (req, res) => {
   return res.status(200).send('蛤蛤');
 });
 
-app.use('/demo', express.static(path.resolve(__dirname, './demo')));
+app.use((req, res, next) => {
+  if (['.js', '.css'].includes(path.extname(req.url))) {
+    res.setHeader('Content-Encoding', 'gzip');
+  }
+  return next();
+});
+
+app.use('/demo/static', express.static(path.resolve(__dirname, './demo/static')));
+
+app.use('/demo', express.static(path.resolve(__dirname, './demo/dist')));
 
 app.get('/sitmap', (req, res) => res.sendFile(path.resolve(__dirname, './demo/sitemap.xml')));
 
@@ -67,7 +76,9 @@ function ssr(req, res) {
     {level: 9}
   );
 
-  res.status(200).send(cache[url]);
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Content-Encoding', 'gzip');
+  res.send(cache[url]);
 }
 
 app.use(ssr);
