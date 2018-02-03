@@ -32,6 +32,7 @@ import Popover from './seeds/Popover';
 import Slider from './seeds/Slider';
 import Postcard from './seeds/Postcard';
 import Animation from './seeds/Animation';
+import Link from './seeds/Link';
 
 import Card from './burgeon/Card';
 import IconButton from './burgeon/IconButton';
@@ -77,7 +78,8 @@ const components = {
     {label: {en: 'Progress', cn: '进度条'}, path: 'progress', component: Progress},
     {label: {en: 'Popover', cn: '冒泡弹出框'}, path: 'popover', component: Popover},
     {label: {en: 'Slider', cn: '滑动条'}, path: 'slider', component: Slider},
-    {label: {en: 'Animation', cn: '动画'}, path: 'animation', component: Animation}
+    {label: {en: 'Animation', cn: '动画'}, path: 'animation', component: Animation},
+    {label: {en: 'Link', cn: '链接'}, path: 'link', component: Link}
   ], 'path'),
   burgeon: sortBy([
     {label: {en: 'Card', cn: '卡片'}, path: 'card', component: Card},

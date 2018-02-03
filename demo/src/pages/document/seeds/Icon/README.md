@@ -1,5 +1,9 @@
+@en
 ## Icon
 
- The Icon Module.
+The Icon component.
 
-### Examples
+@cn
+## 图标
+
+图标组件。

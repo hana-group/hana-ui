@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import MultiLangMarkdown from 'demo/MultiLangMarkdown';
-import Link from 'demo/Link';
+import {Link} from 'hana-ui';
 import './base.scss';
 
 import cn from './cn.md';
@@ -62,9 +62,9 @@ ${en}
             </a>
             <div className={'author-info'}>
               <p>{name}</p>
-              {blog && <Link href={blog} icon={''}>{blog}</Link>}
-              <Link href={github} icon={''}>{github}</Link>
-              <Link href={email} icon={''}>{email}</Link>
+              {blog && <Link href={blog} icon={'users'}>{blog}</Link>}
+              <Link href={github} icon={'github'}>{github}</Link>
+              <Link href={email} icon={'draft'}>{email}</Link>
             </div>
           </li>
         ))

@@ -1,5 +1,9 @@
+@en
+
 ## Checkbox
 
- The Checkbox Module.
+The Checkbox Module.
 
-### Examples
+@cn
+
+## 检查框

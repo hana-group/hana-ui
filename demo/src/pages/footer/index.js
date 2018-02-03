@@ -8,7 +8,7 @@ import cx from 'classnames';
 import {withRouter} from 'react-router-dom';
 
 import MultiLang from 'demo/MultiLang';
-import Link from 'demo/Link';
+import {Link} from 'hana-ui';
 import './base.scss';
 
 const Footer = ({location}) => {
@@ -31,9 +31,9 @@ const Footer = ({location}) => {
         }
         en={
           <React.Fragment>
-            <Link href={'https://github.com/hana-group/hana-ui'} icon={'github'}>Github Repo</Link>
-            <Link href={'https://github.com/hana-group/hana-ui/issues'} icon={'issue'}>Submit Issues</Link>
-            <Link href={'https://gitter.im/hana-group/Lobby'} icon={'chat'}>Join our Chat</Link>
+            <Link size={'large'} href={'https://github.com/hana-group/hana-ui'} icon={'github'}>Github Repo</Link>
+            <Link size={'large'} href={'https://github.com/hana-group/hana-ui/issues'} icon={'issue'}>Submit Issues</Link>
+            <Link size={'large'} href={'https://gitter.im/hana-group/Lobby'} icon={'chat'}>Join our Chat</Link>
           </React.Fragment>
         }
       />
