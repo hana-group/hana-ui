@@ -1,5 +1,9 @@
+@en
 ## Image
 
- The Image Module.
+The Image component.
 
-### Examples
+@cn
+## 图像
+
+图像组件。

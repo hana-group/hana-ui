@@ -1,0 +1,33 @@
+/* Author: ひまわり(dtysky<dtysky@outlook.com>)
+ * Github: https://github.com/dtysky
+ * Create: 18/2/03
+ */
+ @import '../../../src/styles/config.scss';
+
+ .hana-link {
+   text-decoration: none;
+   transition: all .3s ease-in-out;
+   color: $text-color !important;
+ 
+   &:hover {
+     color: $primary-color !important;
+   }
+
+   &-small {
+    font-size: $size-small-font-size;
+   }
+
+   &-middle {
+    font-size: $size-middle-font-size;
+   }
+
+   &-large {
+    font-size: $size-large-font-size;
+   }
+ 
+   .hanaicon {
+     margin-right: 2px;
+     color: inherit;
+   }
+ }
+ 

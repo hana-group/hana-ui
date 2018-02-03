@@ -1,5 +1,10 @@
+@en
 ## Modal
 
-The Modal Module
+The Modal component.
 
-### Examples
+@cn
+
+## 模式对话框
+
+模式对话框组件。

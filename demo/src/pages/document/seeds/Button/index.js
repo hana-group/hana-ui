@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ExampleContainer from 'demo/ExampleContainer';
 import PropTypeDescription from 'demo/PropTypeDescription';
-import MarkdownElement from 'demo/MarkdownElement';
+import MultiLangMarkdown from 'demo/MultiLangMarkdown';
 
 import buttonCode from '!raw-loader!hana-ui/seeds/Button/Button';
 import buttonGroupCode from '!raw-loader!hana-ui/seeds/Button/ButtonGroup';
@@ -20,7 +20,7 @@ export default class Button extends Component {
   render() {
     return (
       <div>
-        <MarkdownElement text={ReadmeText} />
+        <MultiLangMarkdown text={ReadmeText} />
 
         <ExampleContainer
           title={'Base Example'}

@@ -6,24 +6,24 @@
 import React, {Component} from 'react';
 import ExampleContainer from 'demo/ExampleContainer';
 import PropTypeDescription from 'demo/PropTypeDescription';
-import MarkdownElement from 'demo/MarkdownElement';
+import MultiLangMarkdown from 'demo/MultiLangMarkdown';
 
-import dividerReadmeText from './README';
-import dividerCode from '!raw-loader!hana-ui/seeds/Divider/Divider';
-import DividerExampleBase from './ExampleBase';
-import dividerExampleBaseCode from '!raw-loader!./ExampleBase';
+import readmeText from './README';
+import code from '!raw-loader!hana-ui/seeds/Divider/Divider';
+import ExampleBase from './ExampleBase';
+import exampleBaseCode from '!raw-loader!./ExampleBase';
 
 export default class Text extends Component {
   render() {
     return (
       <div>
-        <MarkdownElement text={dividerReadmeText} />
+        <MultiLangMarkdown text={readmeText} />
         <ExampleContainer
-          code={dividerExampleBaseCode}
+          code={exampleBaseCode}
         >
-          <DividerExampleBase />
+          <ExampleBase />
         </ExampleContainer>
-        <PropTypeDescription code={dividerCode} />
+        <PropTypeDescription code={code} />
       </div>
     );
   }

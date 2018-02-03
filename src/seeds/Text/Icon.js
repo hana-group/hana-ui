@@ -63,15 +63,8 @@ export default class Icon extends Component {
         style={style}
       >
         {
-          icon
-            ? cloneElement(icon, {style: {fontSize: 'inherit'}})
-            : (
-            <i
-              className={cx(
-                'hana-text-icon-default'
-              )}
-            />
-          )
+          icon ? cloneElement(icon, {style: {fontSize: 'inherit'}})
+            : <i className={cx('hana-text-icon-default')} />
         }
       </div>
     );

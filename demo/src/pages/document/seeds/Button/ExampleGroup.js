@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 import {ButtonGroup, Button} from 'hana-ui';
 
+/**
+ * @en
+ * Group
+ *
+ * Multiple buttons could be added to a group.
+ *
+ * @cn
+ * 成组
+ *
+ * 多个按钮可以归于一组。
+ */
 export default class ExampleGroup extends Component {
   render() {
     return (

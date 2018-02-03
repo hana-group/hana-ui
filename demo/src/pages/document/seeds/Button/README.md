@@ -1,5 +1,12 @@
+@en
+
 ## Button
 
-The Buttom Module
+The Button Component.
 
-### Examples
+
+@cn
+## 按钮
+
+按钮组件。
+

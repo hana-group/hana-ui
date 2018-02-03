@@ -27,6 +27,7 @@ export {default as Progress} from './seeds/Progress';
 export {default as Popover} from './seeds/Popover';
 export {default as Slider} from './seeds/Slider';
 export {Postcard, PostcardGroup} from './seeds/Postcard';
+export {default as Link} from './seeds/Link';
 
 // Magic
 export {default as Card} from './burgeon/Card';

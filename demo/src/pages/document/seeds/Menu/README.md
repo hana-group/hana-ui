@@ -1,5 +1,10 @@
+@en
 ## Menu
 
-The Menu Module
+The Menu component.
 
-### Examples ↓
+@cn
+
+## 菜单
+
+树形菜单组件，支持横向和竖向。

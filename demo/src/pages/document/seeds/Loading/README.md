@@ -1,5 +1,9 @@
+@en
 ## Loading
 
- The Loading Module.
+The Loading component.
 
-### Examples
+@cn
+### 加载器
+
+加载器组件。
