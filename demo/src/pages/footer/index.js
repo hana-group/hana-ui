@@ -24,9 +24,9 @@ const Footer = ({location}) => {
         className={cx('demo-footer-links')}
         cn={
           <React.Fragment>
-            <Link href={'https://github.com/hana-group/hana-ui'} icon={'github'}>Github工程</Link>
-            <Link href={'https://github.com/hana-group/hana-ui/issues'} icon={'issue'}>提交问题</Link>
-            <Link href={'https://gitter.im/hana-group/Lobby'} icon={'chat'}>参与讨论</Link>
+            <Link size={'large'} href={'https://github.com/hana-group/hana-ui'} icon={'github'}>Github工程</Link>
+            <Link size={'large'} href={'https://github.com/hana-group/hana-ui/issues'} icon={'issue'}>提交问题</Link>
+            <Link size={'large'} href={'https://gitter.im/hana-group/Lobby'} icon={'chat'}>参与讨论</Link>
           </React.Fragment>
         }
         en={

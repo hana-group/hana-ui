@@ -1,14 +1,16 @@
+@import '../../config.scss';
+
 .demo-footer {
   position: relative;
   width: 100%;
   height: 156px;
   margin-top: 24px;
-  background: rgba(#94cc87, .9);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  $bg: #83b877;
+  background: linear-gradient(to bottom, rgba($bg, 0), rgba($bg, 1));
 
   &-links {
     width: 20%;
