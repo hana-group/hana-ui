@@ -1,4 +1,4 @@
-@mixin with-fade-head($size: 36px) {
+@mixin with-fade-head($size: 36px, $start: rgba(255, 255, 255, 0), $end: rgba(255, 255, 255, .7)) {
   &:before {
     content: "";
     position: relative;
@@ -6,11 +6,11 @@
     margin: 0 auto;
     width: 100%;
     height: $size;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .7));
+    background: linear-gradient(to bottom, $start, $end);
   }
 }
 
-@mixin with-fade-tail($size: 36px) {
+@mixin with-fade-tail($size: 36px, $start: rgba(255, 255, 255, .7), $end: rgba(255, 255, 255, 0)) {
   &:after {
     content: "";
     position: relative;
@@ -18,11 +18,11 @@
     margin: 0 auto;
     width: 100%;
     height: $size;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+    background: linear-gradient(to bottom, $start, $end);
   }
 }
 
-@mixin with-fade-head-tail($size: 36px) {
-  @include with-fade-head($size);
-  @include with-fade-tail($size);
+@mixin with-fade-head-tail($size: 36px, $start: rgba(255, 255, 255, 0), $end: rgba(255, 255, 255, .7)) {
+  @include with-fade-head($size, $start, $end);
+  @include with-fade-tail($size, $end, $start);
 }
