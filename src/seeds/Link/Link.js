@@ -19,6 +19,7 @@ const Link = (props) => (
     )}
     href={props.href}
     style={props.style}
+    target={'_blank'}
     {...getRestProps(Link, props)}
   >
     <Icon
