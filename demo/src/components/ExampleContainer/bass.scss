@@ -1,0 +1,46 @@
+
+@import '../../config.scss';
+
+.example-container {
+  margin-bottom: 48px;
+
+  @include with-fade-head-tail(24px);
+}
+
+.example-block {
+  &-desc {
+    font-size: 14px;
+    padding-bottom: 16px;
+  }
+
+  &-content {
+    padding: 18px 0;
+  }
+}
+
+.example-title {
+  padding: 20px;
+  font-size: 20;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+
+  .hanaicon {
+    font-size: 20px;
+    float: right;
+    margin-right: 10;
+    transition: all .8s ease-in-out;
+  }
+}
+
+.example-content {
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.example-view {
+  background-color: rgba(255, 255, 255, .7);
+
+  .demo-markdown-element {
+    margin-bottom: 0;
+  }
+}

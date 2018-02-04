@@ -9,16 +9,16 @@ import en from './en.md';
 import './base.scss';
 
 const Guide = () => (
-      <MultiLangMarkdown
-        className={cx('demo-guide')}
-        text={`
+  <MultiLangMarkdown
+    className={cx('demo-guide', 'demo-with-fade-head-tail')}
+    text={`
 @cn
 ${cn}
 
 @en
 ${en}
-        `}
-      />
+    `}
+  />
 );
 
 export default Guide;

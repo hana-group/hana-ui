@@ -5,14 +5,12 @@
  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+
 import MarkdownElement from '../MarkdownElement';
 import CodeViewTitle from './CodeViewTitle';
 
 const styles = {
-  root: {
-    // background: '#f8f8f8'
-    // borderTop: 'solid 1px #e0e0e0'
-  },
   markdown: {
     overflow: 'auto',
     maxHeight: 1400,
@@ -34,9 +32,6 @@ const styles = {
     marginTop: 0,
     marginBottom: 0,
     background: 'transparent'
-  },
-  codeBlockTitle: {
-    cursor: 'pointer'
   }
 };
 
@@ -73,12 +68,22 @@ ${this.props.children}
     }
 
     return (
-      <div style={styles.root}>
-        <div onClick={this.handleClick} style={styles.codeBlockTitle}>
-          <CodeViewTitle title={this.props.title} tooltip={tooltip} active={this.state.expand} />
+      <div className={cx('example-view')}>
+        <div onClick={this.handleClick}>
+          <CodeViewTitle
+            title={this.props.title}
+            tooltip={tooltip}
+            active={this.state.expand}
+          />
         </div>
-        <MarkdownElement style={codeStyle} text={text} />
-        <MarkdownElement style={descriptionStyle} text={this.props.description} />
+        <MarkdownElement
+          style={codeStyle}
+          text={text}
+        />
+        <MarkdownElement
+          style={descriptionStyle}
+          text={this.props.description}
+        />
       </div>
     );
   }
