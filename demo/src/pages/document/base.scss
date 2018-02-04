@@ -1,3 +1,5 @@
+@import '../../config.scss';
+
 .demo-document {
   position: relative;
   display: flex;
@@ -13,11 +15,40 @@
   position: relative;
   width: 20%;
   max-width: 200px;
-  background-color: rgba(255, 255, 255, .8);
+}
+
+.demo-document-sidebar-content {
+  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .7);
+  border: none;
+  border-radius: 0;
 }
 
 .demo-document-content {
   position: relative;
   width: 78%;
-  // width: 900px;
+
+  >div {
+    >.demo-markdown-element {
+      @include with-fade-head-tail();
+
+      h2 {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.demo-markdown-element {
+  margin-bottom: 20px;
+
+  .markdown-body {
+    padding: 0 20px;
+    background: rgba(255, 255, 255, .7);
+  }
 }

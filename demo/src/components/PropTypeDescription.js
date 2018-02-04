@@ -8,9 +8,10 @@ import PropTypes from 'prop-types';
 import {parse} from 'react-docgen';
 import recast from 'recast';
 import {parse as parseDoctrine} from 'doctrine';
+import cx from 'classnames';
 import MarkdownElement from './MarkdownElement';
 
-import './prop-type-description.css';
+import './prop-type-description.scss';
 
 import {langRegexLines, langRegexLine, langManager} from '../languages';
 
@@ -125,13 +126,6 @@ function generateDescription(required, desc, type) {
   return `${deprecated} ${jsDocText}${signature}`;
 }
 
-const styles = {
-  footnote: {
-    fontSize: '90%',
-    paddingLeft: '15px'
-  }
-};
-
 export default class PropTypeDescription extends Component {
 
   static propTypes = {
@@ -186,16 +180,11 @@ export default class PropTypeDescription extends Component {
 
     text += lang.tableFooter;
 
-    let requiredPropFootnote = (requiredProps > 1) ? '* required properties' : '';
-    requiredPropFootnote = (requiredProps === 1) ? '* required property' : requiredPropFootnote;
-
     return (
-      <div className="propTypeDescription">
-        <MarkdownElement text={text} style={{boxShadow: '1px 2px 1px 0 rgba(0, 0, 0, .15)'}} />
-        <div style={styles.footnote}>
-          {requiredPropFootnote}
-        </div>
-      </div>
+      <MarkdownElement
+        className={cx('prop-type-description')}
+        text={text}
+      />
     );
   }
 }

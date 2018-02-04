@@ -5,6 +5,7 @@
  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import {langManager} from '../languages';
 
 export default class ExampleBlock extends Component {
@@ -24,24 +25,15 @@ export default class ExampleBlock extends Component {
     const desc = this.props[langManager.current];
 
     return (
-      <div
-        style={{
-          padding: '18px 0'
-        }}
-      >
+      <div className={cx('example-block')}>
         {
           desc && (
-            <div
-              style={{
-                fontSize: 14,
-                paddingBottom: 16
-              }}
-            >
+            <div className={cx('example-block-desc')}>
               {desc}
             </div>
           )
         }
-        <div>
+        <div className={cx('example-block-content')}>
           {children}
         </div>
       </div>

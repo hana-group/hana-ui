@@ -11,7 +11,7 @@ import highlightjs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import bash from 'highlight.js/lib/languages/bash';
 
-import './markdown.css';
+import './markdown.scss';
 import './github.css';
 
 highlightjs.registerLanguage('javascript', javascript);
@@ -54,12 +54,14 @@ export default class MarkdownElement extends Component {
 
     /* eslint-disable react/no-danger */
     return (
-      <div
-        style={Object.assign({}, style)}
-        className={cx('markdown-body', className)}
-      >
-        <div dangerouslySetInnerHTML={{__html: marked(text)}} />
-        {children}
+      <div className={cx('markdown-element', className)}>
+        <div
+          style={Object.assign({}, style)}
+          className={cx('markdown-body')}
+        >
+          <div dangerouslySetInnerHTML={{__html: marked(text)}} />
+          {children}
+        </div>
       </div>
     );
     /* eslint-enable */

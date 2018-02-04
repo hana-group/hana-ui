@@ -16,7 +16,7 @@ import en from './en.md';
 
 const Contribution = () => (
   <MultiLangMarkdown
-    className={cx('demo-contribution')}
+    className={cx('demo-contribution', 'demo-with-fade-head-tail')}
     text={`
 @cn
 ${cn}

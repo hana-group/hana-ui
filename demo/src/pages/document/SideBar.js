@@ -16,31 +16,33 @@ const SideBar = ({match, location}) => {
   const lang = langManager.current;
 
   return (
-    <Menu
-      value={location.pathname}
-      className={cx('demo-document-sidebar')}
-    >
-      {
-        components.categories.map(({label, path, key}) => (
-          <SubMenu
-            title={label[lang]}
-            active
-            key={key}
-          >
-            {
-              components[key].map(item => (
-                <MenuItem
-                  value={`${match.url}/${path}/${item.path}`}
-                  key={item.path}
-                >
-                  <Link to={`${match.url}/${path}/${item.path}`}>{item.label[lang]}</Link>
-                </MenuItem>
-              ))
-            }
-          </SubMenu>
-        ))
-      }
-    </Menu>
+    <div className={cx('demo-document-sidebar', 'demo-with-fade-head-tail')}>
+      <Menu
+        value={location.pathname}
+        className={cx('demo-document-sidebar-content')}
+      >
+        {
+          components.categories.map(({label, path, key}) => (
+            <SubMenu
+              title={label[lang]}
+              active
+              key={key}
+            >
+              {
+                components[key].map(item => (
+                  <MenuItem
+                    value={`${match.url}/${path}/${item.path}`}
+                    key={item.path}
+                  >
+                    <Link to={`${match.url}/${path}/${item.path}`}>{item.label[lang]}</Link>
+                  </MenuItem>
+                ))
+              }
+            </SubMenu>
+          ))
+        }
+      </Menu>
+    </div>
   );
 };
 

@@ -7,8 +7,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {parse} from 'react-docgen';
 import CodeView from './CodeView';
+import cx from 'classnames';
 
 import {langRegexLines, langRegexLineWithHeader, langManager} from '../../languages';
+
+import './bass.scss';
 
 export default class ExampleContainer extends Component {
   static propTypes = {
@@ -16,8 +19,6 @@ export default class ExampleContainer extends Component {
     code: PropTypes.string.isRequired,
     component: PropTypes.bool,
     description: PropTypes.string,
-    exampleBlockStyle: PropTypes.object,
-    layoutSideBySide: PropTypes.bool,
     title: PropTypes.string
   };
 
@@ -59,39 +60,22 @@ export default class ExampleContainer extends Component {
   render() {
     const {
       children,
-      code,
-      exampleBlockStyle,
-      layoutSideBySide
+      code
     } = this.props;
-
-    const styles = {
-      root: {
-        backgroundColor: 'rgba(255, 255, 255, .8)',
-        border: '1px solid #ddd',
-        borderRadius: 5,
-        marginBottom: 32,
-        boxShadow: '1px 2px 1px 0 rgba(0, 0, 0, .15)'
-      },
-      exampleBlock: {
-        borderRadius: '0 0 2px 0',
-        padding: '14px 24px 24px',
-        margin: 0,
-        width: layoutSideBySide ? '45%' : null,
-        float: layoutSideBySide ? 'right' : null
-      }
-    };
 
     const {title, description} = this.parseDescription();
 
     return (
-      <div style={styles.root}>
+      <div className={cx('example-container')}>
         <CodeView
           title={title}
           description={description}
         >
           {code}
         </CodeView>
-        <div style={Object.assign(styles.exampleBlock, exampleBlockStyle)}>{children}</div>
+        <div className={cx('example-content')}>
+          {children}
+        </div>
       </div>
     );
   }

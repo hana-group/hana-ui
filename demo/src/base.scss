@@ -1,3 +1,5 @@
+@import './config.scss';
+
 // for highlight
 .sign {
   color: #6cf
@@ -33,4 +35,17 @@ a {
   border-radius: 5;
   padding: 20;
   position: 'relative';
+}
+
+.demo-with-fade-head {
+  @include with-fade-head();
+}
+
+.demo-with-fade-tail {
+  @include with-fade-tail();
+}
+
+.demo-with-fade-head-tail {
+  @extend .demo-with-fade-head;
+  @extend .demo-with-fade-tail;
 }

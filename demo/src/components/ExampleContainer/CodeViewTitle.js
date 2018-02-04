@@ -5,14 +5,9 @@
  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import {Icon} from 'hana-ui';
-
-const style = {
-  padding: 20,
-  fontSize: 20,
-  borderBottom: '1px solid #ddd'
-};
 
 export default class CodeViewTitle extends Component {
   static propTypes = {
@@ -23,7 +18,7 @@ export default class CodeViewTitle extends Component {
 
   render() {
     return (
-      <div style={style}>
+      <div className={cx('example-title')}>
         {this.props.title || 'Example'}
         <Icon
           type="yukibana-o"
