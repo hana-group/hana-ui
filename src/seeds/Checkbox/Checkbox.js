@@ -6,7 +6,7 @@ import getRestProps from '../../utils/getRestProps';
 
 const noop = () => {};
 
-export default class Checkbox extends PureComponent {
+export default class Checkbox extends Component {
   static propTypes = {
     /**
      * @en
@@ -127,13 +127,10 @@ export default class Checkbox extends PureComponent {
     this.state = {
       checked: props.checked || props.defaultChecked
     };
-    this.id = (Math.random() * Date.now() * 100).toString(36);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auto === false && nextProps.checked !== this.state.checked) {
-      this.setState({checked: nextProps.checked});
-    }
+    if (nextProps.checked !== this.state.checked) this.setState({checked: nextProps.checked});
   }
 
   handleClick = e => {
@@ -141,7 +138,6 @@ export default class Checkbox extends PureComponent {
   };
 
   handleChange = e => {
-    e.stopPropagation();
     const {disabled, onChange, auto} = this.props;
     const {checked} = this.state;
     if (disabled) return;
@@ -154,9 +150,7 @@ export default class Checkbox extends PureComponent {
   };
 
   render() {
-    const {
-      disabled, style, label, checkedIcon, unCheckedIcon, value, className
-    } = this.props;
+    const {disabled, style, label, checkedIcon, unCheckedIcon, value, className} = this.props;
     const {checked} = this.state;
     const cls = cx('hana-checkbox', className, {
       'hana-checkbox-checked': checked,
@@ -165,16 +159,17 @@ export default class Checkbox extends PureComponent {
     const innerClass = checkedIcon && unCheckedIcon ? 'hana-checkbox-custom' : 'hana-checkbox-inner';
     const restProps = getRestProps(Checkbox, this.props);
     return (
-      <div style={{...style, display: 'inline-block'}}>
-        <label className={cls} htmlFor={this.id} onClick={this.handleClick}>
-          <div className={innerClass}>
-            {checked && checkedIcon}
-            {!checked && unCheckedIcon}
-          </div>
-          <span>{label}</span>
-        </label>
+      <label
+        className={cls}
+        onClick={this.handleClick}
+        style={style}
+      >
+        <div className={innerClass}>
+          {checked && checkedIcon}
+          {!checked && unCheckedIcon}
+        </div>
+        <span>{label}</span>
         <input
-          id={this.id}
           type="checkbox"
           onClick={this.handleClick}
           onChange={this.handleChange}
@@ -182,7 +177,7 @@ export default class Checkbox extends PureComponent {
           style={{display: 'none'}}
           value={value}
         />
-      </div>
+      </label>
     );
   }
 }
