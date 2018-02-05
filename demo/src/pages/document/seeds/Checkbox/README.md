@@ -6,4 +6,6 @@ The Checkbox Module.
 
 @cn
 
-## 检查框
+## 多选框
+
+多选框组件。

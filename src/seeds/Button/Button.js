@@ -127,7 +127,8 @@ class Button extends Component {
 
   static defaultProps = {
     size: 'middle',
-    type: 'default'
+    type: 'default',
+    htmlType: 'button'
   }
 
   handleClick = (e) => {

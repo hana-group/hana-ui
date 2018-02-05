@@ -1,5 +1,10 @@
+@en
 ## Sidebar
 
 The Sidebar Module
 
-### Examples
+@cn
+
+## 侧边栏
+
+侧边栏模块。
