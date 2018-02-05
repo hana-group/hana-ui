@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 import {Button, Sidebar, Menu, SubMenu, MenuItem} from 'hana-ui';
 
+/**
+ * @en
+ * Base
+ *
+ * Base Sidebar controlled by button.
+ *
+ * @cn
+ * 基础
+ *
+ * 基础的侧边栏，由按钮控制状态。
+ */
 export default class ExampleBase extends Component {
   state = {
     open: false,

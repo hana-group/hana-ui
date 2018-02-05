@@ -23,8 +23,8 @@ export default class ExampleBase extends Component {
     return (
       <div>
         <ExampleBlock
-          en={'Base Select controlled by prop value'}
-          cn={'使用value属性控制选中的值'}
+          en={'Base Select controlled by prop value:'}
+          cn={'使用value属性控制选中的值:'}
         >
           <Select style={{width: 250}} value={value} onChange={v => this.setState({value: v})}>
             <Option label="Yui" value="1" disabled />
@@ -34,8 +34,8 @@ export default class ExampleBase extends Component {
         </ExampleBlock>
 
         <ExampleBlock
-          en={'You may use the auto mode'}
-          cn={'使用属性auto开启自控模式'}
+          en={'You may use the auto mode:'}
+          cn={'使用属性auto开启自控模式:'}
         >
           <Select
             style={{width: 150}}
@@ -74,8 +74,8 @@ export default class ExampleBase extends Component {
         </ExampleBlock>
 
         <ExampleBlock
-          en={'Use prop disabled to disable the Select'}
-          cn={'添加disabled属性来禁用选择'}
+          en={'Use prop disabled to disable the Select:'}
+          cn={'添加disabled属性来禁用选择:'}
         >
           <Select
             style={{width: 250}}
@@ -90,8 +90,8 @@ export default class ExampleBase extends Component {
         </ExampleBlock>
 
         <ExampleBlock
-          en={'Build options by map'}
-          cn={'添加disabled属性来禁用选择'}
+          en={'Build options by map:'}
+          cn={'使用map来构建Option:'}
         >
           <Select
             style={{width: 250}}

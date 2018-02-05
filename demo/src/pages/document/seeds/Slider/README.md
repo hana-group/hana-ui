@@ -1,5 +1,11 @@
+@en
+
 ## Slider
 
 The Slider Module
 
-### Examples
+@cn
+
+## 滑动条
+
+滑动条模块。
