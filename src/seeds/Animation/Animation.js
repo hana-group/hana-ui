@@ -108,7 +108,6 @@ export default class Animation extends Component {
       this.setState({
         value: this.tween(1)
       }, () => onEnd(this.state.value, this.props));
-      this.stopTimer();
     } else {
       this.setState({
         value: this.tween(ease[easing](releaseTime / duration))
@@ -124,13 +123,8 @@ export default class Animation extends Component {
     this.update();
   }
 
-  stopTimer = () => {
-    // this.timer.stop();
-  }
-
   render() {
     const {children} = this.props;
-
     return children(this.state.value, this.props.animation);
   }
 }
