@@ -10,30 +10,30 @@ import {
 } from '../../utils';
 
 export interface IPropTypes {
-  date: dateOrStringOrNull,
-  onChange?: (date: Date, text: string) => void,
-  onCancel?: () => void,
-  lang?: 'en' | 'cn' | 'jp',
-  view?: 'text',
-  viewProps?: {[key: string]: any},
-  show?: boolean,
-  withClear?: boolean,
-  autoOk?: booleanl,
-  format?: (date: Date) => string,
-  className?: string,
-  dialogClassName?: string,
-  style?: any,
-  dialogStyle?: any,
-  weekdayNames?: arrayWith7Strings,
-  weekdayShortNames?: arrayWith7Strings,
-  monthNames?: arrayWith12Strings,
-  actionNames?: PropTypes.shape({
+  date: dateOrStringOrNull;
+  onChange?: (date: Date, text: string) => void;
+  onCancel?: () => void;
+  lang?: 'en' | 'cn' | 'jp';
+  view?: 'text';
+  viewProps?: {[key: string]: any};
+  show?: boolean;
+  withClear?: boolean;
+  autoOk?: boolean;
+  format?: (date: Date) => string;
+  className?: string;
+  dialogClassName?: string;
+  style?: any;
+  dialogStyle?: any;
+  weekdayNames?: arrayWith7Strings;
+  weekdayShortNames?: arrayWith7Strings;
+  monthNames?: arrayWith12Strings;
+  actionNames?: {
     ok: string,
     cancel: string
-  }),
-  yearStart?: number,
-  yearEnd?: number,
-  children?: JSX.Element
+  };
+  yearStart?: number;
+  yearEnd?: number;
+  children?: JSX.Element;
 }
 export interface IStateTypes {
   show: boolean;

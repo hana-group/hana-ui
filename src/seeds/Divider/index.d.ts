@@ -9,9 +9,6 @@ export interface IPropTypes {
   className?: string;
   style?: any;
 }
-export interface IStateTypes {
-}
-export default class Divider extends Component<IPropTypes, IStateTypes> {
-    static defaultProps: IPropTypes;
-    render(): JSX.Element;
-}
+
+export declare const Divider = (props: IPropTypes) => JSX.Element;
+export default Divider;
