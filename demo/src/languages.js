@@ -5,17 +5,6 @@
  */
 export const languages = [
   {
-    value: 'en',
-    label: 'English',
-    tableHeader: `
-### Properties
-
-| Name | Type | Default | Description |
-|:-----|:-----|:-----|:-----|
-`,
-    tableFooter: 'Other properties (no documented) are applied to the root or form element.'
-  },
-  {
     value: 'cn',
     label: '简体中文',
     tableHeader: `
@@ -25,6 +14,17 @@ export const languages = [
 |:-----|:-----|:-----|:-----|
 `,
     tableFooter: '未在文档中说明的属性将会被自动加到根元素或form元素上。'
+  },
+  {
+    value: 'en',
+    label: 'English',
+    tableHeader: `
+### Properties
+
+| Name | Type | Default | Description |
+|:-----|:-----|:-----|:-----|
+`,
+    tableFooter: 'Other properties (no documented) are applied to the root or form element.'
   }
 ];
 
