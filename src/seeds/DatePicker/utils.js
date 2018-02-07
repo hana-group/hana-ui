@@ -68,7 +68,7 @@ export const generateDays = date => {
   const days = new Array(42);
   let day = monthLengthPre - firstWeekday + 1;
 
-  for (let i = 0; i < 42; i++) {
+  for (let i = 0; i < 42; i += 1) {
     if (i === firstWeekday || i === monthLengthCurrent + firstWeekday) {
       day = 1;
     }
@@ -81,7 +81,7 @@ export const generateDays = date => {
       days[i] = [day, 'next'];
     }
 
-    day++;
+    day += 1;
   }
   return days;
 };
