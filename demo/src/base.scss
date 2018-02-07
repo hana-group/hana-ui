@@ -48,3 +48,7 @@ a {
   @extend .demo-with-fade-head;
   @extend .demo-with-fade-tail;
 }
+
+.hana-menuitem>a{
+  display: block;
+}
