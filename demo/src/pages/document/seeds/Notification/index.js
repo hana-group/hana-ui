@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ExampleContainer from 'demo/ExampleContainer';
 import PropTypeDescription from 'demo/PropTypeDescription';
-import MarkdownElement from 'demo/MarkdownElement';
+import MultiLangMarkdown from 'demo/MultiLangMarkdown';
 
 import notificationsCode from '!raw-loader!hana-ui/seeds/Notification/Notifications';
 import notificationCode from '!raw-loader!hana-ui/seeds/Notification/Notification';
@@ -14,14 +14,11 @@ export default class Notification extends Component {
   render() {
     return (
       <div>
-        <MarkdownElement text={ReadmeText} />
+        <MultiLangMarkdown text={ReadmeText} />
 
         <ExampleContainer
-          title={'Base Example'}
           code={ExampleBaseCode}
         >
-          Normal notification will auto hide after 2.5s
-          <br /><br />
           <ExampleBase />
         </ExampleContainer>
 

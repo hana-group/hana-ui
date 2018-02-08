@@ -1,5 +1,11 @@
+@en
+
 ## Notification
 
-The Notification Module
+The Notification component
 
-### Examples
+@cn
+
+## 消息提示
+
+显示页面反馈信息

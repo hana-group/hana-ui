@@ -5,6 +5,18 @@ const actionStyle = {
   marginRight: 5
 };
 
+/**
+ * @en
+ * Custom button
+ *
+ * &nbsp;
+ *
+ * @cn
+ * 自定义回调按钮
+ *
+ * &nbsp;
+ */
+
 export default class ExampleActions extends Component {
   state = {
     show: false
@@ -42,18 +54,24 @@ export default class ExampleActions extends Component {
         style={actionStyle}
         type={'primary'}
         onClick={() => this.handleClick('primary')}
-      >primary</Button>,
+      >
+        primary
+      </Button>,
       <Button
         key={'button-error'}
         style={actionStyle}
         type={'error'}
         onClick={() => this.handleClick('error')}
-      >error</Button>,
+      >
+        error
+      </Button>,
       <Button
         key={'button-info'}
         style={actionStyle}
         onClick={() => this.handleClick('info')}
-      >info</Button>
+      >
+        info
+      </Button>
     ];
   }
 }

@@ -7,10 +7,24 @@ function getRandomString() {
 }
 
 /**
+ * @en
+ * Custom row operation
+ *
  * Pass an Array to property selectedRow and handle it's changes by onRowClick property
  *
- * `selectedRow` accept an Array to specific each row's Selected state
+ * Set `selectable` & `hoverable` props to true can make table support seleted & hover effect for each row
+ *
+ * `selectedRow` accept a function which will return seleted row's list, each list item include
+ * element & its index,also `selectedRow` accept an Array to specific each row's Selected state
+ *
+ * @cn
+ * 自定义行操作
+ *
+ * `selectable` 和 `hoverable` 可控制表单行是否可被选择及是否开启`hover` 态
+ *
+ * `selectedRow` 接受一个函数，返回已被选择的行。或者传入一个行数索引为元素的数组来自动设置已选行
  */
+
 export default class ExampleBase extends Component {
   state = {
     data: [
@@ -43,12 +57,11 @@ export default class ExampleBase extends Component {
   handleButtonClick = e => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('clicked');
   };
 
   render() {
     const {data, selectedRow} = this.state;
-    console.log(selectedRow);
+    console.log(selectedRow); // eslint-disable-line
     const actions = (
       <div>
         <Button style={{marginRight: 10}} onClick={this.handleButtonClick}>
@@ -68,7 +81,7 @@ export default class ExampleBase extends Component {
           tableData={data}
           onRowClick={this.handleRowClick}
           colSequence={[
-            () => <a href="//www.baidu.com" target="_blank" rel="noopener noreferrer">baidu</a>,
+            () => <a href="//www.bing.com" target="_blank" rel="noopener noreferrer">baidu</a>,
             {key: 'fifth', defaultValue: 'hahah'},
             'one',
             actions

@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import {Table} from 'hana-ui';
 
+function getRandomString () {
+  return Math.random().toString(36);
+}
+
+
 /**
+ * @en
+ * Base Example
+ *
  * Example of how to custom column's width for each
  *
  * We can use `columnWidth` props to set width of each column.
@@ -15,21 +23,39 @@ import {Table} from 'hana-ui';
  *
  * Or pass a column number for each column and pass an object like: `{index: 3, column: 4}` as second argument to define specific column,
  * so the final props value should like: `[2, {index: 3, column: 4}]`
+ *
+ * @cn
+ * 自定义列宽
+ *
+ * 表单支持使用`columnWidth` 来自定义列宽，传入值如下：
+ *
+ * `[{index: 1, column: 2}]`, 表示第一列占1/12，第二列占1/6
+ *
+ * 当然也可传入`auto` 来实现自适应
  */
+
 export default class ExampleColumnWidth extends Component {
   state = {
     data: [
-      {zero: this.getRandomString(), one: 11,
-        two: this.getRandomString(), three: this.getRandomString()},
-      {zero: this.getRandomString(), one: 11,
-        two: this.getRandomString(), three: this.getRandomString()},
-      {zero: this.getRandomString(), one: 11,
-        two: this.getRandomString(), three: this.getRandomString()}
+      {
+        zero: getRandomString(),
+        one: 11,
+        two: getRandomString(),
+        three: getRandomString()
+      },
+      {
+        zero: getRandomString(),
+        one: 11,
+        two: getRandomString(),
+        three: getRandomString()
+      },
+      {
+        zero: getRandomString(),
+        one: 11,
+        two: getRandomString(),
+        three: getRandomString()
+      }
     ]
-  }
-
-  getRandomString() {
-    return Math.random().toString(36);
   }
 
   render() {

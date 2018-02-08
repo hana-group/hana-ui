@@ -1,6 +1,22 @@
 import React, {Component} from 'react';
 import {Button, Notifications} from 'hana-ui';
 
+const style = {
+  margin: '5px 5px 5px 0'
+};
+
+/**
+ * @en
+ * Base Example
+ *
+ * Normal notification will auto hide after 2.5s
+ *
+ * @cn
+ * 基础示例
+ *
+ * 默认显示时长为2.5秒.可传入`type` 来控制提示类型
+ */
+
 export default class ExampleBase extends Component {
   state = {
     notification: {}
@@ -21,17 +37,20 @@ export default class ExampleBase extends Component {
     return (
       <div>
         <Button
+          style={style}
           onClick={() => this.openNotification('info')}
         >
           normal
         </Button>
         <Button
+          style={style}
           type={'primary'}
           onClick={() => this.openNotification('success')}
         >
           success
         </Button>
         <Button
+          style={style}
           type={'error'}
           onClick={() => this.openNotification('error')}
         >
@@ -39,6 +58,7 @@ export default class ExampleBase extends Component {
         </Button>
         <br />
         <Button
+          style={style}
           onClick={() => this.openNotification(
             'info',
             React.createElement('img', {
@@ -46,7 +66,7 @@ export default class ExampleBase extends Component {
             })
           )}
         >
-          Custom content
+          custom
         </Button>
         <Notifications
           notification={this.state.notification}

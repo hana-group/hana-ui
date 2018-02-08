@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {Button, Sidebar, Menu, SubMenu, MenuItem} from 'hana-ui';
 
+/**
+ * @en
+ * Base Example
+ *
+ * &nbsp;
+ *
+ * @cn
+ * 基础用例
+ *
+ * &nbsp;
+ */
+
 export default class ExampleBase extends Component {
   state = {
     open: false,

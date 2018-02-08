@@ -37,11 +37,6 @@ export default class Modal extends Component {
           title={'Modal with Close Button Example'}
           code={ExampleWithCloseButtonCode}
         >
-          <p>
-           Set showClose props to true will show the
-           default close button,but also can use your custom close button
-          </p>
-          <br />
           <ExampleWithCloseButton />
         </ExampleContainer>
 

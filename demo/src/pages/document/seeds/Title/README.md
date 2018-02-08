@@ -1,5 +1,11 @@
+@en
+
 ## Title
 
-The Title Module
+Support sub-title, and title with icon
 
-### Examples
+@cn
+
+## 标题
+
+支持子标题、带图标标题

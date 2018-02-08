@@ -171,11 +171,9 @@ class Button extends Component {
           </div>
           <a
             href={'javascript: void(0)'}
-            className={cx(
-              labelPosition === 'right'
+            className={cx(labelPosition === 'right'
                 ? 'label-right'
-                : 'label-left'
-            )}
+                : 'label-left')}
           >
             {label}
           </a>

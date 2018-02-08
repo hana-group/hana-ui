@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {Title, Icon} from 'hana-ui';
 
+/**
+ * @en
+ * icon title
+ *
+ * &nbsp;
+ *
+ * @cn
+ * 带图标标题
+ *
+ * &nbsp;
+ */
+
 export default class ExampleIcon extends Component {
   render() {
     return (
