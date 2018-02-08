@@ -70,12 +70,12 @@ export default class Pagination extends Component {
      * @en
      * A handler for event 'select'.
      *
-     * (currentPage, index) => {}.
+     * (currentPage, index) => void.
      *
      * @cn
      * 页码被选择时的将会被调用的回调函数.
      *
-     * (currentPage: number, index: number) => {}。
+     * (currentPage: number, index: number) => void。
      */
     onSelect: PropTypes.func,
     /**

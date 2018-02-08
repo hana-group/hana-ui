@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ExampleContainer from 'demo/ExampleContainer';
 import PropTypeDescription from 'demo/PropTypeDescription';
-import MarkdownElement from 'demo/MarkdownElement';
+import MultiLangMarkdown from 'demo/MultiLangMarkdown';
 
 import ReadmeText from './README';
 import code from '!raw-loader!hana-ui/burgeon/Form/Form';
@@ -23,7 +23,7 @@ export default class Card extends Component {
   render() {
     return (
       <div>
-        <MarkdownElement text={ReadmeText} />
+        <MultiLangMarkdown text={ReadmeText} />
 
         <ExampleContainer
           title="Base example"

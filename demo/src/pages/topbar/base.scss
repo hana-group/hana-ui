@@ -2,14 +2,16 @@
 @import '../../config.scss';
 
 .demo-topbar {
-  position: relative;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   width: 100%;
   height: 96px;
-  @include with-fade-tail($size: 128px, $start: rgba(255, 255, 255, .7));
+  @include with-fade-tail($size: 96px, $start: rgba(255, 255, 255, 1));
 
   &-container {
     position: relative;
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
     justify-content: space-between;

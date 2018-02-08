@@ -1,5 +1,11 @@
+
+@en
+
 ## Card
 
  The Card Module.
 
-### Examples
+@cn
+## 卡片
+
+卡片模块。
