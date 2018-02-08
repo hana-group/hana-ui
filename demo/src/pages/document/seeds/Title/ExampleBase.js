@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {Title} from 'hana-ui';
 
+/**
+ * @en
+ * Base Example
+ *
+ * &nbsp;
+ *
+ * @cn
+ * 基础用例
+ *
+ * &nbsp;
+ */
+
 export default class ExampleBase extends Component {
   render() {
     return (

@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {Button, Modal} from 'hana-ui';
 
+/**
+ * @en
+ * Base Example
+ *
+ * &nbsp;
+ *
+ * @cn
+ * 基础示例
+ *
+ * &nbsp;
+ */
+
 export default class ExampleBase extends Component {
   state = {
     show: false,

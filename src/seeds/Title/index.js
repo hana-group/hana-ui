@@ -54,13 +54,16 @@ class Title extends Component {
     children: PropTypes.node
   };
 
-  checkPropType(prop, type) {
-    return typeof prop === type;
-  }
+  checkPropType = (prop, type) => typeof prop === type
+
+  handleLeftIconClick = () => {
+    const {leftIconClick} = this.props;
+    leftIconClick && leftIconClick();
+  };
 
   render() {
     const {
-      style, subTitle, icon, iconRight, children, ...rest
+      style, subTitle, icon, iconRight, children
     } = this.props;
     const prefix = 'hana';
 
@@ -86,10 +89,6 @@ class Title extends Component {
     );
   }
 
-  handleLeftIconClick = () => {
-    const {leftIconClick} = this.props;
-    leftIconClick && leftIconClick();
-  };
 
   renderIcon(node, isPlacedRight) {
     if (!node) return;

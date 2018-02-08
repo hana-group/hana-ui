@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {Button, Modal, Icon} from 'hana-ui';
 
+/**
+ * @en
+ * Custom close
+ *
+ * Set showClose props to true will show the
+ * default close button,but also can use your custom close button
+ *
+ * @cn
+ * 自定义关闭按钮
+ *
+ * &nbsp;
+ */
 export default class ExampleWithCloseButton extends Component {
   state = {
     show: false,
@@ -10,11 +22,6 @@ export default class ExampleWithCloseButton extends Component {
 
   toggleModal(key) {
     this.setState({[key]: !this.state[key]});
-  }
-
-  handleClick(type) {
-    console.log('click %s', type); // eslint-disable-line
-    this.toggleModal('show');
   }
 
   render() {
