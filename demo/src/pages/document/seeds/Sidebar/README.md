@@ -1,5 +1,4 @@
 @en
-
 ## Sidebar
 
 Page sidebar which can place on left or right side.

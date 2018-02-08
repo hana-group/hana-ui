@@ -3,14 +3,14 @@ import {Button, Sidebar, Menu, SubMenu, MenuItem} from 'hana-ui';
 
 /**
  * @en
- * Base Example
+ * Base example
  *
- * &nbsp;
+ * Control sidebar show or hide
  *
  * @cn
  * 基础用例
  *
- * &nbsp;
+ * 控制侧边栏显示状态
  */
 
 export default class ExampleBase extends Component {

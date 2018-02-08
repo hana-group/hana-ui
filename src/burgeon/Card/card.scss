@@ -68,7 +68,8 @@
     overflow: hidden;
     border-top: 1px solid transparent;
     max-height: 0;
-    transition: 0.5s max-height ease-in-out, 0.5s border-color ease-in-out;
+    opacity: 0;
+    transition: 0.5s opacity ease-in-out, 0.5s border-color ease-in-out;
   }
 
   &-expand &-container-wrap {
@@ -99,6 +100,7 @@
 
   &-expand-open &-container {
     border-color: $normal-color;
-    max-height: 1000px;
+    opacity: 1;
+    max-height: none;
   }
 }

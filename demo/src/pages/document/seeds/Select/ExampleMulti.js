@@ -19,8 +19,9 @@ export default class ExampleBase extends Component {
   render() {
     return (
       <div>
+        <p style={{padding: '20px 0 5px'}}>middle:</p>
         <Select
-          style={{width: 450}}
+          style={{width: 450, display: 'block'}}
           value={this.state.value}
           orientation='up'
           onChange={v => this.setState({value: v})}
@@ -32,8 +33,9 @@ export default class ExampleBase extends Component {
           <Option label="Fuyu is yuki no seikai" value="4" />
         </Select>
 
+        <p style={{padding: '20px 0 5px'}}>small:</p>
         <Select
-          style={{width: 450, marginTop: 20}}
+          style={{width: 450, display: 'block'}}
           value={this.state.value}
           onChange={v => this.setState({value: v})}
           multiple
@@ -45,8 +47,9 @@ export default class ExampleBase extends Component {
           <Option label="Fuyu is yuki no seikai" value="4" />
         </Select>
 
+        <p style={{padding: '20px 0 5px'}}>large:</p>
         <Select
-          style={{width: 450, marginTop: 20}}
+          style={{width: 450, display: 'block'}}
           value={this.state.value}
           onChange={v => this.setState({value: v})}
           multiple

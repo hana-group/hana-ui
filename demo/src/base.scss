@@ -23,6 +23,7 @@ a {
 .demo-bg {
   position: fixed;
   z-index: -2;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(255, 255, 255, .5) url(/demo/static/images/hana.jpg);
@@ -32,7 +33,7 @@ a {
 }
 
 .demo-content {
-  margin-top: 24px;
+  margin-top: 128px;
 }
 
 .demo-with-fade-head {
@@ -46,4 +47,8 @@ a {
 .demo-with-fade-head-tail {
   @extend .demo-with-fade-head;
   @extend .demo-with-fade-tail;
+}
+
+.hana-menuitem>a{
+  display: block;
 }
