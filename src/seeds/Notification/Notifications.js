@@ -7,7 +7,21 @@ import Notification from './Notification';
 
 class Notifications extends Component {
   static propTypes = {
+    /**
+     * @en
+     * notification instance
+     *
+     * @cn
+     * <Notification /> 组件实例
+     */
     notification: PropTypes.object,
+    /**
+     * @en
+     * Custom function when notification closed
+     *
+     * @cn
+     * 自定义通知弹窗关闭后回调
+     */
     onRequestClose: PropTypes.func
   };
 
