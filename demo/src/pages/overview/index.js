@@ -22,7 +22,7 @@ const keyCodes = {
 
 const pageChangeDuration = 1000;
 
-const getUrl = (url) => `/${langManager.lang}/${url}`;
+const getUrl = (url, lang) => `/${lang}/${url}`;
 
 const pages = [
   <MultiLang
@@ -153,12 +153,12 @@ const pages = [
         <h2>开始了解它们吧</h2>
         <div>
           <p>
-            <Link to={getUrl('guide')}>使用向导</Link>
-            <Link to={getUrl('document')}>组件文档</Link>
+            <Link to={getUrl('guide', 'cn')}>使用向导</Link>
+            <Link to={getUrl('document', 'cn')}>组件文档</Link>
           </p>
           <p>
             <a href={'https://github.com/hana-group'} target={'_blank'}>获取资源</a>
-            <Link to={getUrl('contribution')}>添砖加瓦</Link>
+            <Link to={getUrl('contribution', 'cn')}>添砖加瓦</Link>
           </p>
         </div>
       </div>
@@ -168,12 +168,12 @@ const pages = [
         <h2>Let's start</h2>
         <div>
           <p>
-            <Link to={getUrl('guide')}>Guide</Link>
-            <Link to={getUrl('document')}>Document</Link>
+            <Link to={getUrl('guide', 'en')}>Guide</Link>
+            <Link to={getUrl('document', 'en')}>Document</Link>
           </p>
           <p>
             <a href={'https://github.com/hana-group'} target={'_blank'}>Resource</a>
-            <Link to={getUrl('contribution')}>Contribution</Link>
+            <Link to={getUrl('contribution', 'en')}>Contribution</Link>
           </p>
         </div>
       </div>
