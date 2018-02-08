@@ -10,20 +10,29 @@ import {
 } from '../../utils';
 
 export interface IPropTypes {
-  date: dateOrStringOrNull;
+  value: dateOrStringOrNull;
   onChange?: (date: Date, text: string) => void;
   onCancel?: () => void;
   lang?: 'en' | 'cn' | 'jp';
-  view?: 'text';
-  viewProps?: {[key: string]: any};
-  show?: boolean;
+  dateViewProps?: {[key: string]: any};
+  timeViewProps?: {[key: string]: any};
+  dateShow?: boolean;
+  timeShow?: boolean;
   withClear?: boolean;
   autoOk?: boolean;
-  format?: (date: Date) => string;
+  dateFormat?: (date: Date) => string;
+  timeFormat?: (time: Date) => string;
   className?: string;
-  dialogClassName?: string;
+  dateClassName?: string;
+  timeClassName?: string;
+  dateDialogClassName?: string;
+  timeDialogClassName?: string;
   style?: any;
+  dateStyle?: any;
+  timeStyle?: any;
   dialogStyle?: any;
+  dateDialogStyle?: any;
+  timeDialogStyle?: any;
   weekdayNames?: arrayWith7Strings;
   weekdayShortNames?: arrayWith7Strings;
   monthNames?: arrayWith12Strings;
@@ -33,28 +42,17 @@ export interface IPropTypes {
   };
   yearStart?: number;
   yearEnd?: number;
-  children?: JSX.Element;
 }
 export interface IStateTypes {
   show: boolean;
   date: Date;
   innerDate: Date;
 }
-export default class DatePicker extends Component<IPropTypes, IStateTypes> {
+export default class DateTimePicker extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
   public state: IStateTypes;
-  private position;
-  private preDate;
-  private positionIncubator;
-  private addDate;
-  private handleScroll;
-  private handlePressKey;
-  private handleOpenDialog;
-  private handleCloseDialog;
-  private getWithLang;
-  private handleChangeDate;
-  private handleConfirm;
-  private handleCancel;
-  private handleClear;
+  private format;
+  private setDate;
+  private setTime;
   public render: () => JSX.Element;
 }

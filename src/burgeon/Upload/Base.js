@@ -30,7 +30,6 @@ export default class Base extends Component {
   };
 
   static defaultProps = {
-    url: '',
     auto: true,
     multiple: false,
     type: '*',

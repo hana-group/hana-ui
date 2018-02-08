@@ -72,12 +72,12 @@ export default class Popover extends Component {
      * @en
      * A callback will be called when popover showing or hiding.
      *
-     * show => void
+     * (show: boolean) => void
      *
      * @cn
      * 当弹出框被打开或者关闭时，将会触发这个回调。
      *
-     * show => void
+     * (show: boolean) => void
      */
     onChange: PropTypes.func,
     /**

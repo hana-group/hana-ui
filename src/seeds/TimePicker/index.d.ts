@@ -5,13 +5,10 @@
  */
 /// <reference types="react" />
 import {Component} from 'react';
-import {
-  arrayWith7Strings, arrayWith12Strings, dateOrStringOrNull
-} from '../../utils';
 
 export interface IPropTypes {
-  date: dateOrStringOrNull;
-  onChange?: (date: Date, text: string) => void;
+  time: dateOrStringOrNull;
+  onChange?: (time: Date, text: string) => void;
   onCancel?: () => void;
   lang?: 'en' | 'cn' | 'jp';
   view?: 'text';
@@ -19,40 +16,38 @@ export interface IPropTypes {
   show?: boolean;
   withClear?: boolean;
   autoOk?: boolean;
-  format?: (date: Date) => string;
+  format?: (time: Date) => string;
   className?: string;
   dialogClassName?: string;
   style?: any;
   dialogStyle?: any;
-  weekdayNames?: arrayWith7Strings;
-  weekdayShortNames?: arrayWith7Strings;
-  monthNames?: arrayWith12Strings;
   actionNames?: {
     ok: string,
     cancel: string
   };
-  yearStart?: number;
-  yearEnd?: number;
   children?: JSX.Element;
 }
 export interface IStateTypes {
   show: boolean;
-  date: Date;
-  innerDate: Date;
+  time: Date;
+  innerTime: Date;
 }
-export default class DatePicker extends Component<IPropTypes, IStateTypes> {
+export default class TimePicker extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
   public state: IStateTypes;
   private position;
-  private preDate;
+  private initArray;
   private positionIncubator;
-  private addDate;
+  private addTime;
   private handleScroll;
   private handlePressKey;
   private handleOpenDialog;
   private handleCloseDialog;
   private getWithLang;
-  private handleChangeDate;
+  private changeTime;
+  private handleChangeHour;
+  private handleChangeMinute;
+  private handleChangeSecond;
   private handleConfirm;
   private handleCancel;
   private handleClear;
