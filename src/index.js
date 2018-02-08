@@ -1,4 +1,4 @@
-// Components
+// Seeds
 export {default as Switch} from './seeds/Switch';
 export {default as Text} from './seeds/Text';
 export {Button, ButtonGroup} from './seeds/Button';
@@ -29,7 +29,7 @@ export {default as Slider} from './seeds/Slider';
 export {Postcard, PostcardGroup} from './seeds/Postcard';
 export {default as Link} from './seeds/Link';
 
-// Magic
+// Burgeon
 export {default as Card} from './burgeon/Card';
 export {default as IconButton} from './burgeon/IconButton';
 export {default as DateTimePicker} from './burgeon/DateTimePicker';

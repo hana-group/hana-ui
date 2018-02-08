@@ -29,7 +29,7 @@ export interface IPropTypes {
 export interface IStateTypes {
   hovered: boolean;
 }
-export default class DatePicker extends Component<IPropTypes, IStateTypes> {
+export default class Pagination extends Component<IPropTypes, IStateTypes> {
     static defaultProps: IPropTypes;
     public state: IStateTypes;
     private genPageList;
@@ -37,4 +37,5 @@ export default class DatePicker extends Component<IPropTypes, IStateTypes> {
     private handleHover;
     private handleClearHover;
     private handleChangePage;
+    public render: () => JSX.Element;
 }
