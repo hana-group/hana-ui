@@ -125,7 +125,9 @@ export default class Menu extends Component {
   }
 
   render() {
-    const {style, children, disabled, horizonal, type, className} = this.props;
+    const {
+      style, children, disabled, horizonal, type, className
+    } = this.props;
     const cls = cx('hana-menu', `hana-menu-${type}`, className, {
       'hana-menu-horizonal': horizonal,
       'hana-menu-vertical': !horizonal
@@ -133,14 +135,14 @@ export default class Menu extends Component {
     const restProps = getRestProps(Menu, this.props);
     return (
       <div className={cls} style={style} {...restProps}>
-        {childrenToArray(children).map(
-        (item, index) => React.cloneElement(item, {
-          // level item >> parents >> noop
-          onClick: (e, val) => this.handleClick(e, val, item.props.onClick || this.props.onClick || noop),
-          key: item.props.value || index,
-          disabled: disabled || item.props.disabled
-        })
-      )}
+        {
+          childrenToArray(children).map((item, index) => React.cloneElement(item, {
+            // level item >> parents >> noop
+            onClick: (e, val) => this.handleClick(e, val, item.props.onClick || this.props.onClick || noop),
+            key: item.props.value || index,
+            disabled: disabled || item.props.disabled
+          }))
+        }
       </div>
     );
   }

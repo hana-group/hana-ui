@@ -72,12 +72,16 @@ export default class Option extends Component {
   }
 
   handleClick = () => {
-    const {onClick, value, disabled, label, selected} = this.props;
+    const {
+      onClick, value, disabled, label, selected
+    } = this.props;
     if (!disabled) onClick(value, label, selected);
   }
 
   render() {
-    const {label, selected, disabled, className} = this.props;
+    const {
+      label, selected, disabled, className
+    } = this.props;
     const cls = cx('hana-select-option', className, {
       'hana-select-option-selected': selected,
       'hana-select-option-disabled': disabled

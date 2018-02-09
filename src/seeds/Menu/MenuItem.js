@@ -94,7 +94,9 @@ export default class MenuItem extends Component {
   }
 
   render() {
-    const {children, active, disabled, icon, value, className} = this.props;
+    const {
+      children, active, disabled, icon, value, className
+    } = this.props;
     const cls = cx('hana-menuitem', className, {
       'hana-menuitem-active': active || this.context.value === value,
       'hana-menuitem-disabled': disabled

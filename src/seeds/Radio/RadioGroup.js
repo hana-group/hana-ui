@@ -96,7 +96,9 @@ export default class RadioGroup extends Component {
   }
 
   render() {
-    const {value, disabled, children, checkedIcon, unCheckedIcon, style, name} = this.props;
+    const {
+      value, disabled, children, checkedIcon, unCheckedIcon, style, name
+    } = this.props;
     const groupName = name || this.id;
     const computedChildren = childrenToArray(children).map(
       (item) => React.cloneElement(item, {
