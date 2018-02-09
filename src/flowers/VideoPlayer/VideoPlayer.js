@@ -13,14 +13,83 @@ import Progress from './Progress';
 
 export default class VideoPlayer extends Component {
   static propTypes = {
+    /**
+     * @en
+     * Switch the view to window or full-page.
+     *
+     * @cn
+     * 切换窗口和全屏模式。
+     */
     view: PropTypes.oneOf(['window', 'full']),
+    /**
+     * @en
+     * 播放模式，可以设置为“随机”、“循环”、“单曲循环”、“通常”。
+     *
+     * @cn
+     * Mode of playing, could be set to 'random', 'cycle', 'repeat', 'normal'.
+     */
     mode: PropTypes.oneOf(['random', 'cycle', 'repeat', 'normal']),
-    theme: PropTypes.string,
+    /**
+     * @en
+     * If current video can preload.
+     *
+     * @cn
+     * 允许当前视频被预加载。
+     */
     preload: PropTypes.string,
+    /**
+     * @en
+     * If current video can auto play.
+     *
+     * @cn
+     * 允许当前视频自动播放。
+     */
     autoPlay: PropTypes.bool,
+    /**
+     * @en
+     * Play current video.
+     *
+     * @cn
+     * 播放当前视频。
+     */
     play: PropTypes.bool,
+    /**
+     * @en
+     * Set the time for current video.
+     *
+     * @cn
+     * 设置当前视频的播放时间。
+     */
     currentTime: PropTypes.number,
+    /**
+     * @en
+     * Set volume.
+     *
+     * @cn
+     * 设置音量。
+     */
     volume: PropTypes.number,
+    /**
+     * @en
+     * Video list.
+     * It contains many items that describe the videos' information:
+     * title: title of video.
+     * desc: description of video.
+     * sources: list of {src: link of source file, type: type of source}.
+     * image: an image which will be shown when none of video sources is available.
+     * text: an element which will be shown when none of video and image sources is available.
+     * poster: poster of video.
+     *
+     * @cn
+     * 视频列表。
+     * 由一个被视频元素构造的列表组成：
+     * title: 视频标题。
+     * desc: 视频描述信息。
+     * sources: 视频源列表：{src: 源文件链接，源类型}。
+     * image: 当视频源文件都无效时，默认显示的图像。
+     * text: 当视频源文件和默认图像都无效时，显示的元素。
+     * poster: 视频封面。
+     */
     list: PropTypes.arrayOf({
       title: PropTypes.string.isRequired,
       desc: PropTypes.string,
@@ -32,10 +101,61 @@ export default class VideoPlayer extends Component {
       text: PropTypes.string,
       poster: PropTypes.string
     }),
+    /**
+     * @en
+     * Index of current video in list.
+     *
+     * @cn
+     * 当前视频在列表中的序号。
+     */
     currentItem: PropTypes.number,
-    defaultText: PropTypes.node,
-    defaultImage: PropTypes.node,
+    /**
+     * @en
+     * Default text of video.
+     *
+     * @cn
+     * 视频默认介绍信息。
+     */
+    defaultText: PropTypes.string,
+    /**
+     * @en
+     * Default image of video.
+     *
+     * @cn
+     * 视频默认图片。
+     */
+    defaultImage: PropTypes.string,
+    /**
+     * @en
+     * Default poster of video.
+     *
+     * @cn
+     * 视频默认封面。
+     */
     defaultPoster: PropTypes.string,
+    /**
+     * @en
+     * Tooltip's style.
+     *
+     * @cn
+     * 提示框的样式。
+     */
+    style: PropTypes.object,
+    /**
+     * @en
+     * Tooltip's className.
+     *
+     * @cn
+     * 提示框根元素的class。
+     */
+    className: PropTypes.string,
+    /**
+     * @en
+     * Children.
+     *
+     * @cn
+     * 子级元素。
+     */
     children: PropTypes.node
   };
 
@@ -52,7 +172,7 @@ export default class VideoPlayer extends Component {
     super(props);
     this.parseSources(props.list);
     this.state = {
-      noList: props.list.length === 1,
+      // noList: props.list.length === 1,
       view: props.view,
       mode: props.mode,
       play: props.play || props.autoPlay || false,
@@ -61,7 +181,7 @@ export default class VideoPlayer extends Component {
       volume: props.volume || 1,
       currentItem: props.currentItem || 0,
       bufferedPercent: 0,
-      showControllers: true,
+      // showControllers: true,
       openList: false
     };
     this.timeoutId = 0;
@@ -115,7 +235,7 @@ export default class VideoPlayer extends Component {
     } = this.state;
 
     return {
-      noList: props.list.length === 1,
+      // noList: props.list.length === 1,
       view: props.view || view,
       mode: props.mode || mode,
       play: props.play || play,
@@ -504,7 +624,12 @@ export default class VideoPlayer extends Component {
   renderVideo = () => {
     const {
       autoPlay,
-      preload
+      preload,
+      defaultText,
+      defaultImage,
+      defaultPoster,
+      className,
+      style
     } = this.props;
 
     const {
@@ -516,12 +641,13 @@ export default class VideoPlayer extends Component {
     }
 
     const item = this.list[currentItem];
-    const poster = item.poster ? {poster: item.poster} : {};
+    const poster = item.poster ? {poster: item.poster} : {poster: defaultPoster};
 
     return (
       <video
         key={item}
-        className={cx('hana-video-player-video')}
+        className={cx('hana-video-player-video', className)}
+        style={style}
         ref={'video'}
         {...poster}
         autoPlay={autoPlay}
@@ -532,8 +658,8 @@ export default class VideoPlayer extends Component {
             <source key={index} src={src} type={type} />
           ))
         }
-        <img src={item.image} alt={item.title} />
-        <p>{item.text}</p>
+        <img src={item.image || defaultImage} alt={item.title} />
+        <p>{item.text || defaultText}</p>
       </video>
     );
   }
@@ -542,8 +668,7 @@ export default class VideoPlayer extends Component {
     const {
       play,
       volume,
-      mode,
-      theme
+      mode
     } = this.state;
 
     if (this.list.length === 0) {
@@ -572,7 +697,6 @@ export default class VideoPlayer extends Component {
             />
             <Progress
               className={cx('hana-video-player-progress-volume')}
-              theme={theme}
               realTimeChange
               current={volume * 100}
               buffered={0}
@@ -621,7 +745,6 @@ export default class VideoPlayer extends Component {
 
   renderProgress = () => {
     const {
-      theme,
       currentPercent,
       bufferedPercent
     } = this.state;
@@ -637,7 +760,6 @@ export default class VideoPlayer extends Component {
         <p>{this.currentStr}</p>
         <Progress
           className={cx('hana-video-player-progress-time')}
-          theme={theme}
           current={currentPercent}
           buffered={bufferedPercent}
           onChange={this.handleChangeCurrent}

@@ -30,6 +30,8 @@ import 'hana-ui/hana-style.scss';
 
 On the other hand, for allowing user to use their own themes and import independent component, please add loaders for **scss** files in configuration file of webpack and ensure **the `node_modules` is not added to rule `exclude`.**
 
+>Note: hana-ui also supports typescript with d.ts files, and we commend you to use it !
+
 #### import hana-ui in your page
 
 Example:

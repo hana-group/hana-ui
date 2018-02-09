@@ -10,7 +10,6 @@ import cx from 'classnames';
 
 export default class Progress extends Component {
   static propTypes = {
-    theme: PropTypes.string,
     className: PropTypes.string,
     current: PropTypes.number,
     buffered: PropTypes.number,
