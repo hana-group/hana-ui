@@ -50,6 +50,8 @@ export default class App extends React.Component {
 
 更多组件使用方法请查看[文档]('/cn/document')页面。
 
+>注意: hana-ui通过d.ts文件支持typescript，我们也推荐你使用它！
+
 ## 自定义主题
 
 hana允许你使用自己的主题，通过使用**[sass-resource-loader](https://github.com/shakacode/sass-resources-loader)**，你可以传入一个自定义的样式配置文件进行配置:  

@@ -32,13 +32,13 @@ const pages = [
     cn={
       <div className={'page-content'}>
         <h2>hana-ui</h2>
-        <p>一个二次元风格的ReactUI库。</p>
+        <p>一个清新二次元风格的ReactUI库。</p>
       </div>
     }
     en={
       <div className={'page-content'}>
         <h2>hana-ui</h2>
-        <p>A React UIKit with nijigen style.</p>
+        <p>A React UIKit with fresh nijigen style.</p>
       </div>
     }
   >
