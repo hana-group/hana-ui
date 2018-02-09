@@ -117,8 +117,10 @@ export default class IconButton extends Component {
   }
 
   render() {
-    const {type, color, style, size, tipContent, tipStyle,
-      iconStyle, tipPosition, tipColor, disabled} = this.props;
+    const {
+      type, color, style, size, tipContent, tipStyle,
+      iconStyle, tipPosition, tipColor, disabled
+    } = this.props;
     const restProps = getRestProps(IconButton, this.props);
     const hasTooltip = Boolean(tipContent);
     const computedTipStyle = Object.assign({whiteSpace: 'nowrap'}, tipStyle);
@@ -145,7 +147,7 @@ export default class IconButton extends Component {
         >
           {icon}
         </Tooltip>
-      :
+        :
         icon
     );
   }
