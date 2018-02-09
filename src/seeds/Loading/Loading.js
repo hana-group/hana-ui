@@ -68,7 +68,7 @@ export default class Loading extends Component {
      * @cn
      * `loading`的`class`
      */
-    className: PropTypes.node
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -78,7 +78,9 @@ export default class Loading extends Component {
   }
 
   render() {
-    const {icon, rotate, wrapStyle, contentStyle, style, className} = this.props;
+    const {
+      icon, rotate, wrapStyle, contentStyle, style, className
+    } = this.props;
     const cls = cx('hana-loading', className, {
       'hana-loading-rotate': rotate
     });

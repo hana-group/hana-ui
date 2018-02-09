@@ -80,7 +80,7 @@ export default class SubMenu extends Component {
      * @cn
      * `SubMenu`的`class`
      */
-    className: PropTypes.object
+    className: PropTypes.string
   };
 
   static contextTypes = {

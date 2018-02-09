@@ -237,7 +237,7 @@ export default class Select extends Component {
   hasEnoughHeight = () => {
     const {maxHeight} = this.props;
     const domNode = ReactDOM.findDOMNode(this);
-    const bottom = domNode.getBoundingClientRect().bottom;
+    const {bottom} = domNode.getBoundingClientRect();
     const docScroll = document.body.scrollTop;
     const docHeight = document.body.clientHeight;
     return docHeight - docScroll - bottom > maxHeight;
