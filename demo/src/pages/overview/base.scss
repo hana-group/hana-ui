@@ -1,3 +1,7 @@
+@mixin bg($dir, $color, $max: .7) {
+  background: linear-gradient(to right, rgba($color, 0), rgba($color, $max) 30%, rgba($color, 0));
+}
+
 .demo-overview {
   position: fixed;
   top: 0;
@@ -10,35 +14,12 @@
   background-repeat: no-repeat;
   background-position: 0 10%;
 
-  &-page {
-    width: 100%;
-
-    &-enter {
-      opacity: 0.01;
-
-      &-active {
-        opacity: 1;
-        transition: opacity 800ms ease-in;
-      }
-    }
-    
-    &-exit {
-      opacity: 1;
-
-      &-active {
-        opacity: 0.01;
-        transition: opacity 700ms ease-in;
-      }
-    }
-    
-  }
-
   .page {
+    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -46,13 +27,20 @@
     text-shadow: #333 4px 4px 32px;
 
     &-img {
+      position: relative;
       display: block;
       width: 256px;
-      margin: 0 56px;
+      z-index: 1;
     }
 
     &-content {
+      position: relative;
+      z-index: 0;
       max-width: 560px;
+      padding: 24px;
+      padding-left: 128px;
+      padding-right: 64px;
+      margin-left: -96px;
 
       >h2 {
         font-size: 56px;
@@ -67,28 +55,39 @@
   }
 
   .intro {
-    
+    .page-content {
+      @include bg(right, #acee55);
+    }
   }
 
   .origin {
-
+    .page-content {
+      @include bg(right, #E6CFE6, 1);
+    }
   }
 
   .style {
-
+    .page-content {
+      @include bg(right, #6495ED);
+    }
   }
 
   .useful {
-
+    .page-content {
+      @include bg(right, #f597bf, .8);
+    }
   }
 
   .rich {
-
+    .page-content {
+      @include bg(right, #DDA0DD);
+    }
   }
 
   .understand {
-
     .page-content {
+      @include bg(right, #ddd, 1);
+
       >h2 {
         margin-bottom: 12px;
       }
@@ -114,4 +113,55 @@
       }
     }
   }
+}
+
+.demo-overview-page {
+  width: 100%;
+
+  &-enter.page {
+    transition: all 700ms ease-in-out;
+    left: 0;
+
+    .page-content {
+      transition: all 500ms ease-in-out;
+      transition-delay: 600ms;
+      transform-origin: 0 center;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+  }
+
+  &-enter-active.page {
+    left: 50%;
+
+    .page-content {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  &-exit.page {
+    transition: all 1000ms ease-in-out;
+    transition-delay: 300ms;
+    opacity: 1;
+    left: 50%;
+
+    .page-content {
+      transition: all 500ms ease-in-out;
+      transform-origin: 0 center;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &-exit-active.page {
+    opacity: 0;
+    left: 150%;
+
+    .page-content {
+      opacity: 0;
+      transform: translateX(300px);
+    }
+  }
+  
 }

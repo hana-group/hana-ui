@@ -51,6 +51,7 @@ const pages = [
   <MultiLang
     key={'origin'}
     className={cx('page', 'origin')}
+    childrenAtPre
     cn={
       <div className={'page-content'}>
         <h2>起源</h2>
@@ -96,6 +97,7 @@ const pages = [
   <MultiLang
     key={'useful'}
     className={cx('page', 'useful')}
+    childrenAtPre
     cn={
       <div className={'page-content'}>
         <h2>开箱即用</h2>
