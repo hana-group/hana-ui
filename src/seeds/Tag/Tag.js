@@ -100,7 +100,9 @@ export default class Tag extends Component {
   }
 
   render() {
-    const {children, color, style, hasClose, onClose, size, className} = this.props;
+    const {
+      children, color, style, hasClose, onClose, size, className
+    } = this.props;
     const cls = cx('hana-tag', `hana-tag-${size}`, className);
     const restProps = getRestProps(Tag, this.props);
     const computedStyle = Object.assign({}, style, {

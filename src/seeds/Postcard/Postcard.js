@@ -4,11 +4,6 @@ import cx from 'classnames';
 
 import getRestProps from '../../utils/getRestProps';
 
-/**
- * TODO - click to reverse
- *      - a whole background
- */
-
 export default class Postcard extends Component {
   static propTypes = {
     /**
@@ -67,7 +62,9 @@ export default class Postcard extends Component {
   }
 
   render() {
-    const {children, style, title, subtitle, titleStyle, subtitleStyle} = this.props;
+    const {
+      children, style, title, subtitle, titleStyle, subtitleStyle
+    } = this.props;
     const cls = cx('hana-postcard');
     // const computedStyle = Object.assign({}, style, {color});
     const restProps = getRestProps(Postcard, this.props);
