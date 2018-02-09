@@ -6,8 +6,11 @@
   z-index: 1;
   top: 0;
   width: 100%;
-  height: 96px;
+  height: 112px;
   @include with-fade-tail($size: 96px, $start: rgba(255, 255, 255, 1));
+  &:after {
+    pointer-events: none;
+  }
 
   &-container {
     position: relative;
