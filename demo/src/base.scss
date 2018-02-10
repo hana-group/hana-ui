@@ -32,6 +32,14 @@ a {
   background-repeat: no-repeat;
 }
 
+.demo-bg-flies {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .demo-content {
   margin-top: 128px;
 }

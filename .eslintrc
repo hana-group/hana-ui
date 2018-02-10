@@ -21,6 +21,8 @@
     "function-paren-newline": 0,
     "no-mixed-operators": 0,
     "prefer-destructuring": 0,
+    "no-bitwise": 0,
+    "object-curly-newline": 0,
     "import/no-unresolved": [
       2,
       {
