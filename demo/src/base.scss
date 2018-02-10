@@ -27,7 +27,7 @@ a {
   width: 100vw;
   height: 100vh;
   background: rgba(255, 255, 255, .5) url(/demo/static/images/hana.jpg);
-  background-blend-mode: color;
+  background-blend-mode: hard-light;
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
