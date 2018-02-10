@@ -170,12 +170,14 @@ class Modal extends React.Component {
 
   render() {
     const {id} = this.props;
-    return <RenderToNode>
+    return (
+      <RenderToNode>
         <TransitionGroup key={id} className={cx(this.prefix)} ref={this.setContainerRef}>
           {this.renderOverlay()}
           {this.renderModal()}
         </TransitionGroup>
-      </RenderToNode>;
+      </RenderToNode>
+    );
   }
 
   renderModal() {
@@ -197,7 +199,7 @@ class Modal extends React.Component {
               {showClose && this.renderCloseButton()}
             </div>
           )}
-          {title && <Divider style={{marginTop: 0}} />}
+          {title && <Divider className={cx('hana-modal-divider')} />}
           <div className={`${this.prefix}-content`} style={contentStyle}>
             {showClose && !title && this.renderCloseButton()}
             {children}
@@ -231,7 +233,7 @@ class Modal extends React.Component {
   renderDefaultAction() {
     const {confirm, cancel} = this.props;
     return (
-      <div>
+      <React.Fragment>
         {typeof confirm === 'function' && (
           <Button onClick={confirm} style={{border: 'none'}}>
             确认
@@ -242,7 +244,7 @@ class Modal extends React.Component {
             关闭
           </Button>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

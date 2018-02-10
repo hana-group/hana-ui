@@ -23,6 +23,9 @@ $overlay-color: rgba($black, 0.46);
     width: 100%;
     z-index: $z-index-modal-mask;
   }
+  &-divider {
+    margin: 0 auto;
+  }
   &-main {
     position: absolute;
     top: 50%;
@@ -63,6 +66,10 @@ $overlay-color: rgba($black, 0.46);
       bottom: 5px;
       position: absolute;
       right: 5px;
+
+      >button {
+        margin-right: 5px;
+      }
     }
   }
 }
