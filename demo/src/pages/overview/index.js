@@ -10,7 +10,7 @@ import {CSSTransition} from 'react-transition-group';
 import cx from 'classnames';
 
 import MultiLang from 'demo/MultiLang';
-import {langManager} from '../../languages';
+import FireFlies from 'demo/FireFlies';
 import './base.scss';
 
 const keyCodes = {
@@ -189,6 +189,20 @@ const pages = [
   </MultiLang>
 ];
 
+const colors = [
+  // 'rgba(172, 238, 85, .3)',
+  // 'rgba(230, 207, 230, .6)',
+  // 'rgba(100, 149, 237, .3)',
+  // 'rgba(245, 151, 191, .3)',
+  // 'rgba(241, 220, 101, .3)',
+  'rgba(255, 255, 255, 1)',
+  'rgba(255, 255, 255, 1)',
+  'rgba(255, 255, 255, 1)',
+  'rgba(255, 255, 255, 1)',
+  'rgba(255, 255, 255, 1)',
+  'rgba(255, 255, 255, 1)'
+];
+
 export default class Overview extends React.Component {
   static propTypes = {
     match: PropTypes.object.isRequired
@@ -197,7 +211,8 @@ export default class Overview extends React.Component {
   state = {
     page: 0,
     nextPage: 0,
-    switchDone: true
+    switchDone: true,
+    color: colors[0]
   };
   
   componentDidMount() {
@@ -280,13 +295,18 @@ export default class Overview extends React.Component {
   }
 
   render() {
+    const {nextPage} = this.state;
     return (
       <div className={'demo-overview'}>
+        <FireFlies
+          className={'demo-overview-flies'}
+          color={this.state.color}
+        />
         <CSSTransition
           classNames={'demo-overview-page'}
           timeout={pageChangeDuration}
           in={this.state.switchDone}
-          onExited={() => this.setState({page: this.state.nextPage, switchDone: true})}
+          onExited={() => this.setState({page: nextPage, switchDone: true, color: colors[nextPage]})}
         >
           {pages[this.state.page]}
         </CSSTransition>
