@@ -35,9 +35,9 @@ export interface IPropTypes {
   message?: string;
   iconPosition?: 'before' | 'after';
   focus?: boolean;
-  onChange: (event: Event, value: TValue) => void;
-  onBlur: (event: Event, value: TValue) => void;
-  onFocus: (event: Event, value: TValue) => void;
+  onChange?: (event: Event, value: TValue) => void;
+  onBlur?: (event: Event, value: TValue) => void;
+  onFocus?: (event: Event, value: TValue) => void;
   className?: string;
   style?: any;
   inputStyle?: any;
