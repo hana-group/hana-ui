@@ -22,7 +22,7 @@ export interface IGroupPropTypes {
   size?: 'tiny' | 'small' | 'middle' | 'large' | 'huge';
   circular?: boolean;
   className?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export interface IGroupStateTypes {

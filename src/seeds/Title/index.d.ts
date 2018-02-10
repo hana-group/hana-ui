@@ -4,10 +4,10 @@ import {Component} from 'react';
 export interface Props {
   style?: any;
   subTitle?: string;
-  icon?: JSX.Element;
-  iconRight?: JSX.Element;
+  icon?: React.ReactNode;
+  iconRight?: React.ReactNode;
   leftIconClick?: () => void;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export interface States {
@@ -15,5 +15,4 @@ export interface States {
 
 export default class Title extends Component<Props, States> {
     static defaultProps: Props;
-    render(): JSX.Element;
 }

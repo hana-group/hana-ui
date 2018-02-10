@@ -26,7 +26,7 @@ export interface IPropTypes {
     ok: string,
     cancel: string
   };
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   show: boolean;

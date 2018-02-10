@@ -18,7 +18,7 @@ export interface Props {
   style?: any;
   headerStyle?: any;
   bodyStyle?: any;
-  children?: JSX.Element
+  children?: React.ReactNode
 }
 
 export interface States {
@@ -26,5 +26,4 @@ export interface States {
 
 export default class Table extends Component<Props, States> {
     static defaultProps: Props;
-    render(): JSX.Element;
 }

@@ -6,7 +6,7 @@ export interface IPropTypes {
   disabled?: boolean;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   defaultLabel?: string;
   multiple?: boolean;
   maxHeight?: number;
@@ -14,7 +14,7 @@ export interface IPropTypes {
   autoUpdown?: boolean;
   selectionStyle?: any;
   optionWrapStyle?: any;
-  arrowIcon?: JSX.Element;
+  arrowIcon?: React.ReactNode;
   size?: 'small' | 'middle' | 'large';
   name?: string;
   className?: string;

@@ -1,14 +1,14 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  children: JSX.Element;
+  children: React.ReactNode;
   title: string;
   subtitle: string;
   titleStyle: any;
   containerStyle: any;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   expand: boolean;
-  expandIcon: JSX.Element;
+  expandIcon: React.ReactNode;
   open: boolean;
   defaultOpen: boolean;
   className: string;

@@ -10,7 +10,7 @@ export interface IPropTypes {
   href: string;
   icon?: string;
   size?: 'small' | 'middle' | 'large';
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
-declare const Link: (props: IPropTypes) => JSX.Element;
+declare const Link: (props: IPropTypes) => React.ReactNode;
 export default Link;

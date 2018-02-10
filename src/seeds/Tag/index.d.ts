@@ -1,12 +1,12 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  children?: JSX.Element;
+  children?: React.ReactNode;
   color?: string;
   style?: any;
   hasClose?: boolean;
-  onClose?: (event: Event, children: JSX.Element) => void;
-  onClick?: (event: Event, children: JSX.Element) => void;
+  onClose?: (event: Event, children: React.ReactNode) => void;
+  onClick?: (event: Event, children: React.ReactNode) => void;
   size?: 'small' | 'middle' | 'large';
   className?: string;
 }

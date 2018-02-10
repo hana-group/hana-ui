@@ -8,9 +8,9 @@ export interface IPropTypes {
   onChange: (event: Event, isChecked: boolean) => void;
   auto?: boolean;
   style?: any;
-  label: JSX.Element;
-  checkedIcon?: JSX.Element;
-  unCheckedIcon?: JSX.Element;
+  label: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  unCheckedIcon?: React.ReactNode;
   className?: string;
 }
 
@@ -25,12 +25,12 @@ export class Radio extends Component<IPropTypes, IStateTypes> {
 }
 
 export interface IGroupPropTypes {
-  children: JSX.Element;
+  children: React.ReactNode;
   value: any;
   onChange?: (event: Event, itemValue: any) => void;
   disabled?: boolean;
-  checkedIcon?: JSX.Element;
-  unCheckedIcon?: JSX.Element;
+  checkedIcon?: React.ReactNode;
+  unCheckedIcon?: React.ReactNode;
   className?: string;
 }
 

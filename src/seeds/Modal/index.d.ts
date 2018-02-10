@@ -9,12 +9,12 @@ export interface Props {
   titleStyle?: any;
   show: boolean;
   showClose?: boolean;
-  close?: JSX.Element;
+  close?: React.ReactNode;
   confirm?: () => void;
   cancel?: () => void;
-  actions?: JSX.Element;
+  actions?: React.ReactNode;
   id?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export interface States {
@@ -22,5 +22,5 @@ export interface States {
 
 export default class Modal extends Component<Props, States> {
     static defaultProps: Props;
-    render(): JSX.Element;
+    render(): React.ReactNode;
 }

@@ -10,5 +10,5 @@ export interface IPropTypes {
   style?: any;
 }
 
-declare const Divider: (props: IPropTypes) => JSX.Element;
+declare const Divider: (props: IPropTypes) => React.ReactNode;
 export default Divider;

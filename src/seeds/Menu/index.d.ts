@@ -3,7 +3,7 @@ import {Component} from 'react';
 export interface IPropTypes {
   value?: any;
   style?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   onClick?: (event: Event, value: any) => void;
   auto?: boolean;
   disabled?: boolean;
@@ -25,7 +25,7 @@ export interface IMenuItemPropTypes {
   active?: boolean;
   disabled?: boolean;
   style?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   onClick?: (event: Event, value: any) => void;
   value?: any;
   icon?: string;
@@ -45,7 +45,7 @@ export interface ISubMenuPropTypes {
   title?: string;
   active?: boolean;
   style?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   onClick?: (event: Event, value: any) => void;
   disabled?: boolean;
   icon?: string;

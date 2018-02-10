@@ -15,8 +15,8 @@ export interface IPropTypes {
   view?: 'box' | 'circle' | 'simple';
   size?: 'small' | 'middle' | 'large';
   onSelect?: (currentPage: number, index: number) => void;
-  preIcon?: JSX.Element;
-  nextIcon?: JSX.Element;
+  preIcon?: React.ReactNode;
+  nextIcon?: React.ReactNode;
   withBorderJumper?: boolean;
   className?: string;
   style?: any;
@@ -24,7 +24,7 @@ export interface IPropTypes {
   eachHoveredStyle?: any;
   eachActiveStyle?: any;
   eachDisabledStyle?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   hovered: boolean;

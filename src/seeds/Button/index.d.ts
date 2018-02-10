@@ -14,7 +14,7 @@ export interface Props {
   className?: string;
   style?: any;
   onClick?: () => void;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export interface States {
@@ -27,7 +27,7 @@ export class Button extends Component<Props, States> {
 export interface GroupProps {
   style?: any;
   className?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export interface GroupStates {
