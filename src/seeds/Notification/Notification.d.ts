@@ -17,5 +17,4 @@ export interface States {
 
 export default class Notification extends Component<Props, States> {
   static defaultProps: Props;
-  render(): JSX.Element;
 }

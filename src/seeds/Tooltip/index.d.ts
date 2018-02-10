@@ -33,5 +33,4 @@ export default class Tooltip extends Component<IPropTypes, IStateTypes> {
     private handleClose;
     private handleOpenWithChildren;
     private handleCloseWithChildren;
-    public render: () => JSX.Element;
 }

@@ -37,5 +37,4 @@ export default class Pagination extends Component<IPropTypes, IStateTypes> {
     private handleHover;
     private handleClearHover;
     private handleChangePage;
-    public render: () => JSX.Element;
 }

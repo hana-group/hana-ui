@@ -32,5 +32,4 @@ export default class Popover extends Component<IPropTypes, IStateTypes> {
     private handleClose;
     private handleChange;
     private renderContent;
-    public render: () => JSX.Element;
 }

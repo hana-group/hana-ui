@@ -22,5 +22,4 @@ export interface States {
 
 export default class Button extends Component<Props, States> {
     static defaultProps: Props;
-    render(): JSX.Element;
 }

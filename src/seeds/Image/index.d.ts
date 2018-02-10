@@ -13,6 +13,22 @@ export interface IPropTypes {
 export interface IStateTypes {
 }
 
-export default class Image extends Component<IPropTypes, IStateTypes> {
+export class Image extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
 }
+
+export interface IGroupPropTypes {
+  style?: any;
+  size?: 'tiny' | 'small' | 'middle' | 'large' | 'huge';
+  circular?: boolean;
+  className?: string;
+  children?: JSX.Element;
+}
+
+export interface IGroupStateTypes {
+}
+
+export class ImageGroup extends Component<IPropTypes, IStateTypes> {
+  static defaultProps: IPropTypes;
+}
+

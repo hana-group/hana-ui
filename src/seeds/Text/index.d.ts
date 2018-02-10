@@ -30,10 +30,10 @@ export interface IPropTypes {
   message?: string;
   iconPosition?: 'before' | 'after';
   focus?: boolean;
-  onChange: (event: Event, value: valueType) => void;
-  onSubmit: (event: Event, value: valueType) => void;
-  onBlur: (event: Event, value: valueType) => void;
-  onFocus: (event: Event, value: valueType) => void;
+  onChange: (event: Event, value: TValue) => void;
+  onSubmit: (event: Event, value: TValue) => void;
+  onBlur: (event: Event, value: TValue) => void;
+  onFocus: (event: Event, value: TValue) => void;
   className?: string;
   style?: any;
   inputStyle?: any;
@@ -59,5 +59,4 @@ export default class Text extends Component<IPropTypes, IStateTypes> {
     private handleBlur;
     private handleFocus;
     private handleSubmit;
-    public render: () => JSX.Element;
 }

@@ -54,5 +54,4 @@ export default class DateTimePicker extends Component<IPropTypes, IStateTypes> {
   private format;
   private setDate;
   private setTime;
-  public render: () => JSX.Element;
 }

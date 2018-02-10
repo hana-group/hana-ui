@@ -28,7 +28,6 @@ export interface IPropTypes {
   currentItem?: number;
   defaultText?: string;
   defaultImage?: string;
-  defaultImage?: string;
   className?: string;
   style?: any;
   children?: JSX.Element;
@@ -75,7 +74,6 @@ export default class VideoPlayer extends Component<IPropTypes, IStateTypes> {
     private handleSwitchList;
     private handleChangeItem;
     private handleMouseMove;
-    public render: () => JSX.Element;
     private renderVideo;
     private renderControllers;
     private renderProgress;
