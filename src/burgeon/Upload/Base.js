@@ -50,6 +50,7 @@ export default class Base extends Component {
     super(props);
     this.files = [];
     this.validFiles = [];
+    this.refInput = null;
   }
 
   uploadFiles = files => {
@@ -148,7 +149,7 @@ export default class Base extends Component {
   };
 
   triggerChoose = () => {
-    this.refs.input.click();
+    this.refInput.click();
   };
 
   handleClick = () => {
@@ -238,7 +239,9 @@ export default class Base extends Component {
           className={cx(
             'hana-upload-input'
           )}
-          ref={'input'}
+          ref={ref => {
+            this.refInput = ref;
+          }}
           type="file"
           accept={type}
           multiple={multiple}

@@ -25,16 +25,13 @@ export default class Progress extends Component {
     this.state = {
       value: props.value
     };
+    this.refContainer = null;
+    this.refInner = null;
   }
 
   componentDidMount = () => {
     document.addEventListener('mousemove', this.handleMouseMove);
     document.addEventListener('mouseup', this.handleMouseUp);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousemove', this.handleMouseMove);
-    document.removeEventListener('mouseup', this.handleMouseUp);
   }
 
   componentWillReceiveProps = props => {
@@ -43,9 +40,13 @@ export default class Progress extends Component {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseup', this.handleMouseUp);
+  }
+
   handleMouseMove = e => {
     const {
-      onChange,
       max,
       min
     } = this.props;
@@ -83,8 +84,8 @@ export default class Progress extends Component {
 
     this.changing = true;
     this.startCurrent = value;
-    this.dragPosition = findDOMNode(this.refs.inner).getBoundingClientRect().right;
-    this.width = findDOMNode(this.refs.container).clientWidth;
+    this.dragPosition = findDOMNode(this.refInner).getBoundingClientRect().right;
+    this.width = findDOMNode(this.refContainer).clientWidth;
   }
 
   handleClickBar = e => {
@@ -96,8 +97,8 @@ export default class Progress extends Component {
       return;
     }
 
-    const value = e.pageX - findDOMNode(this.refs.inner).getBoundingClientRect().left;
-    this.width = findDOMNode(this.refs.container).clientWidth;
+    const value = e.pageX - findDOMNode(this.refInner).getBoundingClientRect().left;
+    this.width = findDOMNode(this.refContainer).clientWidth;
 
     const jumpedValue = (value / this.width * (max - min));
     // this.setState({current});
@@ -115,11 +116,11 @@ export default class Progress extends Component {
       height: '100%'
     };
     return (
-      <div className={cls} ref='container' onClick={this.handleClickBar}>
-        <div className='hana-audio-progress-active' style={activeStyle} ref='inner'>
+      <div className={cls} ref={ref => { this.refContainer = ref; }} onClick={this.handleClickBar}>
+        <div className='hana-audio-progress-active' style={activeStyle} ref={ref => { this.refInner = ref; }}>
           <i className='hana-audio-progress-cube' onMouseDown={this.handleDragStart} />
         </div>
-        {buffer && <div className='hana-audio-progress-buffer'></div>}
+        {buffer && <div className='hana-audio-progress-buffer' />}
       </div>
     );
   }

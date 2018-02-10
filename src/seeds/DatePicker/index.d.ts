@@ -43,6 +43,8 @@ export interface IStateTypes {
 export default class DatePicker extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
   public state: IStateTypes;
+  private refView;
+  private refCalender;
   private position;
   private preDate;
   private positionIncubator;

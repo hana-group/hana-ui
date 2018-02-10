@@ -22,6 +22,7 @@ export interface IStateTypes {
 
 export default class IconButton extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
+  private refAudio;
   private handlePlay;
   private handlePause;
   private togglePlay;

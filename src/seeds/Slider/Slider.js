@@ -120,6 +120,8 @@ export default class Slider extends Component {
   constructor(props) {
     super(props);
     this.isDragging = false;
+    this.refSlider = null;
+    this.refInner = null;
   }
 
   componentWillMount() {
@@ -128,8 +130,8 @@ export default class Slider extends Component {
   }
 
   componentDidMount() {
-    this.width = findDOMNode(this.refs.slider).clientWidth;
-    this.inner = findDOMNode(this.refs.inner);
+    this.width = findDOMNode(this.refSlider).clientWidth;
+    this.inner = findDOMNode(this.refInner);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -185,8 +187,8 @@ export default class Slider extends Component {
     const computedWidth = this.getWidth(value);
     const restProps = getRestProps(Slider, this.props);
     return (
-      <div className={cls} {...restProps} ref="slider">
-        <div className="hana-slider-inner" style={{width: computedWidth, backgroundColor: color}} ref="inner">
+      <div className={cls} {...restProps} ref={ref => { this.refSlider = ref; }}>
+        <div className="hana-slider-inner" style={{width: computedWidth, backgroundColor: color}} ref={ref => { this.refInner = ref; }}>
           <p className="hana-slider-value">{value}</p>
           <i
             className="hana-slider-button"

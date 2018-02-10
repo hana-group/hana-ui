@@ -50,8 +50,16 @@
     height: 48px;
     bottom: 42px;
     margin: 0 auto;
-    background: rgba(#333, .5);
+    $color: #333;
+    background: linear-gradient(to right, rgba($color, 0), rgba($color, .4) 50%, rgba($color, 0));;
     padding: 0 12px;
+    opacity: 1;
+    transition: all .3s ease-in-out;
+
+    &-hide {
+      opacity: 0;
+      transform: translateX(-50%) translateY(24px);
+    }
 
     &-icon {
       display: block;
@@ -199,11 +207,18 @@
     bottom: 24px;
     align-items: center;
     justify-content: space-between;
+    opacity: 1;
+    transition: all .3s ease-in-out;
 
     >p {
       display: block;
       color: rgba(#bbb, .8);
       font-size: 14px;
+    }
+
+    &-hide {
+      opacity: 0;
+      transform: translateX(-50%) translateY(24px);
     }
   }
 

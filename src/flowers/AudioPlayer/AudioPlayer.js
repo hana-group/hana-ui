@@ -103,12 +103,13 @@ export default class AudioPlayer extends Component {
       showList: false,
       mode: props.mode
     };
+    this.refAudio = null;
   }
 
   componentDidMount() {
     const {autoPlay} = this.props;
     const {volume, currentTime} = this.state;
-    this.audio = findDOMNode(this.refs.audio);
+    this.audio = findDOMNode(this.refAudio);
     this.audio.volume = volume;
     this.audio.currentTime = currentTime;
     this.audio.ontimeupdate = () => {
@@ -238,7 +239,7 @@ export default class AudioPlayer extends Component {
     });
     return (
       <div className='hana-audio'>
-        <audio ref='audio' src={current.src} />
+        <audio ref={ref => {this.refAudio = ref;}} src={current.src} />
         <img src={current.poster || defaultPoster} alt={current.title} className='hana-audio-poster' />
         <section className='hana-audio-title'>
           {current.title} - {current.artist}
@@ -299,7 +300,9 @@ export default class AudioPlayer extends Component {
                   className={cls}
                   key={index}
                   onClick={() => this.handleSwitch(index)}
-                >{item.title} - {item.artist}</li>
+                >
+                  {item.title} - {item.artist}
+                </li>
               );
             }
           )}

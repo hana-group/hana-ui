@@ -52,6 +52,7 @@ export default class Text extends Component<IPropTypes, IStateTypes> {
     public state: IStateTypes;
     public focus: () => void;
     public blur: () => void;
+    private refInput;
     private calcHintAttrs;
     private handlePressKey;
     private handleChange;
