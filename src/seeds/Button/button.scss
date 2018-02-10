@@ -16,7 +16,7 @@ $border-color: #ccd0d7;
 }
 
 .hana-button {
-  background-color: $white;
+  background-color: rgba($white, .7);
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
@@ -52,7 +52,7 @@ $border-color: #ccd0d7;
 .hana-button-error {
   @extend %base-color-border;
 
-  background-color: $lighen-red;
+  background-color: rgba($lighen-red, .8);
   padding: 15px 18px;
 
   &:hover {
@@ -63,7 +63,7 @@ $border-color: #ccd0d7;
 .hana-button-primary {
   @extend %base-color-border;
 
-  background-color: $l-blue;
+  background-color: rgba($l-blue, .8);
   padding: 15px 18px;
 
   &:hover {
