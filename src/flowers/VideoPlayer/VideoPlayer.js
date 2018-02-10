@@ -90,17 +90,21 @@ export default class VideoPlayer extends Component {
      * text: 当视频源文件和默认图像都无效时，显示的元素。
      * poster: 视频封面。
      */
-    list: PropTypes.arrayOf({
-      title: PropTypes.string.isRequired,
-      desc: PropTypes.string,
-      sources: PropTypes.arrayOf({
-        src: PropTypes.string.isRequired,
-        type: PropTypes.string
-      }).isRequired,
-      image: PropTypes.string,
-      text: PropTypes.string,
-      poster: PropTypes.string
-    }),
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        desc: PropTypes.string,
+        sources: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string.isRequired,
+            type: PropTypes.string
+          })
+        ).isRequired,
+        image: PropTypes.string,
+        text: PropTypes.string,
+        poster: PropTypes.string
+      })
+    ),
     /**
      * @en
      * Index of current video in list.
@@ -181,16 +185,19 @@ export default class VideoPlayer extends Component {
       volume: props.volume || 1,
       currentItem: props.currentItem || 0,
       bufferedPercent: 0,
-      // showControllers: true,
+      showControllers: true,
       openList: false
     };
     this.timeoutId = 0;
+    this.mouseTimeoutId = 0;
     this.durationStr = '00:00';
     this.currentStr = '00:00';
+    this.refVideo = null;
+    this.refRoot = null;
   }
 
   componentDidMount = () => {
-    const dom = findDOMNode(this.refs.video);
+    const dom = findDOMNode(this.refVideo);
     dom.addEventListener('canplaythrough', this.handleProgress);
     dom.addEventListener('timeupdate', this.handleTimeUpdate);
     dom.addEventListener('ended', this.handlePlayEnd);
@@ -201,6 +208,7 @@ export default class VideoPlayer extends Component {
     if (this.state.play) {
       this.play();
     }
+    this.handleMouseMove();
   }
 
   componentWillReceiveProps = nextProps => {
@@ -213,7 +221,7 @@ export default class VideoPlayer extends Component {
 
   componentWillUnmount = () => {
     clearTimeout(this.timeoutId);
-    const dom = findDOMNode(this.refs.video);
+    const dom = findDOMNode(this.refVideo);
     dom.removeEventListener('canplaythrough', this.handleProgress);
     dom.removeEventListener('timeupdate', this.handleTimeUpdate);
     dom.removeEventListener('ended', this.handlePlayEnd);
@@ -312,8 +320,8 @@ export default class VideoPlayer extends Component {
   play = () => {
     this.timeoutId = setTimeout(
       () => {
-        this.refs.video.volume = this.state.volume;
-        this.refs.video.play();
+        this.refVideo.volume = this.state.volume;
+        this.refVideo.play();
         this.setState({play: true});
       },
       10
@@ -323,7 +331,7 @@ export default class VideoPlayer extends Component {
   pause = () => {
     this.timeoutId = setTimeout(
       () => {
-        this.refs.video.pause();
+        this.refVideo.pause();
         this.setState({play: false});
       },
       10
@@ -432,21 +440,21 @@ export default class VideoPlayer extends Component {
     switch (getKeyFromCode(e.keyCode || e.which)) {
       case 'LEFT':
         this.handleChangeCurrent(currentPercent - 1);
-        return;
+        break;
       case 'RIGHT':
         this.handleChangeCurrent(currentPercent + 1);
-        return;
+        break;
       case 'UP':
         this.handleChangeVolume(volume + 0.1);
-        return;
+        break;
       case 'DOWN':
         this.handleChangeVolume(volume - 0.1);
-        return;
+        break;
       case 'SPACE':
         this.handleSwitchPlay();
-        return;
+        break;
       default:
-        return;
+        break;
     }
   };
 
@@ -479,7 +487,7 @@ export default class VideoPlayer extends Component {
     }
 
     this.setState({volume: nextVolume}, () => {
-      this.refs.video.volume = this.state.volume;
+      this.refVideo.volume = this.state.volume;
     });
   }
 
@@ -491,7 +499,7 @@ export default class VideoPlayer extends Component {
       nextCurrent = 0;
     }
 
-    const dom = findDOMNode(this.refs.video);
+    const dom = findDOMNode(this.refVideo);
     dom.currentTime = dom.duration * nextCurrent / 100;
     this.setState({
       currentPercent: nextCurrent,
@@ -528,7 +536,7 @@ export default class VideoPlayer extends Component {
     const {
       view
     } = this.state;
-    const dom = findDOMNode(this.refs.root);
+    const dom = findDOMNode(this.refRoot);
 
     if (view === 'full') {
       if (document.exitFullscreen) {
@@ -576,7 +584,7 @@ export default class VideoPlayer extends Component {
       play
     } = this.state;
 
-    const dom = findDOMNode(this.refs.video);
+    const dom = findDOMNode(this.refVideo);
     this.setState({
       currentPercent: 0,
       currentTime: 0,
@@ -590,6 +598,15 @@ export default class VideoPlayer extends Component {
     }
   }
 
+  handleMouseMove = () => {
+    clearTimeout(this.mouseTimeoutId);
+    this.setState({showControllers: true});
+    this.mouseTimeoutId = setTimeout(
+      () => this.setState({showControllers: false}),
+      2000
+    );
+  }
+
   render() {
     const {
       play,
@@ -600,11 +617,15 @@ export default class VideoPlayer extends Component {
       <div
         className={cx(
           'hana-video-player',
-          `hana-video-player-${view}`
+          `hana-video-player-${view}`,
+          this.props.className
         )}
-        ref={'root'}
+        ref={ref => {
+          this.refRoot = ref;
+        }}
         tabIndex={-1}
         onKeyDown={this.handlePressKey}
+        onMouseMove={this.handleMouseMove}
       >
         {this.renderVideo()}
         <div
@@ -628,7 +649,6 @@ export default class VideoPlayer extends Component {
       defaultText,
       defaultImage,
       defaultPoster,
-      className,
       style
     } = this.props;
 
@@ -646,9 +666,11 @@ export default class VideoPlayer extends Component {
     return (
       <video
         key={item}
-        className={cx('hana-video-player-video', className)}
+        className={cx('hana-video-player-video')}
         style={style}
-        ref={'video'}
+        ref={ref => {
+          this.refVideo = ref;
+        }}
         {...poster}
         autoPlay={autoPlay}
         preload={preload}
@@ -668,7 +690,8 @@ export default class VideoPlayer extends Component {
     const {
       play,
       volume,
-      mode
+      mode,
+      showControllers
     } = this.state;
 
     if (this.list.length === 0) {
@@ -676,7 +699,12 @@ export default class VideoPlayer extends Component {
     }
 
     return (
-      <div className={cx('hana-video-player-ctr')}>
+      <div
+        className={cx(
+          'hana-video-player-ctr',
+          !showControllers && 'hana-video-player-ctr-hide'
+        )}
+      >
         <div className={cx('hana-video-player-ctr-bg')} />
         <div className={cx('hana-video-player-ctr-fg')} >
           <i
@@ -746,7 +774,8 @@ export default class VideoPlayer extends Component {
   renderProgress = () => {
     const {
       currentPercent,
-      bufferedPercent
+      bufferedPercent,
+      showControllers
     } = this.state;
 
     if (this.list.length === 0) {
@@ -755,7 +784,10 @@ export default class VideoPlayer extends Component {
 
     return (
       <div
-        className={cx('hana-video-player-time-bar')}
+        className={cx(
+          'hana-video-player-time-bar',
+          !showControllers && 'hana-video-player-time-bar-hide'
+        )}
       >
         <p>{this.currentStr}</p>
         <Progress

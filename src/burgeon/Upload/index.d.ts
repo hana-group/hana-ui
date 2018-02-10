@@ -56,6 +56,7 @@ export interface IBaseStateTypes {
 }
 export class UploadBase extends Component<IBasePropTypes, IBaseStateTypes> {
   static defaultProps: IPropTypes;
+  private refInput;
   private files;
   private validFiles;
   private uploadFiles;

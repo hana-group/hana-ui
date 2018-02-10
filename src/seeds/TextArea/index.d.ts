@@ -55,6 +55,7 @@ export default class TextArea extends Component<IPropTypes, IStateTypes> {
     public state: IStateTypes;
     public focus: () => void;
     public blur: () => void;
+    private refInput;
     private updateStyles;
     private calcHintAttrs;
     private handlePressKey;

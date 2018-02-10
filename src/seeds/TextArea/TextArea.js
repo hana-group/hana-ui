@@ -267,7 +267,7 @@ export default class TextArea extends Component {
     backgroundColor: '#fff',
     withIcon: true,
     icon: null,
-//     focus: false,
+    // focus: false,
     onChange: () => {},
     onBlur: () => {},
     onFocus: () => {},
@@ -285,6 +285,7 @@ export default class TextArea extends Component {
       value: props.auto ? props.defaultValue : props.value,
       focus: !!props.focus
     };
+    this.refInput = null;
   }
 
   componentDidMount() {
@@ -305,11 +306,11 @@ export default class TextArea extends Component {
   }
 
   focus = () => {
-    this.refs.input.focus();
+    this.refInput.focus();
   };
 
   blur = () => {
-    this.refs.input.blur();
+    this.refInput.blur();
   };
 
   updateStyles = () => {
@@ -328,7 +329,7 @@ export default class TextArea extends Component {
     const lines = value.split('\n').length;
     const {maxLines: max, minLines: min} = autoSize;
 
-    const element = findDOMNode(this.refs.input);
+    const element = findDOMNode(this.refInput);
     let height = element.scrollHeight;
 
     if (lines <= max && lines >= min) {
@@ -518,7 +519,9 @@ export default class TextArea extends Component {
               `hana-text-area-input-${size}`,
               `hana-text-area-input-${hintAttrs.mode}`
             )}
-            ref="input"
+            ref={ref => {
+              this.refInput = ref;
+            }}
             disabled={disabled}
             value={value}
             onChange={this.handleChange}

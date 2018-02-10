@@ -17,6 +17,8 @@ export interface IStateTypes {
 
 export default class Slider extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
+  private refSlider;
+  private refInner;
   private getWidth;
   private dragStart;
   private handleMouseMove;

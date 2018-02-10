@@ -43,10 +43,18 @@ export interface IStateTypes {
   currentItem: number;
   bufferedPercent: number;
   openList: boolean;
+  showControllers: boolean;
 }
 export default class VideoPlayer extends Component<IPropTypes, IStateTypes> {
     static defaultProps: IPropTypes;
     public state: IStateTypes;
+    private refVideo;
+    private refRoot;
+    private timeoutId;
+    private mouseTimeoutId;
+    private durationStr;
+    private currentStr;
+    private list;
     private parseProps;
     private parseSources;
     private genType;
@@ -66,6 +74,7 @@ export default class VideoPlayer extends Component<IPropTypes, IStateTypes> {
     private handleViewChange;
     private handleSwitchList;
     private handleChangeItem;
+    private handleMouseMove;
     public render: () => JSX.Element;
     private renderVideo;
     private renderControllers;

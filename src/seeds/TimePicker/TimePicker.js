@@ -188,6 +188,8 @@ export default class TimePicker extends Component {
     this.initArray('hours', 24);
     this.initArray('minutes', 60);
     this.initArray('seconds', 60);
+    this.refView = null;
+    this.refCalender = null;
   }
 
   componentDidMount() {
@@ -195,7 +197,7 @@ export default class TimePicker extends Component {
     document.addEventListener('scroll', this.handleScroll, true);
     window.addEventListener('resize', this.handleScroll, true);
     document.addEventListener('keydown', this.handlePressKey, true);
-    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -214,7 +216,7 @@ export default class TimePicker extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (!this.state.show && nextState.show) {
-      this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+      this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
     }
     return true;
   }
@@ -229,7 +231,7 @@ export default class TimePicker extends Component {
   initArray = (name, n) => {
     this[name] = new Array(n);
     this[`${name}Labels`] = new Array(n);
-    for (let i = 0; i < n; i ++) {
+    for (let i = 0; i < n; i += 1) {
       this[name][i] = i;
       this[`${name}Labels`][i] = `${i < 10 ? '0' : ''}${i}`;
     }
@@ -289,7 +291,7 @@ export default class TimePicker extends Component {
       return;
     }
 
-    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
     this.forceUpdate();
   };
 
@@ -305,36 +307,36 @@ export default class TimePicker extends Component {
 
     switch (e.key) {
       case 'ArrowLeft':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addTime('hour', -1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addTime('minute', -1);
         } else {
           this.addTime('second', -1);
         }
         return;
       case 'ArrowRight':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addTime('hour', 1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addTime('minute', 1);
         } else {
           this.addTime('second', 1);
         }
         return;
       case 'ArrowUp':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addTime('hour', -1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addTime('minute', -10);
         } else {
           this.addTime('second', -10);
         }
         return;
       case 'ArrowDown':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addTime('hour', 1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addTime('minute', 10);
         } else {
           this.addTime('second', 10);
@@ -345,9 +347,9 @@ export default class TimePicker extends Component {
         return;
       case 'Escape':
         this.handleCancel();
-        return;
+        break;
       default:
-        return;
+        break;
     }
   };
 
@@ -383,8 +385,8 @@ export default class TimePicker extends Component {
       return;
     }
 
-    const domNode = ReactDom.findDOMNode(this.refs.calender);
-    const domNodeView = ReactDom.findDOMNode(this.refs.view);
+    const domNode = ReactDom.findDOMNode(this.refCalender);
+    const domNodeView = ReactDom.findDOMNode(this.refView);
     if (
       (!domNode || !domNode.contains(e.target)
       && (!domNodeView || !domNodeView.contains(e.target)))
@@ -455,7 +457,7 @@ export default class TimePicker extends Component {
       show: show === undefined ? false : show
     });
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -479,7 +481,7 @@ export default class TimePicker extends Component {
     });
 
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -497,7 +499,7 @@ export default class TimePicker extends Component {
       show: show === undefined ? false : show
     });
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -507,9 +509,6 @@ export default class TimePicker extends Component {
       className
     } = this.props;
 
-    const {
-      show
-    } = this.state;
     const otherProps = getRestProps(TimePicker, this.props);
 
     return (
@@ -557,13 +556,15 @@ export default class TimePicker extends Component {
 
     if (children) {
       return children && cloneElement(children, {
-        ref: 'view',
+        ref: ref => {
+          this.refView = ref;
+        },
         onClick: e => {
           children.onClick && children.onClick(e);
           if (show) {
-            this.handleCloseDialog(event);
+            this.handleCloseDialog(e);
           } else {
-            this.handleOpenDialog(event);
+            this.handleOpenDialog(e);
           }
         }
       });
@@ -572,7 +573,9 @@ export default class TimePicker extends Component {
     if (view === 'text') {
       return (
         <Text
-          ref="view"
+          ref={ref => {
+            this.refView = ref;
+          }}
           value={time ? format(time) : ''}
           onFocus={this.handleOpenDialog}
           icon={<Icon type={'time'} />}
@@ -589,13 +592,12 @@ export default class TimePicker extends Component {
 
     return show
       ? (
-      <div
-        className={cx(
-          'hana-time-picker-warp'
-        )}
-        onClick={this.handleCancel}
-      >
-      </div>
+        <div
+          className={cx(
+            'hana-time-picker-warp'
+          )}
+          onClick={this.handleCancel}
+        />
       )
       : null;
   };
@@ -618,7 +620,9 @@ export default class TimePicker extends Component {
 
     return (
       <Container
-        ref="calender"
+        ref={ref => {
+          this.refCalender = ref;
+        }}
         className={cx(
           dialogClassName
         )}

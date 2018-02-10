@@ -237,6 +237,8 @@ export default class DatePicker extends Component {
     };
     this.position = {};
     this.preDate = this.state.date;
+    this.refView = null;
+    this.refCalender = null;
   }
 
   componentDidMount() {
@@ -244,7 +246,7 @@ export default class DatePicker extends Component {
     document.addEventListener('scroll', this.handleScroll, true);
     window.addEventListener('resize', this.handleScroll, true);
     document.addEventListener('keydown', this.handlePressKey, true);
-    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -269,7 +271,7 @@ export default class DatePicker extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (!this.state.show && nextState.show) {
-      this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+      this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
     }
     return true;
   }
@@ -335,7 +337,7 @@ export default class DatePicker extends Component {
       return;
     }
 
-    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refs.view));
+    this.position = this.positionIncubator(ReactDom.findDOMNode(this.refView));
     this.forceUpdate();
   };
 
@@ -351,36 +353,36 @@ export default class DatePicker extends Component {
 
     switch (e.key) {
       case 'ArrowLeft':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addDate('year', -1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addDate('month', -1);
         } else {
           this.addDate('date', -1);
         }
         return;
       case 'ArrowRight':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addDate('year', 1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addDate('month', 1);
         } else {
           this.addDate('date', 1);
         }
         return;
       case 'ArrowUp':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addDate('year', -1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addDate('month', -1);
         } else {
           this.addDate('date', -7);
         }
         return;
       case 'ArrowDown':
-        if (event.altKey && event.shiftKey) {
+        if (e.altKey && e.shiftKey) {
           this.addDate('year', 1);
-        } else if (event.shiftKey) {
+        } else if (e.shiftKey) {
           this.addDate('month', 1);
         } else {
           this.addDate('date', 7);
@@ -391,9 +393,9 @@ export default class DatePicker extends Component {
         return;
       case 'Escape':
         this.handleCancel();
-        return;
+        break;
       default:
-        return;
+        break;
     }
   };
 
@@ -429,12 +431,12 @@ export default class DatePicker extends Component {
       return;
     }
 
-    const domNode = ReactDom.findDOMNode(this.refs.calender);
-    const domNodeView = ReactDom.findDOMNode(this.refs.view);
+    const domNode = ReactDom.findDOMNode(this.refCalender);
+    const domNodeView = ReactDom.findDOMNode(this.refView);
     if (
-      (!domNode || !domNode.contains(e.target)
-      && (!domNodeView || !domNodeView.contains(e.target)))
-     ) {
+      (!domNode || !domNode.contains(e.target) &&
+      (!domNodeView || !domNodeView.contains(e.target)))
+    ) {
       this.handleCancel();
     }
   };
@@ -475,7 +477,7 @@ export default class DatePicker extends Component {
       show: show === undefined ? false : show
     });
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -499,7 +501,7 @@ export default class DatePicker extends Component {
     });
 
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -517,7 +519,7 @@ export default class DatePicker extends Component {
       show: show === undefined ? false : show
     });
     if (!children && view === 'text') {
-      this.refs.view.blur();
+      this.refView.blur();
     }
   };
 
@@ -526,10 +528,6 @@ export default class DatePicker extends Component {
       style,
       className
     } = this.props;
-
-    const {
-      show
-    } = this.state;
     const otherProps = getRestProps(DatePicker, this.props);
 
     return (
@@ -577,13 +575,15 @@ export default class DatePicker extends Component {
 
     if (children) {
       return children && cloneElement(children, {
-        ref: 'view',
+        ref: ref => {
+          this.refView = ref;
+        },
         onClick: e => {
           children.onClick && children.onClick(e);
           if (show) {
-            this.handleCloseDialog(event);
+            this.handleCloseDialog(e);
           } else {
-            this.handleOpenDialog(event);
+            this.handleOpenDialog(e);
           }
         }
       });
@@ -592,7 +592,9 @@ export default class DatePicker extends Component {
     if (view === 'text') {
       return (
         <Text
-          ref="view"
+          ref={ref => {
+            this.refView = ref;
+          }}
           value={date ? format(date) : ''}
           onFocus={this.handleOpenDialog}
           icon={<Icon type={'date'} />}
@@ -611,13 +613,12 @@ export default class DatePicker extends Component {
 
     return show
       ? (
-      <div
-        className={cx(
-          'hana-date-picker-warp'
-        )}
-        onClick={this.handleCancel}
-      >
-      </div>
+        <div
+          className={cx(
+            'hana-date-picker-warp'
+          )}
+          onClick={this.handleCancel}
+        />
       )
       : null;
   };
@@ -642,7 +643,9 @@ export default class DatePicker extends Component {
 
     return (
       <Container
-        ref="calender"
+        ref={ref => {
+          this.refCalender = ref;
+        }}
         className={cx(
           dialogClassName
         )}

@@ -28,6 +28,8 @@ export default class Progress extends Component {
     this.state = {current: props.current};
     this.startCurrent = props.current;
     this.changing = false;
+    this.refContainer = null;
+    this.refInner = null;
   }
 
   componentDidMount = () => {
@@ -92,8 +94,8 @@ export default class Progress extends Component {
 
     this.changing = true;
     this.startCurrent = current;
-    this.dragPosition = findDOMNode(this.refs.inner).getBoundingClientRect().right;
-    this.width = findDOMNode(this.refs.container).clientWidth;
+    this.dragPosition = findDOMNode(this.refInner).getBoundingClientRect().right;
+    this.width = findDOMNode(this.refContainer).clientWidth;
   }
 
   handleClickBar = e => {
@@ -105,8 +107,8 @@ export default class Progress extends Component {
       return;
     }
 
-    const value = e.pageX - findDOMNode(this.refs.inner).getBoundingClientRect().left;
-    this.width = findDOMNode(this.refs.container).clientWidth;
+    const value = e.pageX - findDOMNode(this.refInner).getBoundingClientRect().left;
+    this.width = findDOMNode(this.refContainer).clientWidth;
     const current = (value / this.width * 100);
     this.setState({current});
     onChange(current, this.handleDragStart);
@@ -124,7 +126,9 @@ export default class Progress extends Component {
 
     return (
       <div
-        ref={'container'}
+        ref={ref => {
+          this.refContainer = ref;
+        }}
         className={cx(
           'hana-video-player-progress',
           this.changing && 'hana-video-player-progress-changing',
@@ -137,7 +141,9 @@ export default class Progress extends Component {
           className={cx('hana-video-player-progress-bf')}
         />
         <div
-          ref={'inner'}
+          ref={ref => {
+            this.refInner = ref;
+          }}
           style={{width: `${current}%`}}
           className={cx('hana-video-player-progress-bar')}
         />

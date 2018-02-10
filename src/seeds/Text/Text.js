@@ -276,7 +276,7 @@ export default class Text extends Component {
     withIcon: true,
     icon: null,
     iconPosition: 'before',
-//     focus: false,
+    // focus: false,
     onChange: () => {},
     onBlur: () => {},
     onFocus: () => {},
@@ -295,10 +295,11 @@ export default class Text extends Component {
       value: props.auto ? props.defaultValue : props.value,
       focus: !!props.focus
     };
+    this.refInput = null;
   }
 
   componentDidMount() {
-    const dom = findDOMNode(this.refs.input);
+    const dom = findDOMNode(this.refInput);
     dom.addEventListener('keyup', this.handlePressKey, true);
   }
 
@@ -312,16 +313,16 @@ export default class Text extends Component {
   }
 
   componentWillUnmount() {
-    const dom = findDOMNode(this.refs.input);
+    const dom = findDOMNode(this.refInput);
     dom.removeEventListener('keyup', this.handlePressKey, true);
   }
 
   focus = () => {
-    this.refs.input.focus();
+    this.refInput.focus();
   };
 
   blur = () => {
-    this.refs.input.blur();
+    this.refInput.blur();
   };
 
   calcHintAttrs = () => {
@@ -511,7 +512,9 @@ export default class Text extends Component {
               withIcon && `hana-text-input-with-icon-${iconPosition}`,
               `hana-text-input-${hintAttrs.mode}`
             )}
-            ref="input"
+            ref={ref => {
+              this.refInput = ref;
+            }}
             type={mode}
             disabled={disabled}
             value={value}
