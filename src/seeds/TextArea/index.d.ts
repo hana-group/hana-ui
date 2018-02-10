@@ -11,9 +11,11 @@ declare type THint = {
   message: string,
   style: any,
   descStyle: any,
-  icon: PropTypes.node,
-  color: PropTypes.string
+  icon: JSX.Element,
+  color: string
 };
+
+declare type TValue = string | number;
 
 export interface IPropTypes {
   auto?: boolean;
@@ -33,9 +35,9 @@ export interface IPropTypes {
   message?: string;
   iconPosition?: 'before' | 'after';
   focus?: boolean;
-  onChange: (event: Event, value: valueType) => void;
-  onBlur: (event: Event, value: valueType) => void;
-  onFocus: (event: Event, value: valueType) => void;
+  onChange: (event: Event, value: TValue) => void;
+  onBlur: (event: Event, value: TValue) => void;
+  onFocus: (event: Event, value: TValue) => void;
   className?: string;
   style?: any;
   inputStyle?: any;
@@ -62,5 +64,4 @@ export default class TextArea extends Component<IPropTypes, IStateTypes> {
     private handleChange;
     private handleBlur;
     private handleFocus;
-    public render: () => JSX.Element;
 }

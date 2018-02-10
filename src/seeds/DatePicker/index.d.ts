@@ -58,5 +58,4 @@ export default class DatePicker extends Component<IPropTypes, IStateTypes> {
   private handleConfirm;
   private handleCancel;
   private handleClear;
-  public render: () => JSX.Element;
 }

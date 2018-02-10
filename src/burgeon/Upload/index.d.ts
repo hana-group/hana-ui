@@ -32,7 +32,6 @@ export interface IStateTypes {
 }
 export default class Upload extends Component<IPropTypes, IStateTypes> {
   static defaultProps: IPropTypes;
-  public render: () => JSX.Element;
 }
 
 export interface IBasePropTypes {
@@ -72,6 +71,5 @@ export class UploadBase extends Component<IBasePropTypes, IBaseStateTypes> {
   private handleProgress;
   private handleError;
   private handleSuccess;
-  public render: () => JSX.Element;
   public renderContent: () => JSX.Element;
 }

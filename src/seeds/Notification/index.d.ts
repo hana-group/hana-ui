@@ -1,5 +1,5 @@
-import * as Notification from './Notification.d.ts';
-import * as Notifications from './Notifications.d.ts';
+import * as Notification from './Notification';
+import * as Notifications from './Notifications';
 
 export {
   Notification,

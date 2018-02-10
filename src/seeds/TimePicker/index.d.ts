@@ -5,6 +5,7 @@
  */
 /// <reference types="react" />
 import {Component} from 'react';
+import {dateOrStringOrNull} from '../../utils';
 
 export interface IPropTypes {
   time: dateOrStringOrNull;
@@ -53,5 +54,4 @@ export default class TimePicker extends Component<IPropTypes, IStateTypes> {
   private handleConfirm;
   private handleCancel;
   private handleClear;
-  public render: () => JSX.Element;
 }
