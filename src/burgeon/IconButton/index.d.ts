@@ -6,7 +6,7 @@ export interface IPropTypes {
   style?: any;
   size?: 'small' | 'middle' | 'large';
   iconStyle?: any;
-  tipContent?: JSX.Element;
+  tipContent?: React.ReactNode;
   tipStyle?: any;
   tipColor?: string;
   tipPosition?: 'top' | 'bottom' | 'left' | 'right';

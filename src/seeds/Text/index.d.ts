@@ -10,7 +10,7 @@ declare type THint = {
   show: boolean,
   message: string,
   style: any,
-  icon: JSX.Element
+  icon: React.ReactNode
 };
 
 declare type TValue = string | number;
@@ -25,7 +25,7 @@ export interface IPropTypes {
   value?: TValue;
   size?: 'small' | 'middle' | 'large';
   withIcon?: boolean;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
   color?: string;
   message?: string;
   iconPosition?: 'before' | 'after';
@@ -41,7 +41,7 @@ export interface IPropTypes {
   error?: THint;
   warning?: THint;
   success?: THint;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   value: TValue;

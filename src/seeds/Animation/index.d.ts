@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  children: (...any) => JSX.Element;
+  children: (...any) => React.ReactNode;
   duration?: number;
   animation: any;
   onStart?: (animation: any, props: IPropTypes) => void;

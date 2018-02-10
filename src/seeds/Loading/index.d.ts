@@ -1,8 +1,8 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  content?: JSX.Element;
-  icon?: JSX.Element;
+  content?: React.ReactNode;
+  icon?: React.ReactNode;
   rotate?: boolean;
   wrapStyle?: any;
   style?: any;

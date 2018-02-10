@@ -3,7 +3,7 @@ import {Component} from 'react';
 export interface IPropTypes {
   style?: any;
   currentIndex?: number;
-  children: JSX.Element;
+  children: React.ReactNode;
   className?: string;
   height?: number;
   width?: number;

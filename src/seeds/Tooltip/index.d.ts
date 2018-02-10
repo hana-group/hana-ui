@@ -8,7 +8,7 @@ import {Component} from 'react';
 
 export interface IPropTypes {
   view?: 'border' | 'fill';
-  content?: JSX.Element;
+  content?: React.ReactNode;
   position?: 'top' | 'bottom' | 'left' | 'right';
   show?: boolean;
   disabled?: boolean;
@@ -18,7 +18,7 @@ export interface IPropTypes {
   className?: string;
   style?: any;
   containerStyle?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   show: boolean;

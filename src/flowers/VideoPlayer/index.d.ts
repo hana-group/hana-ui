@@ -30,7 +30,7 @@ export interface IPropTypes {
   defaultImage?: string;
   className?: string;
   style?: any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   view: 'window', 'full';

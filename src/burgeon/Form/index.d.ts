@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  children: JSX.Element;
+  children: React.ReactNode;
   onSubmit?: (event: Event) => void;
   labelPosition?: 'top' | 'left';
   className?: string;
@@ -16,9 +16,9 @@ export class Form extends Component<IPropTypes, IStateTypes> {
 }
 
 export interface IFormItemPropTypes {
-  children: JSX.Element;
-  label: JSX.Element;
-  info: JSX.Element;
+  children: React.ReactNode;
+  label: React.ReactNode;
+  info: React.ReactNode;
   status?: 'normal' | 'success' | 'error' | 'warn';
   labelPosition?: 'top' | 'left';
   style?: any;
@@ -35,8 +35,8 @@ export class FormItem extends Component<IFormItemPropTypes, IFormItemStateTypes>
 }
 
 export interface IFormGroupPropTypes {
-  children: JSX.Element;
-  label: JSX.Element;
+  children: React.ReactNode;
+  label: React.ReactNode;
   labelPosition?: 'top' | 'left';
   className?: string;
   labelStyle?: any;

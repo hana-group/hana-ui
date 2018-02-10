@@ -33,7 +33,7 @@ export interface IPropTypes {
   };
   yearStart?: number;
   yearEnd?: number;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 export interface IStateTypes {
   show: boolean;

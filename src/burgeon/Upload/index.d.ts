@@ -26,7 +26,7 @@ export interface IPropTypes {
   onSuccess?: (response: Response, fileObj: {[key: string]: any}) => void;
   onError?: (error: Error, response: Response, fileObj: {[key: string]: any}) => void;
   withCredentials?: boolean;
-  renderContent?: (files: {[key: string]: any}[]) => JSX.Element;
+  renderContent?: (files: {[key: string]: any}[]) => React.ReactNode;
 }
 export interface IStateTypes {
 }
@@ -49,7 +49,7 @@ export interface IBasePropTypes {
   onSuccess?: (response: Response, fileObj: {[key: string]: any}) => void;
   onError?: (error: Error, response: Response, fileObj: {[key: string]: any}) => void;
   withCredentials?: boolean;
-  renderContent?: (files: {[key: string]: any}[]) => JSX.Element;
+  renderContent?: (files: {[key: string]: any}[]) => React.ReactNode;
 }
 export interface IBaseStateTypes {
 }
@@ -71,5 +71,5 @@ export class UploadBase extends Component<IBasePropTypes, IBaseStateTypes> {
   private handleProgress;
   private handleError;
   private handleSuccess;
-  public renderContent: () => JSX.Element;
+  public renderContent: () => React.ReactNode;
 }

@@ -4,7 +4,7 @@ import {Component} from 'react';
 export interface Props {
   style?: any;
   type?: string[];
-  content: string[] | JSX.Element[];
+  content: string[] | React.ReactNode[];
   duration?: number;
   showClose?: boolean;
   className?: string;
@@ -20,7 +20,7 @@ export class Notification extends Component<Props, States> {
 }
 
 export interface INotificationsProps {
-  notification?: JSX.Element[];
+  notification?: React.ReactNode[];
   onRequestClose?: () => void;
 }
 

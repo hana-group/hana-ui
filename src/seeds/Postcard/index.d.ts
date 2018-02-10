@@ -2,9 +2,9 @@
 import {Component} from 'react';
 export interface IPropTypes {
   style?: any;
-  children?: JSX.Element;
-  title?: JSX.Element;
-  subtitle?: JSX.Element;
+  children?: React.ReactNode;
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
   titleStyle?: any;
   subtitleStyle?: any;
 }
@@ -17,7 +17,7 @@ export class Postcard extends Component<IPropTypes, IStateTypes> {
 }
 
 export interface IPostcardGroupPropTypes {
-  children: JSX.Element;
+  children: React.ReactNode;
   height?: number;
   mode?: 'normal' | 'random' | 'clothesline';
 }
