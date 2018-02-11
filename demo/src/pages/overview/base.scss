@@ -121,50 +121,99 @@
 .demo-overview-page {
   width: 100%;
 
-  &-enter.page {
-    transition: all 700ms ease-in-out;
-    left: 0;
-
-    .page-content {
-      transition: all 500ms ease-in-out;
-      transition-delay: 600ms;
-      transform-origin: 0 center;
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-  }
-
-  &-enter-active.page {
-    left: 50%;
-
-    .page-content {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+  &-next {
+    &-enter.page {
+      transition: all 700ms ease-in-out;
+      left: 0;
   
-  &-exit.page {
-    transition: all 1000ms ease-in-out;
-    transition-delay: 300ms;
-    opacity: 1;
-    left: 50%;
-
-    .page-content {
-      transition: all 500ms ease-in-out;
-      transform-origin: 0 center;
-      opacity: 1;
-      transform: translateX(0);
+      .page-content {
+        transition: all 500ms ease-in-out;
+        transition-delay: 600ms;
+        transform-origin: 0 center;
+        opacity: 0;
+        transform: translateX(-100px);
+      }
     }
-  }
-
-  &-exit-active.page {
-    opacity: 0;
-    left: 150%;
-
-    .page-content {
-      opacity: 0;
-      transform: translateX(300px);
-    }
-  }
   
+    &-enter-active.page {
+      left: 50%;
+  
+      .page-content {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    &-exit.page {
+      transition: all 1000ms ease-in-out;
+      transition-delay: 300ms;
+      opacity: 1;
+      left: 50%;
+  
+      .page-content {
+        transition: all 500ms ease-in-out;
+        transform-origin: 0 center;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    &-exit-active.page {
+      opacity: 0;
+      left: 150%;
+  
+      .page-content {
+        opacity: 0;
+        transform: translateX(300px);
+      }
+    }
+  }
+
+  &-pre {
+    &-enter.page {
+      transition: all 900ms ease-in-out;
+      left: 120%;
+  
+      .page-content {
+        transition: all 600ms ease-in-out;
+        transition-delay: 0ms;
+        transform-origin: 0 center;
+        opacity: 0;
+        transform: translateX(100px);
+      }
+    }
+  
+    &-enter-active.page {
+      left: 50%;
+  
+      .page-content {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    &-exit.page {
+      transition: all 700ms ease-in-out;
+      transition-delay: 100ms;
+      opacity: 1;
+      left: 50%;
+  
+      .page-content {
+        transition: all 600ms ease-in-out;
+        transform-origin: 0 center;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    &-exit-active.page {
+      opacity: 0;
+      left: -10%;
+  
+      .page-content {
+        opacity: 0;
+        transform: translateX(-300px);
+      }
+    }
+  }
 }
