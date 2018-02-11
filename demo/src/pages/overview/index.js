@@ -211,6 +211,7 @@ export default class Overview extends React.Component {
   state = {
     page: 0,
     nextPage: 0,
+    dir: 'next',
     switchDone: true,
     color: colors[0]
   };
@@ -284,18 +285,25 @@ export default class Overview extends React.Component {
         nextPage = page === max ? 0 : page + 1;
         break;
       default:
-        break;
+        return;
     }
 
     this.changePage(nextPage);
   }
 
   changePage = (page) => {
-    this.setState({switchDone: false, nextPage: page});
+    const diff = this.state.page - page;
+
+    this.setState({
+      switchDone: false,
+      nextPage: page,
+      dir: diff === -1 || diff === 5 ? 'next' : 'pre'
+    });
   }
 
   render() {
-    const {nextPage} = this.state;
+    const {nextPage, dir} = this.state;
+
     return (
       <div className={'demo-overview'}>
         <FireFlies
@@ -303,7 +311,7 @@ export default class Overview extends React.Component {
           color={this.state.color}
         />
         <CSSTransition
-          classNames={'demo-overview-page'}
+          classNames={`demo-overview-page-${dir}`}
           timeout={pageChangeDuration}
           in={this.state.switchDone}
           onExited={() => this.setState({page: nextPage, switchDone: true, color: colors[nextPage]})}
