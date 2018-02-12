@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import cx from 'classnames';
 
+import Icon from '../Icon';
 import getRestProps from '../../utils/getRestProps';
 
 const noop = () => {};
@@ -107,7 +108,7 @@ export default class Slider extends Component {
     onChange: noop,
     onDragStart: noop,
     onDragEnd: noop,
-    icon: null
+    icon: <Icon type={'himawari'} />
   }
 
   state = {

@@ -44,5 +44,12 @@
     top: 5px;
     transform: translate(50%, -50%);
     cursor: pointer;
+    color: darken($primary-color, 20%);
+
+    .hanaicon {
+      color: inherit;
+      font-size: inherit;
+      font-size: 24px;
+    }
   }
 }
