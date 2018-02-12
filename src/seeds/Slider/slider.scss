@@ -37,4 +37,12 @@
     top: -20px;
     color: $primary-color
   }
+
+  &-icon-wrap{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+  }
 }

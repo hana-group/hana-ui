@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Slider} from 'hana-ui';
+import {Slider, Icon} from 'hana-ui';
 import ExampleBlock from 'demo/ExampleBlock';
 
 /**
@@ -18,7 +18,6 @@ import ExampleBlock from 'demo/ExampleBlock';
  * 使用`onChange`来获取滑动条的状态。
  */
 export default class ExampleBase extends Component {
-
   state = {
     val: 140
   }

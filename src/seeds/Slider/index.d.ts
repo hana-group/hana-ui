@@ -1,15 +1,16 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  defaultValue: number;
-  value: number;
-  color: string;
-  onChange: (value: number) => void;
-  onDragStart: (event: Event) => void;
-  onDragEnd: (event: Event) => void;
-  min: number;
-  max: number;
-  className: string;
+  defaultValue?: number;
+  value?: number;
+  color?: string;
+  icon?: React.ReactNode;
+  onChange?: (value: number) => void;
+  onDragStart?: (event: Event) => void;
+  onDragEnd?: (event: Event) => void;
+  min?: number;
+  max?: number;
+  className?: string;
 }
 
 export interface IStateTypes {

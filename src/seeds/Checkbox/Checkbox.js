@@ -130,7 +130,7 @@ export default class Checkbox extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.checked !== this.state.checked) this.setState({checked: nextProps.checked});
+    if (nextProps.checked !== this.state.checked && nextProps.checked !== undefined) this.setState({checked: nextProps.checked});
   }
 
   handleClick = e => {
@@ -142,6 +142,7 @@ export default class Checkbox extends Component {
     const {checked} = this.state;
     if (disabled) return;
     const nextChecked = !checked;
+    console.log('changed', auto, this.state)
     if (auto) {
       this.setState({checked: nextChecked}, () => onChange(e, nextChecked));
     } else {
