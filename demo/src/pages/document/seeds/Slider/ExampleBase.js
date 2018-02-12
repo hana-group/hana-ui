@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Slider, Icon} from 'hana-ui';
+import {Slider} from 'hana-ui';
 import ExampleBlock from 'demo/ExampleBlock';
 
 /**
@@ -32,6 +32,24 @@ export default class ExampleBase extends Component {
           defaultValue={140}
           min={100}
           max={150}
+          onChange={val => this.setState({val})}
+        />
+
+        <Slider
+          style={{marginTop: 40}}
+          defaultValue={140}
+          min={100}
+          max={150}
+          size='small'
+          onChange={val => this.setState({val})}
+        />
+
+        <Slider
+          style={{marginTop: 40}}
+          defaultValue={140}
+          min={100}
+          max={150}
+          size='large'
           onChange={val => this.setState({val})}
         />
       </ExampleBlock>
