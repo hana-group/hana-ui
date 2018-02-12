@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import cx from 'classnames';
-// import {Icon} from '../../index';
 
 import getRestProps from '../../utils/getRestProps';
 
-
-// TODO add a icon
 const noop = () => {};
 
 export default class Slider extends Component {
@@ -69,12 +66,12 @@ export default class Slider extends Component {
 
     /**
      * @en
-     * the icon's size
+     * the slider's custom icon
      *
      * @cn
-     * the icon's size
+     * 滑动条的自定义icon
      */
-    // icon: PropTypes.node,
+    icon: PropTypes.node,
 
     /**
      * @en
@@ -109,8 +106,8 @@ export default class Slider extends Component {
     max: 100,
     onChange: noop,
     onDragStart: noop,
-    onDragEnd: noop
-    // icon: <Icon type="yukibana-o" />
+    onDragEnd: noop,
+    icon: null
   }
 
   state = {
@@ -162,7 +159,6 @@ export default class Slider extends Component {
       const {min, max} = this.props;
       const delta = e.pageX - this.dragPosition;
 
-      // TODO improve....
       let value = Math.round(this.currentValue + delta * (max - min) / this.width);
       if (value > max) value = max;
       if (value < min) value = min;
@@ -181,7 +177,7 @@ export default class Slider extends Component {
   }
 
   render() {
-    const {color, className} = this.props;
+    const {color, className, icon} = this.props;
     const {value} = this.state;
     const cls = cx('hana-slider', className);
     const computedWidth = this.getWidth(value);
@@ -190,10 +186,19 @@ export default class Slider extends Component {
       <div className={cls} {...restProps} ref={ref => { this.refSlider = ref; }}>
         <div className="hana-slider-inner" style={{width: computedWidth, backgroundColor: color}} ref={ref => { this.refInner = ref; }}>
           <p className="hana-slider-value">{value}</p>
-          <i
-            className="hana-slider-button"
-            onMouseDown={this.dragStart}
-          />
+          {icon ?
+            <div
+              className="hana-slider-icon-wrap"
+              onMouseDown={this.dragStart}
+            >
+              {icon}
+            </div>
+            :
+            <i
+              className="hana-slider-button"
+              onMouseDown={this.dragStart}
+            />
+          }
         </div>
       </div>
     );
