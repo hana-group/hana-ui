@@ -32,7 +32,7 @@ class Button extends Component {
      * @cn
      * 设置按钮类型，可选配置：'primary','error','default','disabled'
      */
-    type: PropTypes.oneOf(['primary', 'error', 'default', 'disabled']),
+    type: PropTypes.oneOf(['primary', 'error', 'default', 'disabled', 'warning']),
 
     /**
      * @en

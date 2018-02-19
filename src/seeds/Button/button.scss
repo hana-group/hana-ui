@@ -48,7 +48,7 @@
 .hana-button-error {
   @extend %base-color-border;
 
-  background-color: rgba($button-error-color, .8);
+  background-color: $button-error-color;
   padding: 15px 18px;
 
   &:hover {
@@ -59,11 +59,22 @@
 .hana-button-primary {
   @extend %base-color-border;
 
-  background-color: rgba($l-blue, .8);
+  background-color: $button-primary-color;
   padding: 15px 18px;
 
   &:hover {
-    background-color: darken($l-blue, 5%);
+    background-color: darken($button-primary-color, 5%);
+  }
+}
+
+.hana-button-warning {
+  @extend %base-color-border;
+
+  background-color: $button-warning-color;
+  padding: 15px 18px;
+
+  &:hover {
+    background-color: darken($button-warning-color, 5%);
   }
 }
 

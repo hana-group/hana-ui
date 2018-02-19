@@ -2,11 +2,11 @@
 import {Component} from 'react';
 
 export interface Props {
-  size?: string[];
-  type?: string[];
+  size?: 'large' | 'middle' | 'small';
+  type?: 'primary' | 'error' | 'default' | 'disabled' | 'warning';
   htmlType?: string;
   label?: string;
-  labelPosition?: string[];
+  labelPosition?: 'left' | 'right';
   icon?: string;
   iconColor?: string;
   iconStyle?: any;

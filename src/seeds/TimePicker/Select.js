@@ -31,10 +31,18 @@ export default class Select extends Component {
       open: false
     };
     this.preValue = props.current;
+    this.refContainer = null;
+    this.refCurrent = null;
   }
 
   componentDidMount() {
     document.addEventListener('click', this.handleCloseOutside, true);
+  }
+
+  componentDidUpdate(preProps, preState) {
+    if (!preState.open && this.refCurrent) {
+      this.refContainer.scrollTop = this.refCurrent.offsetTop;
+    }
   }
 
   compoentWillUnmount() {
@@ -98,46 +106,73 @@ export default class Select extends Component {
 
     return (
       <div className={cx('hana-time-picker-select')}>
-        <div className={cx('hana-time-picker-select-icon', 'hana-time-picker-select-pre')}>
-          <i className={cx('hana-time-picker-select-pre-icon')} onClick={this.handleSelectPre} />
-        </div>
-        <TransitionGroup>
+        <i
+          className={cx(
+            'hana-time-picker-select-icon',
+            'hana-time-picker-select-pre'
+          )}
+          onClick={this.handleSelectPre}
+        />
+        <TransitionGroup className={cx('hana-time-picker-select-container')}>
           <CSSTransition
+            key={current}
             timeout={{enter: enterTime, exit: leaveTime}}
             classNames={`hana-time-picker-select-close-${toPre ? 'pre' : 'next'}`}
-            key={current}
             className={cx('hana-time-picker-select-content', 'hana-time-picker-select-close')}
           >
-            {
-              <div className={cx('hana-time-picker-select-option')} onClick={() => this.handleSwitchOpen()}>
-                {labels[values.indexOf(current)]}
-              </div>
-            }
+            <div
+              className={cx('hana-time-picker-select-option')}
+              onClick={() => this.handleSwitchOpen()}
+            >
+              {labels[values.indexOf(current)]}
+            </div>
           </CSSTransition>
-        </TransitionGroup>
-        <TransitionGroup>
           {open && (
             <CSSTransition
               timeout={{enter: enterTime, exit: leaveTime}}
               classNames="hana-time-picker-select-open"
               className={cx('hana-time-picker-select-content', 'hana-time-picker-select-open')}
             >
-              <div>
+              <div
+                ref={ref => {
+                  this.refContainer = ref;
+                }}
+              >
                 {values.map((value, index) => this.renderOption(index, value, labels[index]))}
               </div>
             </CSSTransition>
           )}
         </TransitionGroup>
-        <div className={cx('hana-time-picker-select-icon', 'hana-time-picker-select-next')}>
-          <i className={cx('hana-time-picker-select-next-icon')} onClick={this.handleSelectNext} />
-        </div>
+        <i
+          className={cx(
+            'hana-time-picker-select-icon',
+            'hana-time-picker-select-next'
+          )}
+          onClick={this.handleSelectNext}
+        />
       </div>
     );
   }
 
   renderOption(index, value, label) {
+    const {
+      current
+    } = this.props;
+
     return (
-      <div key={index} className={cx('hana-time-picker-select-option')} onClick={() => this.handleSelect(value)}>
+      <div
+        key={index}
+        className={cx(
+          'hana-time-picker-select-option',
+          value === current && 'hana-time-picker-select-option-current'
+        )}
+        onClick={() => this.handleSelect(value)}
+        ref={ref => {
+          if (current === value) {
+            this.refCurrent = ref;
+          }
+        }}
+      >
         {label}
       </div>
     );
