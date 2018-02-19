@@ -171,11 +171,16 @@
 
   &-pre {
     &-enter.page {
-      transition: all 900ms ease-in-out;
+      transition: all 800ms ease-in-out;
       left: 120%;
+
+      >img {
+        transition: all 300ms ease-in-out;
+        opacity: 0;
+      }
   
       .page-content {
-        transition: all 600ms ease-in-out;
+        transition: all 500ms ease-in-out;
         transition-delay: 0ms;
         transform-origin: 0 center;
         opacity: 0;
@@ -185,6 +190,10 @@
   
     &-enter-active.page {
       left: 50%;
+
+      >img {
+        opacity: 1;
+      }
   
       .page-content {
         opacity: 1;

@@ -84,3 +84,9 @@ $success-light-shadow-color: rgba($success-color, 0.08);
   box-shadow: 0 2px 2px 0 $error-shadow-color, 0 0 0 1px $error-light-shadow-color;
   color: $error-color;
 }
+
+.hana-notification-warning {
+  border: 1px solid $error-color;
+  box-shadow: 0 2px 2px 0 $error-shadow-color, 0 0 0 1px $error-light-shadow-color;
+  color: $warning-color;
+}

@@ -16,12 +16,12 @@ class Notification extends Component {
     style: PropTypes.object,
     /**
      * @en
-     * Setting notification type one of 'info','success','error'
+     * Setting notification type one of 'info','success','error', 'warning'
      *
      * @cn
-     * 设置通知弹窗类型，可选配置：'info','success','error'
+     * 设置通知弹窗类型，可选配置：'info','success','error', 'warning'
      */
-    type: PropTypes.oneOf(['info', 'success', 'error']),
+    type: PropTypes.oneOf(['info', 'success', 'error', 'warning']),
     /**
      * @en
      * Setting component main content

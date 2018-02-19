@@ -3,8 +3,8 @@ import {Component} from 'react';
 
 export interface Props {
   style?: any;
-  type?: string[];
-  content: string[] | React.ReactNode[];
+  type?: 'info' | 'success' | 'error' | 'warning';
+  content: React.ReactNode;
   duration?: number;
   showClose?: boolean;
   className?: string;

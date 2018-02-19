@@ -137,11 +137,11 @@ $date-picker-duration-time-leave: 200ms;
   }
 
   &-select {
-    &-container {
-      width: 100%;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    &-option {
       text-align: center;
-      cursor: pointer;
-      transition: all 0.4s linear;
     }
 
     &-close {
@@ -165,15 +165,36 @@ $date-picker-duration-time-leave: 200ms;
       }
     }
 
-    @include translation-group(#{&}-open, none);
-
     &-open &-option {
       font-size: 14px;
       padding: 4px 0;
-
+      transition: background-color .3s ease-in-out;
+      
       &:hover {
-        background-color: rgba(#bbb, 0.4);
+        background-color: rgba($date-picker-theme-front-color, .6);
       }
+      
+      &-current {
+        background-color: rgba($date-picker-theme-front-color, .6);
+      }
+    }
+
+    &-enter {
+      opacity: 0;
+    }
+  
+    &-enter-active {
+      opacity: 1;
+      transition: all $date-picker-duration-time-enter ease-out;
+    }
+  
+    &-exit {
+      opacity: 1;
+    }
+    
+    &-exit-active {
+      opacity: 0;
+      transition: all $date-picker-duration-time-leave ease-out;
     }
   }
 

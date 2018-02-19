@@ -58,7 +58,7 @@ $divider-margin: 8px 0;
 
 //date-picker
 $date-picker-theme-back-color: #fff !default;
-$date-picker-theme-front-color: #55b3dc !default;
+$date-picker-theme-front-color: $primary-color !default;
 $date-picker-font-main-color: #000 !default;
 $date-picker-font-sub-color: #888 !default;
 $date-picker-pre-icon: leaf-left !default;
@@ -67,7 +67,7 @@ $date-picker-month-icons: clover, clover, clover, clover, clover, clover, clover
 
 //time-picker
 $time-picker-theme-back-color: #fff !default;
-$time-picker-theme-front-color: #55b3dc !default;
+$time-picker-theme-front-color: $primary-color !default;
 $time-picker-font-main-color: #000 !default;
 $time-picker-font-sub-color: #888 !default;
 $time-picker-pre-icon: left !default;
@@ -164,8 +164,10 @@ $menu-active-color: $primary-color !default;
 $menu-disabled-color: $disabled-color !default;
 
 // button
-$button-default-color: #717171 !default;
+$button-default-color: $normal-color !default;
 $button-default-border-color: #ccd0d7 !default;
-$button-error-color: #fa2f2f !default;
+$button-primary-color: $primary-color !default;
+$button-error-color: $error-color !default;
+$button-warning-color: $warning-color !default;
 
 @import "./mixin/index";

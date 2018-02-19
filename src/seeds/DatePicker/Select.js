@@ -6,7 +6,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import cx from 'classnames';
 
 import {enterTime, leaveTime} from './utils';
@@ -30,10 +30,18 @@ export default class Select extends Component {
     this.state = {
       open: false
     };
+    this.refContainer = null;
+    this.refCurrent = null;
   }
 
   componentDidMount() {
     document.addEventListener('click', this.handleCloseOutside, true);
+  }
+
+  componentDidUpdate(preProps, preState) {
+    if (!preState.open && this.refCurrent) {
+      this.refContainer.scrollTop = this.refCurrent.offsetTop;
+    }
   }
 
   componentWillUnmount() {
@@ -66,39 +74,68 @@ export default class Select extends Component {
   };
 
   render() {
-    const {values, labels, current} = this.props;
+    const {
+      values,
+      labels,
+      current
+    } = this.props;
 
-    const {open} = this.state;
+    const {
+      open
+    } = this.state;
 
     return (
-      <div className={cx('hana-date-picker-select')}>
-        <TransitionGroup>
-          {open && (
-            <CSSTransition
-              classNames="hana-date-picker-select-open"
-              className={cx('hana-date-picker-select-container', 'hana-date-picker-select-open')}
-              timeout={{enter: enterTime, exit: leaveTime}}
-            >
-              <div>{values.map((value, index) => this.renderOption(index, value, labels[index]))}</div>
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-        {!open && (
-          <div className={cx('hana-date-picker-select-container', 'hana-date-picker-select-close')}>
+      <CSSTransition
+        classNames={'hana-date-picker-select'}
+        timeout={{enter: enterTime, exit: leaveTime}}
+        in={open}
+      >
+        {open ? (
+          <div
+            className={cx('hana-date-picker-select', 'hana-date-picker-select-open')}
+            ref={ref => {
+              this.refContainer = ref;
+            }}
+          >
             {
-              <div className={cx('hana-date-picker-select-option')} onClick={() => this.handleSwitchOpen()}>
+              values.map((value, index) => this.renderOption(index, value, labels[index]))
+            }
+          </div>
+        ) : (
+          <div className={cx('hana-date-picker-select', 'hana-date-picker-select-close')}>
+            {
+              <div
+                className={cx('hana-date-picker-select-option')}
+                onClick={() => this.handleSwitchOpen()}
+              >
                 {labels[values.indexOf(current)]}
               </div>
             }
           </div>
         )}
-      </div>
+      </CSSTransition>
     );
   }
 
   renderOption(index, value, label) {
+    const {
+      current
+    } = this.props;
+
     return (
-      <div key={index} className={cx('hana-date-picker-select-option')} onClick={() => this.handleSelect(value)}>
+      <div
+        key={index}
+        className={cx(
+          'hana-date-picker-select-option',
+          value === current && 'hana-date-picker-select-option-current'
+        )}
+        onClick={() => this.handleSelect(value)}
+        ref={ref => {
+          if (current === value) {
+            this.refCurrent = ref;
+          }
+        }}
+      >
         {label}
       </div>
     );

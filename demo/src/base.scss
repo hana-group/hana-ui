@@ -30,6 +30,15 @@ a {
   background-blend-mode: hard-light;
   background-size: 100% auto;
   background-repeat: no-repeat;
+
+  @media (min-aspect-ratio: 12 / 9) {
+    background-position-y: 10%;
+  }
+
+  @media (max-aspect-ratio: 1 / 1) {
+    background-size: auto 100%;
+    background-position-x: center;
+  }
 }
 
 .demo-bg-flies {

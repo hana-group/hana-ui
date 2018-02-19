@@ -56,6 +56,13 @@ export default class ExampleBase extends Component {
         >
           error
         </Button>
+        <Button
+          style={style}
+          type={'warning'}
+          onClick={() => this.openNotification('warning')}
+        >
+          warning
+        </Button>
         <br />
         <Button
           style={style}

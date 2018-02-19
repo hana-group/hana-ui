@@ -78,19 +78,19 @@ $time-picker-duration-time-leave: 200ms;
   }
 
   &-content {
-    @include auto-prefixed-flex;
-
+    display: flex;
     width: 100%;
-    height: 28px;
+    height: 96px;
     margin: auto;
     color: $date-picker-font-main-color;
     font-size: 28px;
     font-weight: 200;
   }
-
+  
   &-hour, &-minute, &-second {
     position: relative;
     width: 33.3%;
+    height: 100%;
   }
 
   &-v-line {
@@ -101,29 +101,29 @@ $time-picker-duration-time-leave: 200ms;
   }
 
   &-select {
-    @include auto-prefixed-flex;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &-container {
+      height: 28px;
+    }
 
     &-icon {
+      @extend %hanaicon;
+      display: block;
       position: absolute;
       width: 25%;
       height: 28px;
       line-height: 28px;
-    }
-
-    i {
-      @extend %hanaicon;
-
-      color: $date-picker-font-sub-color;
+      color: $time-picker-font-sub-color;
       font-size: 13px;
       cursor: pointer;
     }
 
     &-pre {
       text-align: right;
-
-      &-icon {
-        @include hana-icon($time-picker-pre-icon);
-      }
+      @include hana-icon($time-picker-pre-icon);
     }
 
     &-content {
@@ -138,10 +138,7 @@ $time-picker-duration-time-leave: 200ms;
     &-next {
       text-align: left;
       margin-left: 75%;
-
-      &-icon {
-        @include hana-icon($time-picker-next-icon);
-      }
+      @include hana-icon($time-picker-next-icon);
     }
 
     @include translation-group(#{&}-close-pre, -12px);
@@ -149,8 +146,8 @@ $time-picker-duration-time-leave: 200ms;
 
     &-open {
       overflow: auto;
-      height: 72px;
-      top: -24px;
+      height: 100%;
+      top: 0;
       background-color: $time-picker-theme-back-color;
 
       &::-webkit-scrollbar {
@@ -170,7 +167,11 @@ $time-picker-duration-time-leave: 200ms;
       padding: 4px 0;
 
       &:hover {
-        background-color: rgba(#bbb, 0.4);
+        background-color: rgba($time-picker-theme-front-color, .6);
+      }
+
+      &-current {
+        background-color: rgba($time-picker-theme-front-color, .6);
       }
     }
   }

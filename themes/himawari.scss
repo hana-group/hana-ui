@@ -45,7 +45,7 @@ $divider-margin: 8px 0;
 
 //date-picker
 $date-picker-theme-back-color: #fff;
-$date-picker-theme-front-color: #55b3dc;
+$date-picker-theme-front-color: $primary-color;
 $date-picker-font-main-color: #000;
 $date-picker-font-sub-color: #888;
 $date-picker-pre-icon: leaf-left;
@@ -54,7 +54,7 @@ $date-picker-month-icons: clover, clover, clover, clover, clover, clover, clover
 
 //time-picker
 $time-picker-theme-back-color: #fff;
-$time-picker-theme-front-color: #55b3dc;
+$time-picker-theme-front-color: $primary-color;
 $time-picker-font-main-color: #000;
 $time-picker-font-sub-color: #888;
 $time-picker-pre-icon: left;
@@ -151,6 +151,8 @@ $menu-active-color: $primary-color;
 $menu-disabled-color: $disabled-color;
 
 // button
-$button-default-color: #717171;
+$button-default-color: $text-color;
 $button-default-border-color: #ccd0d7;
-$button-error-color: #fa2f2f;
+$button-primary-color: $primary-color;
+$button-error-color: $error-color;
+$button-warning-color: $warning-color;
