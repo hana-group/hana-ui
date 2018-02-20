@@ -66,6 +66,7 @@ a {
   @extend .demo-with-fade-tail;
 }
 
-.hana-menuitem>a{
+.hana-menuitem > a {
   display: block;
+  text-decoration: none;
 }

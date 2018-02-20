@@ -108,8 +108,9 @@ $checkbox-disabled-color: $disabled-color;
 $form-label-width: 30%;
 
 // loading
-$loading-background-color: rgba(0, 0, 0, 0.5);
-$loading-color: #fff;
+$loading-wrapper-color: rgba(0, 0, 0, .3);
+$loading-background-color: rgba(255, 255, 255, .9);
+$loading-front-color: $primary-color;
 
 // progress
 $progress-size-small: 6px;

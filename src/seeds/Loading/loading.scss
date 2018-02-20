@@ -1,13 +1,48 @@
 @import "../../styles/config";
 
-@keyframes maware {
-  from { transform: rotateZ(0deg) }
-  to { transform: rotateZ(-360deg) }
+@keyframes loading-rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@mixin loading-queue-item($index) {
+  @keyframes loading-queue-item-#{$index} {
+    from {
+      opacity: 0;
+    }
+    #{$index * 15%} {
+      opacity: 0;
+    }
+    #{($index + 1) * 15%} {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  animation: loading-queue-item-#{$index} 2.5s ease-in-out infinite;
+}
+
+@keyframes loading-image {
+  from {
+    clip-path: polygon(0 100%, 0 100%, 100% 100%, 100% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  }
 }
 
 .hana-loading-wrap {
   position: fixed;
-  background: transparent;
+  background: $loading-wrapper-color;
   top: 0;
   left: 0;
   right: 0;
@@ -21,8 +56,9 @@
   min-height: 80px;
   min-width: 80px;
   background-color: $loading-background-color;
+  border: 1px solid $loading-front-color;
   border-radius: 5px;
-  color: $loading-color;
+  color: $loading-front-color;
   text-align: center;
   left: 50%;
   top: 50%;
@@ -34,8 +70,49 @@
     padding: 10px;
   }
 
-  &.hana-loading-rotate .hanaicon {
-    animation: maware 2s linear infinite;
+  &-rotate {
+
+    .hanaicon {
+      animation: loading-rotate 2s linear infinite;
+    }
+  }
+  
+  &-queue {
+
+  }
+
+  &-icons {
+    .hanaicon {
+      opacity: 0;
+
+      &:nth-child(1) {
+        @include loading-queue-item(1);
+      }
+
+      &:nth-child(2) {
+        @include loading-queue-item(2);
+      }
+
+      &:nth-child(3) {
+        @include loading-queue-item(3);
+      }
+
+      &:nth-child(4) {
+        @include loading-queue-item(4);
+      }
+    }
+  }
+
+  &-image {
+
+    >img {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      animation: loading-image 2.5s ease-in-out infinite;
+    }
   }
 }
 

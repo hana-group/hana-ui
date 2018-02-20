@@ -24,11 +24,18 @@
   border-bottom: 1px solid #ddd;
   cursor: pointer;
 
-  .hanaicon {
+  &-icon.hanaicon {
     font-size: 20px;
     float: right;
     margin-right: 10;
+    transform: none;
     transition: all .8s ease-in-out;
+    color: #ccc;
+  }
+
+  &-icon-active.hanaicon {
+    color: $primary-color;
+    transform: rotate(180deg);
   }
 }
 
