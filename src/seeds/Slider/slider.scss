@@ -2,11 +2,19 @@
 
 .hana-slider{
   background: $normal-color;
-  height: 10px;
+  height: $slider-size-middle;
   border-radius: 5px;
   position: relative;
   font-size: 12px;
   margin-top: 20px;
+
+  &-small {
+    height: $slider-size-small;
+  }
+
+  &-large {
+    height: $slider-size-large;
+  }
 
   &-inner{
     background: $primary-color;
@@ -41,15 +49,28 @@
   &-icon-wrap{
     position: absolute;
     right: 0;
-    top: 5px;
+    top: $slider-size-middle / 2;
     transform: translate(50%, -50%);
     cursor: pointer;
     color: darken($primary-color, 20%);
 
     .hanaicon {
       color: inherit;
-      font-size: inherit;
       font-size: 24px;
+    }
+  }
+
+  &-small &-icon-wrap{
+    top: $slider-size-small / 2;
+    .hanaicon{
+      font-size: 20px;
+    }
+  }
+
+  &-large &-icon-wrap{
+    top: $slider-size-large / 2;
+    .hanaicon{
+      font-size: 30px;
     }
   }
 }

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import cx from 'classnames';
 
 import Icon from '../Icon';
@@ -99,7 +98,16 @@ export default class Slider extends Component {
      * @cn
      * 滑动条的`class`
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+    /**
+     * @en
+     * the size of the slider
+     *
+     * @cn
+     * 滑动条的尺寸
+     */
+    size: PropTypes.oneOf(['small', 'middle', 'large'])
   }
 
   static defaultProps = {
@@ -108,7 +116,8 @@ export default class Slider extends Component {
     onChange: noop,
     onDragStart: noop,
     onDragEnd: noop,
-    icon: <Icon type={'himawari'} />
+    icon: <Icon type={'himawari'} />,
+    size: 'middle'
   }
 
   state = {
@@ -128,8 +137,8 @@ export default class Slider extends Component {
   }
 
   componentDidMount() {
-    this.width = findDOMNode(this.refSlider).clientWidth;
-    this.inner = findDOMNode(this.refInner);
+    this.width = this.refSlider.clientWidth;
+    this.inner = this.refInner;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -177,15 +186,34 @@ export default class Slider extends Component {
     }
   }
 
+  handleClick = e => {
+    const {min, max} = this.props;
+    const startPosition = this.refSlider.getBoundingClientRect().left;
+    const delta = e.pageX - startPosition;
+    const value = Math.round((delta / this.width) * (max - min) + min);
+    this.setState({
+      value
+    });
+  }
+
   render() {
-    const {color, className, icon} = this.props;
+    const {color, className, icon, size} = this.props;
     const {value} = this.state;
-    const cls = cx('hana-slider', className);
+    const cls = cx('hana-slider', `hana-slider-${size}`, className);
     const computedWidth = this.getWidth(value);
     const restProps = getRestProps(Slider, this.props);
     return (
-      <div className={cls} {...restProps} ref={ref => { this.refSlider = ref; }}>
-        <div className="hana-slider-inner" style={{width: computedWidth, backgroundColor: color}} ref={ref => { this.refInner = ref; }}>
+      <div
+        className={cls}
+        {...restProps}
+        ref={ref => { this.refSlider = ref; }}
+        onClick={this.handleClick}
+      >
+        <div
+          className="hana-slider-inner"
+          style={{width: computedWidth, backgroundColor: color}}
+          ref={ref => { this.refInner = ref; }}
+        >
           <p className="hana-slider-value">{value}</p>
           {icon ?
             <div
