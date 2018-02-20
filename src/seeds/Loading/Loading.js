@@ -9,37 +9,54 @@ export default class Loading extends Component {
   static propTypes = {
     /**
      * @en
+     * the loading's mode
+     *
+     * @cn
+     * 加载器的三种模式
+     */
+    mode: PropTypes.oneOf(['rotate', 'queue', 'image']),
+    /**
+     * @en
      * the loading's content
      *
      * @cn
-     * `loading`的内容
+     * 加载器的内容
      */
     content: PropTypes.node,
 
     /**
      * @en
-     * the loading's icon
+     * the loading's icon in mode 'rotate'
      *
      * @cn
-     * `loading`的图标
+     * 当`mode`为“rotate”时，加载器的图标
      */
     icon: PropTypes.node,
 
     /**
      * @en
-     * whether the icon is rotated
+     * the loading's icons in mode 'queue'
      *
      * @cn
-     * 图标是否旋转
+     * 当`mode`为“queue”时，加载器的图标们
      */
-    rotate: PropTypes.bool,
+    icons: PropTypes.arrayOf(PropTypes.node),
+
+    /**
+     * @en
+     * the loading's image in mode 'image'
+     *
+     * @cn
+     * 当`mode`为“image”时，加载器使用的图片
+     */
+    image: PropTypes.string,
 
     /**
      * @en
      * the loading wrap's style
      *
      * @cn
-     * `loading`的底部蒙版的`style`
+     * 加载器的底部蒙版的`style`
      */
     wrapStyle: PropTypes.object,
 
@@ -48,7 +65,7 @@ export default class Loading extends Component {
      * the loading's style
      *
      * @cn
-     * `loading`的`style`
+     * 加载器的`style`
      */
     style: PropTypes.object,
 
@@ -57,7 +74,7 @@ export default class Loading extends Component {
      * the loading's style
      *
      * @cn
-     * `loading`的内容的`style`
+     * 加载器的内容的`style`
      */
     contentStyle: PropTypes.object,
 
@@ -66,31 +83,99 @@ export default class Loading extends Component {
      * the loading's class
      *
      * @cn
-     * `loading`的`class`
+     * 加载器的`class`
      */
     className: PropTypes.string
   }
 
   static defaultProps = {
+    mode: 'queue',
     content: 'loading...',
     icon: <Icon type="yukibana-o" />,
-    rotate: true
+    icons: [
+      <Icon type="flower" />,
+      <Icon type="clover" />,
+      <Icon type="mum" />,
+      <Icon type="yukibana-o" />
+    ],
+    image: ''
   }
 
   render() {
     const {
-      icon, rotate, wrapStyle, contentStyle, style, className
+      icon,
+      icons,
+      image,
+      mode,
+      wrapStyle,
+      contentStyle,
+      style,
+      className,
+      content
     } = this.props;
-    const cls = cx('hana-loading', className, {
-      'hana-loading-rotate': rotate
-    });
+
     const restProps = getRestProps(Loading, this.props);
+
+    if (mode === 'rotate') {
+      return (
+        <div className="hana-loading-wrap" style={wrapStyle}>
+          <section
+            className={cx(
+              'hana-loading',
+              'hana-loading-rotate',
+              className
+            )}
+            style={style}
+            {...restProps}
+          >
+            {icon}
+            <p className={cx('hana-loading-content')} style={contentStyle}>
+              {content}
+            </p>
+          </section>
+        </div>
+      );
+    }
+
+    if (mode === 'queue') {
+      return (
+        <div className={cx('hana-loading-wrap')} style={wrapStyle}>
+          <section
+            className={cx(
+              'hana-loading',
+              'hana-loading-queue',
+              className
+            )}
+            style={style}
+            {...restProps}
+          >
+            <div className={cx('hana-loading-icons')}>
+              {
+                icons.map((i, index) => React.cloneElement(i, {key: index}))
+              }
+            </div>
+            <p className={cx('hana-loading-content')} style={contentStyle}>
+              {content}
+            </p>
+          </section>
+        </div>
+      );
+    }
+
     return (
-      <div className="hana-loading-wrap" style={wrapStyle}>
-        <section className={cls} style={style} {...restProps}>
-          {icon}
-          <p className="hana-loading-content" style={contentStyle}>
-            {this.props.content}
+      <div className={cx('hana-loading-wrap')} style={wrapStyle}>
+        <section
+          className={cx(
+            'hana-loading',
+            'hana-loading-image',
+            className
+          )}
+          style={style}
+          {...restProps}
+        >
+          <img src={image} alt={'loading'} />
+          <p className={cx('hana-loading-content')} style={contentStyle}>
+            {content}
           </p>
         </section>
       </div>

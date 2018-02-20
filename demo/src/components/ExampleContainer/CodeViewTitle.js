@@ -21,15 +21,11 @@ export default class CodeViewTitle extends Component {
       <div className={cx('example-title')}>
         {this.props.title || 'Example'}
         <Icon
+          className={cx(
+            'example-title-icon',
+            this.props.active && 'example-title-icon-active'
+          )}
           type="yukibana-o"
-          color={this.props.active ? '#6cf' : '#ccc'}
-          style={{
-            transform: this.props.active ? false : 'rotate(180deg)',
-            fontSize: 20,
-            float: 'right',
-            marginRight: 10,
-            transition: 'all .8s ease-in-out'
-          }}
         />
       </div>
     );
