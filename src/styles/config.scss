@@ -181,4 +181,10 @@ $audio-background-color: #fff !default;
 $audio-text-color: $text-color !default;
 $audio-theme-color: $primary-color !default;
 
+// video-player
+$video-background-color: #333 !default;
+$video-text-color: $text-color !default;
+$video-theme-color: $primary-color !default;
+$video-icon-color: #fff !default;
+
 @import "./mixin/index";

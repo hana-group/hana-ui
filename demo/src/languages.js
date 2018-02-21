@@ -39,6 +39,28 @@ export const langRegexLines = new RegExp(
 export const langRegexLine = new RegExp(`@(${langList.join('|')})\\s([\\S\\s]*)`);
 export const langRegexLineWithHeader = new RegExp(`@(${langList.join('|')})\\s+(.+)\\s+([\\s\\S]*)`);
 
+export const parseText = text => {
+  const langsText = {};
+
+  const lines = text.match(langRegexLines);
+  if (lines) {
+    lines.forEach(line => {
+      const res = langRegexLine.exec(line);
+      langsText[res[1]] = res[2];
+    });
+  }
+  if (!langsText.en && !langsText.cn) {
+    langsText.en = text;
+    langsText.cn = text;
+  } else if (!langsText.en) {
+    langsText.en = langsText.cn;
+  } else if (!langsText.cn) {
+    langsText.cn = langsText.en;
+  }
+
+  return langsText;
+};
+
 export const langManager = {
   current: 'en',
   set (lang) {
