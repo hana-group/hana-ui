@@ -50,7 +50,7 @@
     height: 48px;
     bottom: 42px;
     margin: 0 auto;
-    $color: #333;
+    $color: $video-background-color;
     background: linear-gradient(to right, rgba($color, 0), rgba($color, .4) 50%, rgba($color, 0));;
     padding: 0 12px;
     opacity: 1;
@@ -64,8 +64,13 @@
     &-icon {
       display: block;
       font-style: normal;
-      color: white;
+      color: $video-icon-color;
       cursor: pointer;
+      transition: color .3s ease-in-out;
+
+      &:hover {
+        color: $video-theme-color;
+      }
     }
 
     &-bg {
@@ -150,14 +155,14 @@
     &-bf {
       position: absolute;
       height: 100%;
-      background: rgba(#999, .7);
+      background: rgba($video-background-color, .5);
       transition: all .2s ease-out;
     }
 
     &-bar {
       position: absolute;
       height: 100%;
-      background: rgba(0, 200, 250, .5);
+      background: rgba($video-theme-color, .9);
       transition: all .2s ease-out;
     }
 
@@ -169,7 +174,7 @@
       transform: translate(-8px, -50%);
       font-style: normal;
       transition: all .2s ease-out;
-      color: rgba(0, 200, 250, .9);
+      color: $video-theme-color;
       font-size: 16px;
       opacity: 0;
     }
@@ -260,7 +265,7 @@
     padding: 8px 0;
     height: $cover-height;
     cursor: pointer;
-    background-color: rgba(0, 200, 250, 0);
+    background-color: rgba($video-theme-color, 0);
     transition: all .4s ease-out;
 
     &-poster {
@@ -288,7 +293,7 @@
     }
 
     &:hover, &-active {
-      background-color: rgba(0, 200, 250, .3);
+      background-color: rgba($video-theme-color, .3);
     }
   }
 

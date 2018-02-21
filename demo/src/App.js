@@ -9,8 +9,9 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import cx from 'classnames';
 import 'hana-ui/styles/base.scss';
 
-import FireFlies from 'demo/FireFlies';
 import {langManager, languages} from './languages';
+import genMeta from './genMeta';
+import FireFlies from 'demo/FireFlies';
 import Topbar from './pages/topbar';
 import Footer from './pages/footer';
 import Overview from './pages/overview';
@@ -24,6 +25,16 @@ export default class App extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
+
+  componentDidUpdate() {
+    this.refreshMeta();
+  }
+
+  refreshMeta() {
+    const {title, description} = genMeta(this.context.router.route.location.pathname);
+    document.querySelector('title').text = title;
+    document.querySelector('meta[name="description"]').content = description;
+  }
 
   handleChangeLang = lang => {
     const path = this.context.router.route.location.pathname.split(/\//g);

@@ -12,6 +12,7 @@ import path from 'path';
 import fs from 'fs';
 import zlib from 'zlib';
 
+import genMeta from './demo/src/genMeta';
 import App from './demo/src/App';
 
 /* -- wtf ? -- */
@@ -67,12 +68,16 @@ function ssr(req, res) {
     </StaticRouter>
   );
 
+  const {title, description} = genMeta(url);
   if (context.url) {
     return res.redirect(302, context.url);
   }
 
   cache[url] = zlib.gzipSync(
-    template.replace('{{MARKUP}}', markup),
+    template
+      .replace('{{MARKUP}}', markup)
+      .replace('{{TITLE}}', title)
+      .replace('{{DESCRIPTION}}', description),
     {level: 9}
   );
 

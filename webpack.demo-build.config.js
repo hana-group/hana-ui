@@ -93,7 +93,7 @@ module.exports = {
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: './themes/default.scss'
+                resources: './themes/himawari.scss'
               }
             }
           ]

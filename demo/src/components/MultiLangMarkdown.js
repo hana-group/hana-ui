@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MarkdownElement from './MarkdownElement';
 
-import {langRegexLines, langRegexLine, langManager} from '../languages';
+import {langRegexLines, langRegexLine, langManager, parseText} from '../languages';
 
 export default class MultiLangMarkdown extends Component {
 
@@ -42,22 +42,8 @@ export default class MultiLangMarkdown extends Component {
     this.parseText(text);
   }
 
-  parseText = t => {
-    let text = t;
-
-    const lang = langManager.current;
-    const langsText = {};
-
-    const lines = text.match(langRegexLines);
-    if (lines) {
-      lines.forEach(line => {
-        const res = langRegexLine.exec(line);
-        langsText[res[1]] = res[2];
-      });
-      text = langsText[lang] || text;
-    }
-
-    this.setState({text});
+  parseText = text => {
+    this.setState({text: parseText(text)[langManager.current]});
   };
 
   render() {
