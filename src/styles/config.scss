@@ -176,4 +176,9 @@ $button-primary-color: $primary-color !default;
 $button-error-color: $error-color !default;
 $button-warning-color: $warning-color !default;
 
+// music-player
+$audio-background-color: #fff !default;
+$audio-text-color: $text-color !default;
+$audio-theme-color: $primary-color !default;
+
 @import "./mixin/index";

@@ -68,9 +68,7 @@ export default class ExampleBase extends Component {
           style={style}
           onClick={() => this.openNotification(
             'info',
-            React.createElement('img', {
-              src: 'https://i0.hdslb.com/icon/3b7250b30b0e56fe354f6759694009d5.gif'
-            })
+            <img src={'http://oekm6wrcq.bkt.clouddn.com/3b7250b30b0e56fe354f6759694009d5.gif'} alt={'custom'} />
           )}
         >
           custom
