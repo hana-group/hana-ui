@@ -24,10 +24,10 @@ class Notification extends Component {
     type: PropTypes.oneOf(['info', 'success', 'error', 'warning']),
     /**
      * @en
-     * Setting component main content
+     * Setting component main content, string or node
      *
      * @cn
-     * 设置通知内容
+     * 设置通知内容，string 或 node
      */
     content: PropTypes.oneOfType([
       PropTypes.string,

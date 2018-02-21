@@ -1,19 +1,19 @@
 @import "../../styles/config";
 
-$audioBg: #fff;
+$audioBg: $audio-background-color;
 $audioWidth: 600px;
 $audioHeight: 300px;
 $audioPadding: 25px;
-$audioTextColor: #666;
-$audioThemeColor: #f25d8e;
+$audioTextColor: $audio-text-color;
+$audioThemeColor: $audio-theme-color;
 
 .hana-audio{
   box-sizing: border-box;
   background: $audioBg;
   width: $audioWidth;
   height: $audioHeight;
-  border-radius: $audioHeight /10;
-  box-shadow: -2px -1px 12px rgba(#dcc1bf, .5);
+  border-radius: $audioHeight / 30;
+  border: 1px solid $audioThemeColor;
   position: relative;
   padding: $audioPadding $audioPadding $audioPadding $audioWidth / 2 + $audioPadding;
 
@@ -47,10 +47,11 @@ $audioThemeColor: #f25d8e;
       height: 30px;
       line-height: 32px;
       padding-left: 7px;
-      background: lighten($audioThemeColor, 10%);
-      transition: background .3s ease-in-out;
+      background-color: lighten($audioThemeColor, 10%);
+      transition: background-color .3s ease-in-out;
+
       &:hover{
-        background: $audioThemeColor;
+        background-color: $audioThemeColor;
       }
     }
 
@@ -115,6 +116,8 @@ $audioThemeColor: #f25d8e;
       border-radius: 3px;
       background: $audioThemeColor;
       position: relative;
+
+      transition: width .1s ease-in-out;
     }
 
     &-cube{
@@ -176,6 +179,12 @@ $audioThemeColor: #f25d8e;
         color: $audioThemeColor;
         cursor: pointer;
       }
+    }
+  }
+
+  &-time, &-volume, &-mode {
+    .hanaicon {
+      transition: color .3s ease-in-out;
     }
   }
 }
