@@ -175,7 +175,6 @@ export default class AudioPlayer extends Component {
   }
 
   handlePrev = () => {
-    // TODO random mode
     const {list} = this.props;
     const {currentIndex, mode} = this.state;
     let index = list.length - 1;

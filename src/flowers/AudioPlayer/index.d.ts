@@ -18,6 +18,14 @@ export interface IPropTypes {
 }
 
 export interface IStateTypes {
+  play: boolean;
+  current: IListItem;
+  currentIndex :number;
+  currentTime :number;
+  duration: number;
+  volume: number;
+  showList: boolean;
+  mode: 'random' | 'repeat' | 'normal';
 }
 
 export default class IconButton extends Component<IPropTypes, IStateTypes> {

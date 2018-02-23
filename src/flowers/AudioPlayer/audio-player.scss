@@ -24,6 +24,7 @@ $audioThemeColor: $audio-theme-color;
     height: $audioHeight - 2 * $audioPadding;
     left: $audioPadding;
     top: $audioPadding;
+    z-index: 1;
   }
 
   &-title{
@@ -147,13 +148,14 @@ $audioThemeColor: $audio-theme-color;
 
     &-open{
       opacity: 1;
+      z-index: 2;
     }
 
     &-item{
       height: 36px;
       line-height: 36px;
       cursor: pointer;
-      transition: .3s ease-in-out;
+      transition: opacity .3s ease-in-out;
       // &:nth-child(odd){
       //   background: darken($audioBg, 10%);
       // }
