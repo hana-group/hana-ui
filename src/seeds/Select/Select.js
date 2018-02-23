@@ -212,10 +212,16 @@ export default class Select extends Component {
     if (nextProps.value !== undefined) this.setState({value: nextProps.value});
   }
 
-  componentDidUpdate(nextProps) {
-    const {multiple} = nextProps;
+  componentDidUpdate(prevProps, prevState) {
+    const {multiple} = prevProps;
     if (multiple) {
       this.updateMultipleWrapStyle();
+    }
+    if (!prevState.open && this.state.open) {
+      const activeOption = this.optionWrap.querySelector('.hana-select-option-selected');
+      if (activeOption) {
+        this.optionWrap.scrollTop = activeOption.offsetTop;
+      }
     }
   }
 
@@ -389,8 +395,9 @@ export default class Select extends Component {
   /** render options by its children */
   renderOptions = isOrigin => {
     const {
-      children, value, disabled, multiple
+      children, disabled, multiple
     } = this.props;
+    const {value} = this.state;
     return childrenToArray(children).map((item, index) => {
       const isSelected = multiple ? value.indexOf(item.props.value) > -1 : value === item.props.value;
       if (!isOrigin) {
