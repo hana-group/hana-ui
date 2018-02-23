@@ -10,7 +10,7 @@ const parseLang = (text) => {
   const tmp = /## (.+)\n([\s\S]*)/g.exec(text);
   return {
     title: `${tmp[1]} - hana-ui`,
-    description: tmp[2].replace('\n', '')
+    description: tmp[2].replace('"', "'").replace(/\n/g, '')
   };
 };
 

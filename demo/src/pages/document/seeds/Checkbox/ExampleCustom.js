@@ -25,14 +25,14 @@ export default class ExampleBase extends Component {
         <Checkbox
           auto
           label="Custom icon"
-          checkedIcon={<Icon type="snowflake-o" color="#6cf" />}
+          checkedIcon={<Icon type="snowflake-o" color="#6cd4a4" />}
           unCheckedIcon={<Icon type="snowflake-o" color="#ccc" />}
         />
 
         <CheckboxGroup
           value={this.state.val}
           onChange={val => this.setState({val})}
-          checkedIcon={<Icon type="snowflake-o" color="#6cf" />}
+          checkedIcon={<Icon type="snowflake-o" color="#6cd4a4" />}
           unCheckedIcon={<Icon type="snowflake-o" color="#ccc" />}
         >
           <Checkbox label="Spring" value="1" />

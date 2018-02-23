@@ -1,6 +1,6 @@
 # hana-ui
 
-A React UIKit with nijigen style.
+A React UIKit with fresh nijigen style.
 
 [Home page is coming soon !](https://hana-ui.moe)
 

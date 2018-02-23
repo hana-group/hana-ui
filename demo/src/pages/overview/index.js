@@ -44,7 +44,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/clover.png'}
       alt={'intro'}
     />
   </MultiLang>,
@@ -67,7 +67,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/violets.png'}
       alt={'intro'}
     />
   </MultiLang>,
@@ -90,7 +90,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/cornflower.png'}
       alt={'intro'}
     />
   </MultiLang>,
@@ -113,7 +113,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/sakura.png'}
       alt={'intro'}
     />
   </MultiLang>,
@@ -142,7 +142,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/sunflower.png'}
       alt={'intro'}
     />
   </MultiLang>,
@@ -183,7 +183,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/overview.png'}
+      src={'/demo/static/images/edelweiss.png'}
       alt={'intro'}
     />
   </MultiLang>

@@ -4,53 +4,23 @@ import ExampleBlock from 'demo/ExampleBlock';
 
 const songList = [
   {
-    src: '/demo/static/hana-song/music/byebye.mp3',
-    poster: 'http://activity.hdslb.com/blackboard/rhyme/images/12j851xxoq.gif',
-    title: 'byebye',
-    artist: 'test'
+    src: 'http://oekm6wrcq.bkt.clouddn.com/時間列車.mp3',
+    poster: 'http://oekm6wrcq.bkt.clouddn.com/時間列車.jpg',
+    title: '時間列車',
+    artist: 'supercell'
   },
   {
-    src: '/demo/static/hana-song/music/date.mp3',
-    poster: '',
-    title: 'date',
-    artist: 'test2'
+    src: 'http://oekm6wrcq.bkt.clouddn.com/white-moon-and-smiling-sun.mp3',
+    poster: 'http://oekm6wrcq.bkt.clouddn.com/white-moon-and-smiling-sun.jpg',
+    title: '白い月、微笑んだ太陽',
+    artist: '中恵光城'
+  },
+  {
+    src: 'http://oekm6wrcq.bkt.clouddn.com/Ordinary World.ogg',
+    poster: 'http://oekm6wrcq.bkt.clouddn.com/Ordinary World.jpg',
+    title: 'Ordinary World',
+    artist: '仲村芽衣子'
   }
-//  {
-//    src: '/demo/static/hana-song/music/7!! - ReReハロ~終われそうにない夏~.mp3',
-//    poster: '',
-//    title: 'ReReハロ~終われそうにない夏~',
-//    artist: '7!!'
-//  },
-//  {
-//    src: '/demo/static/hana-song/music/Aimer - 六等星の夜.mp3',
-//    poster: '//i2.hdslb.com/bfs/face/d6dc8b90df3becd84579f7190655669fdef6dc13.jpg',
-//    title: '六等星の夜',
-//    artist: 'Aimer'
-//  },
-//  {
-//    src: '/demo/static/hana-song/music/蔡健雅 - 红色高跟鞋.mp3',
-//    poster: '',
-//    title: '红色高跟鞋',
-//    artist: '蔡健雅'
-//  },
-//  {
-//    src: '/demo/static/hana-song/music/三无MarBlue - 当我在这里（Cover 陈粒）.mp3',
-//    poster: '',
-//    title: '当我在这里',
-//    artist: '三无MarBlue'
-//  },
-//  {
-//    src: '/demo/static/hana-song/music/MYTH & ROID - STYX HELIX.mp3',
-//    poster: '',
-//    title: 'STYX HELIX',
-//    artist: 'MYTH & ROID'
-//  },
-//  {
-//    src: '/demo/static/hana-song/music/wispering - 天ノ弱 piano ver.mp3',
-//    poster: '',
-//    title: '天ノ弱 piano ver',
-//    artist: 'wispering'
-//  }
 ];
 
 /**

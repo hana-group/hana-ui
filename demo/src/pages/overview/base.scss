@@ -43,7 +43,7 @@
       padding: 24px;
       padding-left: 128px;
       padding-right: 64px;
-      margin-left: -96px;
+      margin-left: -112px;
 
       >h2 {
         font-size: 56px;
@@ -58,36 +58,68 @@
   }
 
   .intro {
+    .page-img {
+      width: 300px;
+      margin-top: -48px;
+    }
+
     .page-content {
+      margin-left: -172px;
       @include bg(right, #acee55);
     }
   }
 
   .origin {
+    .page-img {
+      width: 340px;
+      margin-top: -36px;
+    }
+
     .page-content {
       @include bg(right, #E6CFE6, 1);
     }
   }
 
   .style {
+    .page-img {
+      width: 320px;
+      margin-top: -6px;
+    }
+    
     .page-content {
       @include bg(right, #6495ED);
     }
   }
 
   .useful {
+    .page-img {
+      width: 320px;
+      margin-top: -6px;
+    }
+
     .page-content {
       @include bg(right, #f597bf, .8);
     }
   }
 
   .rich {
+    .page-img {
+      width: 320px;
+      margin-top: 0px;
+      opacity: .9;
+    }
+
     .page-content {
       @include bg(right, rgb(241, 220, 101));
     }
   }
 
   .understand {
+    .page-img {
+      width: 330px;
+      margin-top: 0px;
+    }
+
     .page-content {
       @include bg(right, #ddd, 1);
 
