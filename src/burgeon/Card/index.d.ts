@@ -12,6 +12,7 @@ export interface IPropTypes {
   open?: boolean;
   defaultOpen?: boolean;
   className?: string;
+  style?: any;
   onClick?: (event: Event) => void;
 }
 

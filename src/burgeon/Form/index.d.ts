@@ -18,7 +18,7 @@ export class Form extends Component<IPropTypes, IStateTypes> {
 export interface IFormItemPropTypes {
   children: React.ReactNode;
   label: React.ReactNode;
-  info: React.ReactNode;
+  info?: React.ReactNode;
   status?: 'normal' | 'success' | 'error' | 'warn';
   labelPosition?: 'top' | 'left';
   style?: any;
