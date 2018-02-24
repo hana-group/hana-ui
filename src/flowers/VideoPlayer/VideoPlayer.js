@@ -280,7 +280,8 @@ export default class VideoPlayer extends Component {
   }
 
   genType = url => {
-    const ext = url.split('.')[1];
+    const temp = url.split('.');
+    const ext = temp.pop();
     switch (ext) {
       case 'mp4':
         return 'video/mp4';

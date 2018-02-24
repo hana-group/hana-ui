@@ -20,6 +20,7 @@ export interface IFormItemPropTypes {
   label: React.ReactNode;
   info?: React.ReactNode;
   status?: 'normal' | 'success' | 'error' | 'warn';
+  labelStyle?: any;
   labelPosition?: 'top' | 'left';
   style?: any;
   elementStyle?: any;

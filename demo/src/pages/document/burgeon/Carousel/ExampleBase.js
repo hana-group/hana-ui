@@ -18,12 +18,13 @@ export default class ExampleBase extends Component {
   }
 
   render() {
-    const width = 400;
-    const height = 200;
+    const width = 600;
+    const height = 300;
     const styles = {
       width,
       height,
-      display: 'block'
+      display: 'block',
+      marginBottom: 64
     };
 
     const element = [
