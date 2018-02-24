@@ -48,7 +48,8 @@ app.use('/demo/static', express.static(path.resolve(__dirname, './demo/static'))
 
 app.use('/demo', express.static(path.resolve(__dirname, './demo/dist')));
 
-app.get('/sitmap', (req, res) => res.sendFile(path.resolve(__dirname, './demo/sitemap.xml')));
+app.get('/sitmap-http', (req, res) => res.sendFile(path.resolve(__dirname, './demo/sitemap-http.xml')));
+app.get('/sitmap-https', (req, res) => res.sendFile(path.resolve(__dirname, './demo/sitemap-https.xml')));
 
 const cache = {};
 function ssr(req, res) {
