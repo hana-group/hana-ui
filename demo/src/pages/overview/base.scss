@@ -60,7 +60,8 @@
   .intro {
     .page-img {
       width: 300px;
-      margin-top: -48px;
+      margin-top: -36px;
+      opacity: .9;
     }
 
     .page-content {
@@ -155,13 +156,13 @@
   
   &-next {
     &-enter.page {
-      transition: all 600ms ease-in-out;
+      transition: all 700ms ease-in-out;
       transform: translateX(-70%) translateY(-50%);
       opacity: 0;
   
       .page-content {
         transition: all 600ms ease-in-out;
-        transition-delay: 300ms;
+        transition-delay: 400ms;
         transform-origin: 0 center;
         opacity: 0;
         transform: translateX(-100px);

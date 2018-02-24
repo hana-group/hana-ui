@@ -9,6 +9,7 @@ import {Link, withRouter} from 'react-router-dom';
 import cx from 'classnames';
 import {Select, Option, Icon} from 'hana-ui';
 
+import config from '../../config';
 import {langManager, languages} from '../../languages';
 import './base.scss';
 
@@ -96,7 +97,7 @@ const Topbar = ({onChangeLang, location}) => {
           <Link to={`/${lang}/hana-song`}>
             <img
               className={cx('demo-topbar-logo')}
-              src={'/demo/static/images/logo.png'}
+              src={config.logo}
               alt={'hana-logo'}
             />
           </Link>

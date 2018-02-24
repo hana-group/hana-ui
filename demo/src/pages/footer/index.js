@@ -7,6 +7,7 @@ import React from 'react';
 import cx from 'classnames';
 import {withRouter} from 'react-router-dom';
 
+import config from '../../config';
 import MultiLang from 'demo/MultiLang';
 import {Link} from 'hana-ui';
 import './base.scss';
@@ -42,7 +43,7 @@ const Footer = ({location}) => {
         cn={
           <React.Fragment>
             <a href={'https://github.com/hana-group'} targer={'_blank'}>
-              <img src={'/demo/static/images/hana-icon.jpg'} alt={'hana-group'} />
+              <img src={config.icon} alt={'hana-group'} />
             </a>
             <div>
               <p>hana-ui是一个开源项目，使用

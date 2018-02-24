@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import config from '../../config';
 import MultiLangMarkdown from 'demo/MultiLangMarkdown';
 import {Link} from 'hana-ui';
 import './base.scss';
@@ -30,21 +31,21 @@ ${en}
         [
           {
             name: 'dtysky（H光）',
-            avater: '/demo/static/images/dtysky.png',
+            avater: config.authors.dtysky,
             email: 'dtysky@outlook.com',
             github: 'https://github.com/dtysky',
             blog: 'http://dtysky.moe'
           },
           {
             name: 'rhyme',
-            avater: '/demo/static/images/rhyme.jpg',
+            avater: config.authors.rhyme,
             email: 'lovelyrhyme@gmail.com',
             github: 'https://github.com/missrhyme',
             blog: 'https://www.pixiv.net/member.php?id=3674134'
           },
           {
             name: 'lanz',
-            avater: '/demo/static/images/lanz.jpg',
+            avater: config.authors.lanz,
             email: 'lanz@bilibili.com',
             github: 'https://github.com/hanaarena'
           }

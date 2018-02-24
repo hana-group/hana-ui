@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
 import cx from 'classnames';
 
+import config from '../../config';
 import MultiLang from 'demo/MultiLang';
 import FireFlies from 'demo/FireFlies';
 import './base.scss';
@@ -44,7 +45,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/clover.png'}
+      src={config.overview.intro}
       alt={'intro'}
     />
   </MultiLang>,
@@ -67,7 +68,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/violets.png'}
+      src={config.overview.origin}
       alt={'intro'}
     />
   </MultiLang>,
@@ -90,7 +91,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/cornflower.png'}
+      src={config.overview.style}
       alt={'intro'}
     />
   </MultiLang>,
@@ -113,7 +114,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/sakura.png'}
+      src={config.overview.useful}
       alt={'intro'}
     />
   </MultiLang>,
@@ -142,7 +143,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/sunflower.png'}
+      src={config.overview.rich}
       alt={'intro'}
     />
   </MultiLang>,
@@ -183,7 +184,7 @@ const pages = [
   >
     <img
       className={'page-img'}
-      src={'/demo/static/images/edelweiss.png'}
+      src={config.overview.understand}
       alt={'intro'}
     />
   </MultiLang>

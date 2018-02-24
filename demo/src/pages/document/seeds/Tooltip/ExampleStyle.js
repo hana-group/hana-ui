@@ -35,7 +35,7 @@ export default () => (
         content={(
           <div>
             <p>I dressed it !</p>
-            <img src="/demo/static/images/tooltip.png" alt="rich text" />
+            <img src="//oekm6wrcq.bkt.clouddn.com/hana-ui/tooltip.png" alt="rich text" />
           </div>
         )}
         color={'black'}

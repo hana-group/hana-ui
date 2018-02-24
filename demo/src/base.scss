@@ -26,7 +26,7 @@ a {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, .5) url(/demo/static/images/hana.jpg);
+  background: rgba(255, 255, 255, .5) url($bg);
   background-blend-mode: hard-light;
   background-size: 100% auto;
   background-repeat: no-repeat;
