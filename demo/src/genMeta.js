@@ -26,6 +26,7 @@ const table = {
   overview: parse(require('./pages/overview/README.md')),
   guide: parse(require('./pages/guide/README.md')),
   contribution: parse(require('./pages/contribution/README.md')),
+  'hana-song': parse(require('./pages/hana-song/README.md')),
   document: {}
 };
 
@@ -44,7 +45,7 @@ export default (pathname) => {
     table[page][lang].title = 'hana-ui';
   }
 
-  if (page === 'overview' || page === 'guide' || page === 'contribution') {
+  if (page === 'overview' || page === 'guide' || page === 'contribution' || page === 'hana-song') {
     return table[page][lang];
   } else if (page !== 'document') {
     return table.overview[lang];

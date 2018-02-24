@@ -14,6 +14,7 @@ import genMeta from './genMeta';
 import FireFlies from 'demo/FireFlies';
 import Topbar from './pages/topbar';
 import Footer from './pages/footer';
+import HanaSong from './pages/hana-song';
 import Overview from './pages/overview';
 import Guide from './pages/guide';
 import Document from './pages/document';
@@ -75,6 +76,7 @@ export default class App extends Component {
         <Topbar onChangeLang={this.handleChangeLang} />
         <div className={cx('demo-content')}>
           <Switch>
+            <Route path={`${match.url}/hana-song`} component={HanaSong} />
             <Route path={`${match.url}/overview`} component={Overview} />
             <Route path={`${match.url}/guide`} component={Guide} />
             <Route path={`${match.url}/document`} component={Document} />

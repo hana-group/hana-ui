@@ -1,0 +1,17 @@
+.demo-song {
+  position: relative;
+  width: 64%;
+  margin: 24px auto;
+  min-width: 800px;
+  max-width: 1200px;
+  
+
+  .markdown-body {
+    background: rgba(255, 255, 255, .7);
+    padding: 0 24px;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+}

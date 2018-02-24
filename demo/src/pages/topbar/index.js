@@ -93,11 +93,13 @@ const Topbar = ({onChangeLang, location}) => {
     >
       <div className={cx('demo-topbar-container')}>
         <div className={cx('demo-topbar-left')}>
-          <img
-            className={cx('demo-topbar-logo')}
-            src={'/demo/static/images/logo.png'}
-            alt={'hana-logo'}
-          />
+          <Link to={`/${lang}/hana-song`}>
+            <img
+              className={cx('demo-topbar-logo')}
+              src={'/demo/static/images/logo.png'}
+              alt={'hana-logo'}
+            />
+          </Link>
           <Select
             className={cx('demo-topbar-lang')}
             value={lang}
