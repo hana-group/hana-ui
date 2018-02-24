@@ -4,7 +4,8 @@
 
 A React UIKit with fresh nijigen style.
 
-Homepage: [hana-ui.moe](http://hana-ui.moe).
+Homepage: [hana-ui.moe](http://hana-ui.moe/en).
+主页：[hana-ui.moe/cn](http://hana-ui.moe/cn).
 
 ## Guide
 
