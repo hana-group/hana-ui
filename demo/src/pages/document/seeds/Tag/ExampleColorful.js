@@ -17,7 +17,7 @@ export default class ExampleBase extends Component {
   render() {
     return (
       <div>
-        <Tag color="#6cf">#6cf</Tag>
+        <Tag color="#6cd4a4">#6cd4a4</Tag>
         <Tag hasClose color="#f60">#f40</Tag>
       </div>
     );

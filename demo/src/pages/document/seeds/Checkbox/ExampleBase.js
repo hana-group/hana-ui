@@ -23,7 +23,7 @@ export default class ExampleBase extends Component {
     return (
       <div>
         <Checkbox
-          label={<p style={{color: '#6cf', display: 'inline-block'}}>I am{this.state.isChecked ? '' : ' not'} checked</p>}
+          label={<p style={{color: '#6cd4a4', display: 'inline-block'}}>I am{this.state.isChecked ? '' : ' not'} checked</p>}
           checked={this.state.isChecked}
           onChange={(event, isChecked) => this.setState({isChecked})}
         />

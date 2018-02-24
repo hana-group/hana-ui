@@ -25,14 +25,14 @@ export default class ExampleBase extends Component {
         <Radio
           label="Custom Radio"
           auto
-          checkedIcon={<Icon type="snowflake-o" color="#6cf" />}
-          unCheckedIcon={<Icon type="snowflake-o" color="#ccc" />}
+          checkedIcon={<Icon type="snowflake-o" color="#6cd4a4" />}
+          unCheckedIcon={<Icon type="snowflake-o" color="#6cd4a4" />}
           style={{marginBottom: 20}}
         />
         <RadioGroup
           value={this.state.val}
           onChange={val => this.setState({val})}
-          checkedIcon={<Icon type="snowflake-o" color="#6cf" />}
+          checkedIcon={<Icon type="snowflake-o" color="#6cd4a4" />}
           unCheckedIcon={<Icon type="snowflake-o" color="#ccc" />}
         >
           <Radio label="Spring" value="1" />

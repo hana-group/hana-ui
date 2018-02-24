@@ -35,11 +35,11 @@ export default class ExampleCustom extends Component {
       width: 100
     };
     const itemLabelStyle = {
-      color: '#6cf',
+      color: '#6cd4a4',
       width: 'auto'
     };
     const elementStyle = {
-      color: '#6cf'
+      color: '#6cd4a4'
     };
     return (
       <Form onSubmit={this.handleSubmit} style={{width: 600, background: '#fff', padding: 20}}>
