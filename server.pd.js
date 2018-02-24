@@ -68,11 +68,11 @@ function ssr(req, res) {
     </StaticRouter>
   );
 
-  const {title, description} = genMeta(url);
   if (context.url) {
     return res.redirect(302, context.url);
   }
 
+  const {title, description} = genMeta(url);
   cache[url] = zlib.gzipSync(
     template
       .replace('{{MARKUP}}', markup)
