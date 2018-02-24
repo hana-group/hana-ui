@@ -13,6 +13,7 @@ export interface Props {
   iconSize?: string;
   className?: string;
   style?: any;
+  disabled?: boolean;
   onClick?: () => void;
   children?: React.ReactNode;
 }

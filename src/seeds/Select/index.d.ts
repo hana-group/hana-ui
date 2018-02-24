@@ -18,6 +18,7 @@ export interface IPropTypes {
   size?: 'small' | 'middle' | 'large';
   name?: string;
   className?: string;
+  style?: any;
 }
 
 export interface IStateTypes {

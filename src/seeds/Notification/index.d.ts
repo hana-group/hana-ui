@@ -20,7 +20,7 @@ export class Notification extends Component<Props, States> {
 }
 
 export interface INotificationsProps {
-  notification?: React.ReactNode[];
+  notification?: Props[];
   onRequestClose?: () => void;
 }
 

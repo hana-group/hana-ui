@@ -1,18 +1,18 @@
 /// <reference types="react" />
 import {Component} from 'react';
 export interface IPropTypes {
-  children: React.ReactNode;
-  title: string;
-  subtitle: string;
-  titleStyle: any;
-  containerStyle: any;
-  icon: React.ReactNode;
-  expand: boolean;
-  expandIcon: React.ReactNode;
-  open: boolean;
-  defaultOpen: boolean;
-  className: string;
-  onClick: (event: Event) => void;
+  children?: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  titleStyle?: any;
+  containerStyle?: any;
+  icon?: React.ReactNode;
+  expand?: boolean;
+  expandIcon?: React.ReactNode;
+  open?: boolean;
+  defaultOpen?: boolean;
+  className?: string;
+  onClick?: (event: Event) => void;
 }
 
 export interface IStateTypes {
