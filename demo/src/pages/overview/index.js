@@ -254,10 +254,10 @@ export default class Overview extends React.Component {
 
     if (delta >= 100) {
       nextPage = page === 0 ? max : page - 1;
-    }
-
-    if (delta <= -100) {
+    } else if (delta <= -100) {
       nextPage = page === max ? 0 : page + 1;
+    } else {
+      return;
     }
 
     this.changePage(nextPage);

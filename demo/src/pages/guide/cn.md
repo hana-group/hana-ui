@@ -28,8 +28,6 @@ import 'hana-ui/hana-style.scss';
 
 以下以`Button` 组件为例写一个简单的例子：
 
-(TODO: 补充codepen)
-
 ```javascript
 import React from 'react';
 import {Button} from 'hana-ui';
