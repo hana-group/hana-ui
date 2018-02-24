@@ -1,8 +1,10 @@
 # hana-ui
 
+[logo](https://github.com/hana-group/hana-ui/raw/master/demo/static/images/logo.png)
+
 A React UIKit with fresh nijigen style.
 
-[Home page is coming soon !](https://hana-ui.moe)
+Homepage: [hana-ui.moe](http://hana-ui.moe).
 
 ## Guide
 

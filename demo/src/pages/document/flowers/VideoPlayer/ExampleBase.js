@@ -31,81 +31,81 @@ export default class ExampleBase extends Component {
                 title: 'op',
                 desc: 'eden的OP',
                 sources: [
-                  {src: '/demo/static/hana-song/video/op.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/op.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'world',
                 desc: 'bml world',
                 sources: [
-                  {src: '/demo/static/hana-song/video/world.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/world.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'op',
                 desc: 'eden的OP',
                 sources: [
-                  {src: '/demo/static/hana-song/video/op.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/op.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'world',
                 desc: 'bml world',
                 sources: [
-                  {src: '/demo/static/hana-song/video/world.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/world.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'op',
                 desc: 'eden的OP',
                 sources: [
-                  {src: '/demo/static/hana-song/video/op.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/op.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'world',
                 desc: 'bml world',
                 sources: [
-                  {src: '/demo/static/hana-song/video/world.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/world.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'op',
                 desc: 'eden的OP',
                 sources: [
-                  {src: '/demo/static/hana-song/video/op.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/op.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               },
               {
                 title: 'world',
                 desc: 'bml world',
                 sources: [
-                  {src: '/demo/static/hana-song/video/world.mp4'}
+                  {src: '//oekm6wrcq.bkt.clouddn.com/hana-ui/world.mp4'}
                 ],
                 text: '蛤蛤蛤',
-                poster: '/demo/static/hana-song/bg/02.jpg',
-                image: '/demo/static/hana-song/bg/01.jpg'
+                poster: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg',
+                image: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg'
               }
             ]}
           >
