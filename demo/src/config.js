@@ -21,7 +21,7 @@
 //   }
 // };
 export default {
-  logo: '/demo/static/images/logo.png',
+  logo: require('../static/images/logo.png'),
   icon: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana-icon.jpg',
   overview: {
     intro: '//oekm6wrcq.bkt.clouddn.com/hana-ui/clover.png',

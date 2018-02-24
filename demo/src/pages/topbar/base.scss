@@ -28,11 +28,11 @@
   }
 
   &-logo {
-    $height: 56px;
+    $height: 48px;
     display: block;
     width: $height / 160 * 524;
     height: $height;
-    margin-right: 12px;
+    margin-right: 24px;
   }
 
   &-lang {

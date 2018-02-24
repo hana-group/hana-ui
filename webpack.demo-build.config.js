@@ -126,11 +126,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.woff|\.woff2|\.eot|\.ttf|\.svg/,
+        test: /\.(woff|woff2|eot|ttf|svg|jpg|png)$/,
         use: {
           loader: 'url-loader',
           options: {
-            // limit: 80000
+            limit: 100000
           }
         }
       }

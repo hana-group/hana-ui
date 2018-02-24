@@ -81,6 +81,15 @@ module.exports = {
             loader: 'json-loader'
           }
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg|jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 100000
+          }
+        }
       }
     ]
   }
