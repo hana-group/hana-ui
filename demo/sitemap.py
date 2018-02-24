@@ -69,8 +69,11 @@ def generate():
       for d in dirs:
         tmp = ''
         for c in d:
-            tmp += c if c.islower() else '-' + c.lower()
-        d = tmp[1:]
+            tmp += '-' + c.lower() if c.isupper() else c
+        if tmp[0] == '-':
+            d = tmp[1:]
+        else:
+            d = tmp
         for lang in langs:
             url = root.replace('demo/src/pages', config["site_root"] + '/' + lang) + "/" + d.lower()
             urls["http"].append("http://" + url)
