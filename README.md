@@ -2,7 +2,7 @@
 
 ![logo](https://github.com/hana-group/hana-ui/raw/master/demo/static/images/logo.png)
 
-A React UIKit with fresh nijigen style.
+🌻A React UIKit with fresh nijigen style.
 
 Homepage: [hana-ui.moe](http://hana-ui.moe/en).
 主页：[hana-ui.moe/cn](http://hana-ui.moe/cn).
