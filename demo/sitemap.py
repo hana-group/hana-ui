@@ -67,6 +67,10 @@ def generate():
     }
     for root, dirs, files in os.walk(config["in_dir"]):
       for d in dirs:
+        tmp = ''
+        for c in d:
+            tmp += c if c.islower() else '-' + c.lower()
+        d = tmp[1:]
         for lang in langs:
             url = root.replace('demo/src/pages', config["site_root"] + '/' + lang) + "/" + d.lower()
             urls["http"].append("http://" + url)
