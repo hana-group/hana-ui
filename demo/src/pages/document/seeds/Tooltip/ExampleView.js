@@ -32,7 +32,7 @@ export default () => (
         content={(
           <div>
             <p>Hey, give me your photo with dressing lolita !</p>
-            <img src="//oekm6wrcq.bkt.clouddn.com/hana-ui/tooltip.png" alt="rich text" />
+            <img src="http://oekm6wrcq.bkt.clouddn.com/hana-ui/tooltip.png" alt="rich text" />
           </div>
         )}
       >
@@ -53,7 +53,7 @@ export default () => (
         content={(
           <div>
             <p>Hey, give me your photo with dressing lolita !</p>
-            <img src="//oekm6wrcq.bkt.clouddn.com/hana-ui/tooltip.png" alt="rich text" />
+            <img src="http://oekm6wrcq.bkt.clouddn.com/hana-ui/tooltip.png" alt="rich text" />
           </div>
         )}
       >

@@ -30,7 +30,7 @@ export default class ExampleBase extends Component {
             subTitle={'for everyone in the world'}
             content={(
               <div>
-                <img src="//oekm6wrcq.bkt.clouddn.com/hana-ui/himawari.png" alt="rich text" />
+                <img src="http://oekm6wrcq.bkt.clouddn.com/hana-ui/himawari.png" alt="rich text" />
               </div>
             )}
           >

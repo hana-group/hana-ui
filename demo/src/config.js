@@ -22,18 +22,18 @@
 // };
 export default {
   logo: require('../static/images/logo.png'),
-  icon: '//oekm6wrcq.bkt.clouddn.com/hana-ui/hana-icon.jpg',
+  icon: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/hana-icon.jpg',
   overview: {
-    intro: '//oekm6wrcq.bkt.clouddn.com/hana-ui/clover.png',
-    origin: '//oekm6wrcq.bkt.clouddn.com/hana-ui/violets.png',
-    style: '//oekm6wrcq.bkt.clouddn.com/hana-ui/cornflower.png',
-    useful: '//oekm6wrcq.bkt.clouddn.com/hana-ui/sakura.png',
-    rich: '//oekm6wrcq.bkt.clouddn.com/hana-ui/sunflower.png',
-    understand: '//oekm6wrcq.bkt.clouddn.com/hana-ui/edelweiss.png'
+    intro: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/clover.png',
+    origin: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/violets.png',
+    style: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/cornflower.png',
+    useful: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/sakura.png',
+    rich: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/sunflower.png',
+    understand: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/edelweiss.png'
   },
   authors: {
-    dtysky: '//oekm6wrcq.bkt.clouddn.com/hana-ui/dtysky.png',
-    rhyme: '//oekm6wrcq.bkt.clouddn.com/hana-ui/rhyme.jpg',
-    lanz: '//oekm6wrcq.bkt.clouddn.com/hana-ui/lanz.jpg'
+    dtysky: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/dtysky.png',
+    rhyme: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/rhyme.jpg',
+    lanz: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/lanz.jpg'
   }
 };
