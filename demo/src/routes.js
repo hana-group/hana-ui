@@ -1,11 +1,14 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop'
 
 import App from './App';
 
 const Router = () => (
-  <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
-    <App />
+  <BrowserRouter>
+    <ScrollToTop>
+      <App />
+    </ScrollToTop>
   </BrowserRouter>
 );
 
