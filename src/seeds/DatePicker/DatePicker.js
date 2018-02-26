@@ -351,6 +351,8 @@ export default class DatePicker extends Component {
       return;
     }
 
+    e.preventDefault();
+
     switch (e.key) {
       case 'ArrowLeft':
         if (e.altKey && e.shiftKey) {
