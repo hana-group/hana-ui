@@ -143,7 +143,7 @@ export default class Card extends Component {
 
   render() {
     const {
-      children, title, subtitle, icon, titleStyle, expand, expandIcon, className
+      children, title, subtitle, icon, titleStyle, containerStyle, expand, expandIcon, className
     } = this.props;
     const {open} = this.state;
     const cls = cx({
@@ -164,7 +164,7 @@ export default class Card extends Component {
             </div>
           }
         </div>
-        <div className="hana-card-container">
+        <div className="hana-card-container" style={containerStyle}>
           <div className="hana-card-container-wrap">
             {children}
           </div>
