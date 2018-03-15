@@ -18,7 +18,7 @@ class Modal extends React.Component {
      * Custom component style
      *
      * @cn
-     * Custom button component class name
+     * 自定义组件按钮样式
      */
     style: PropTypes.object,
     /**
