@@ -4,7 +4,7 @@ import {Component} from 'react';
 export interface Props {
   style?: any;
   type?: 'info' | 'success' | 'error' | 'warning';
-  content: React.ReactNode;
+  content?: React.ReactNode;
   duration?: number;
   showClose?: boolean;
   className?: string;
