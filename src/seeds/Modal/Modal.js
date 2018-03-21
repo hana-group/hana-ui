@@ -159,6 +159,10 @@ class Modal extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.timer && clearTimeout(this.timer);
+  }
+
   setContainerRef = c => {
     this.container = c;
   };
