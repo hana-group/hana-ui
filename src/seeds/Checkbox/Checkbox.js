@@ -142,7 +142,6 @@ export default class Checkbox extends Component {
     const {checked} = this.state;
     if (disabled) return;
     const nextChecked = !checked;
-    console.log('changed', auto, this.state)
     if (auto) {
       this.setState({checked: nextChecked}, () => onChange(e, nextChecked));
     } else {
@@ -169,7 +168,6 @@ export default class Checkbox extends Component {
           {checked && checkedIcon}
           {!checked && unCheckedIcon}
         </div>
-        <span>{label}</span>
         <input
           type="checkbox"
           onClick={this.handleClick}
@@ -178,6 +176,7 @@ export default class Checkbox extends Component {
           style={{display: 'none'}}
           value={value}
         />
+        <span>{label}</span>
       </label>
     );
   }
