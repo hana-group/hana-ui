@@ -16,6 +16,14 @@ class Sidebar extends Component {
     style: PropTypes.object,
     /**
      * @en
+     * Custom component className
+     *
+     * @cn
+     * 自定义组件class
+     */
+    className: PropTypes.string,
+    /**
+     * @en
      * Setting component position one of 'left','right'. default is placed left
      *
      * @cn
@@ -46,7 +54,7 @@ class Sidebar extends Component {
   }
 
   render() {
-    const {style, position, open, children} = this.props;
+    const {style, position, open, children, className} = this.props;
     const prefix = 'hana';
 
     return (
@@ -57,7 +65,8 @@ class Sidebar extends Component {
             `${prefix}-sidebar-${position}`, {
               [`${prefix}-sidebar-open`]: open,
               [`${prefix}-sidebar-close`]: !open
-            }
+            },
+            className
           )
         }
         style={style}

@@ -90,7 +90,7 @@ export default class MenuItem extends Component {
 
   handleClick = (e) => {
     const {value, onClick, disabled} = this.props;
-    if (!disabled) onClick(e, value);
+    if (!disabled && onClick) onClick(e, value);
   }
 
   render() {

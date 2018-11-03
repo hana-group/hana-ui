@@ -3,6 +3,7 @@ import {Component} from 'react';
 
 export interface Props {
   style?: any;
+  className?: string;
   position?: string[];
   open?: boolean;
   children?: React.ReactNode

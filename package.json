@@ -1,6 +1,6 @@
 {
   "name": "hana-ui",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "description": "A React UIKit with fresh nijigen style.",
   "keywords": [
     "hana",
@@ -48,7 +48,9 @@
     "d3-interpolate": "^1.1.6",
     "immutability-helper": "^2.6.2",
     "lodash": "^4.17.4",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.0"
+  },
+  "peerDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-transition-group": "^2.2.1"
