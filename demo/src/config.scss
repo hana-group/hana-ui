@@ -1,4 +1,4 @@
-$bg: 'http://oekm6wrcq.bkt.clouddn.com/hana-ui/hana.jpg';
+$bg: '/demo/static/images/hana.jpg';
 
 @mixin with-fade-head($size: 36px, $start: rgba(255, 255, 255, 0), $end: rgba(255, 255, 255, .7)) {
   &:before {
