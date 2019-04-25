@@ -93,6 +93,15 @@ export default class Slider extends Component {
 
     /**
      * @en
+     * show value text or not
+     *
+     * @cn
+     * 是否要显示值。
+     */
+    showValue: PropTypes.bool,
+
+    /**
+     * @en
      * the classname of the slider
      *
      * @cn
@@ -116,6 +125,7 @@ export default class Slider extends Component {
     onChange: noop,
     onDragStart: noop,
     onDragEnd: noop,
+    showValue: true,
     icon: <Icon type={'himawari'} />,
     size: 'middle'
   }
@@ -197,7 +207,7 @@ export default class Slider extends Component {
   }
 
   render() {
-    const {color, className, icon, size} = this.props;
+    const {color, className, icon, size, showValue} = this.props;
     const {value} = this.state;
     const cls = cx('hana-slider', `hana-slider-${size}`, className);
     const computedWidth = this.getWidth(value);
@@ -214,7 +224,7 @@ export default class Slider extends Component {
           style={{width: computedWidth, backgroundColor: color}}
           ref={ref => { this.refInner = ref; }}
         >
-          <p className="hana-slider-value">{value}</p>
+          {showValue && <p className="hana-slider-value">{value}</p>}
           {icon ?
             <div
               className="hana-slider-icon-wrap"

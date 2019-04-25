@@ -10,7 +10,10 @@ export interface IPropTypes {
   onDragEnd?: (event: Event) => void;
   min?: number;
   max?: number;
+  showValue?: boolean;
+  size?: 'small' | 'middle' | 'large';
   className?: string;
+  style?: any;
 }
 
 export interface IStateTypes {

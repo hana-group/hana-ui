@@ -7,6 +7,8 @@ export interface IPropTypes {
   size?: 'small' | 'middle' | 'large';
   min?: number;
   max?: number;
+  className?: string;
+  style?: any;
 }
 
 export interface IStateTypes {
