@@ -22,6 +22,7 @@ export interface IPostcardGroupPropTypes {
   height?: number;
   mode?: 'normal' | 'random' | 'clothesline';
   className?: string;
+  style?: any;
 }
 
 export interface IPostcardGroupStateTypes {

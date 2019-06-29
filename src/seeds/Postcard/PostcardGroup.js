@@ -40,7 +40,16 @@ export default class PostcardGroup extends Component {
      * @cn
      * 明信片的class
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+    /**
+     * @en
+     * the postcard's style
+     *
+     * @cn
+     * 明信片的`style`
+     */
+    style: PropTypes.object
   }
 
   static defaultProps = {
@@ -48,12 +57,12 @@ export default class PostcardGroup extends Component {
   }
 
   render() {
-    const {height, mode, className} = this.props;
+    const {height, mode, className, style} = this.props;
     const cls = cx('hana-postcard-group', `hana-postcard-group-${mode}`, className);
     // const computedStyle = Object.assign({}, style, {color});
     // const restProps = getRestProps(PostcardGroup, this.props);
     return (
-      <div className={cls} style={{height}}>
+      <div className={cls} style={Object.assign({height}, style)}>
         {this.renderPostcards()}
       </div>
     );
