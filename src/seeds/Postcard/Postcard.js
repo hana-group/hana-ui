@@ -58,14 +58,23 @@ export default class Postcard extends Component {
      * @cn
      * 明信片的副标题样式
      */
-    subtitleStyle: PropTypes.object
+    subtitleStyle: PropTypes.object,
+
+    /**
+     * @en
+     * the postcard's class name
+     *
+     * @cn
+     * 明信片的class
+     */
+    className: PropTypes.string
   }
 
   render() {
     const {
-      children, style, title, subtitle, titleStyle, subtitleStyle
+      children, style, title, subtitle, titleStyle, subtitleStyle, className
     } = this.props;
-    const cls = cx('hana-postcard');
+    const cls = cx('hana-postcard', className);
     // const computedStyle = Object.assign({}, style, {color});
     const restProps = getRestProps(Postcard, this.props);
     return (

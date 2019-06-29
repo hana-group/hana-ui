@@ -7,6 +7,7 @@ export interface IPropTypes {
   subtitle?: React.ReactNode;
   titleStyle?: any;
   subtitleStyle?: any;
+  className?: string;
 }
 
 export interface IStateTypes {
@@ -20,6 +21,7 @@ export interface IPostcardGroupPropTypes {
   children: React.ReactNode;
   height?: number;
   mode?: 'normal' | 'random' | 'clothesline';
+  className?: string;
 }
 
 export interface IPostcardGroupStateTypes {
