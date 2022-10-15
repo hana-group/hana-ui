@@ -24,7 +24,7 @@ if (typeof document === 'undefined') {
 }
 /* -- wtf ! -- */
 
-const port = 8000;
+const port = 8888;
 const storage = multer.memoryStorage();
 const upload = multer({storage});
 const app = new express();
@@ -38,7 +38,7 @@ app.post('/upload', upload.any(), (req, res) => {
 });
 
 app.use((req, res, next) => {
-  if (['.js', '.css'].includes(path.extname(req.url))) {
+  if (['.js', '.css'].indexOf(path.extname(req.url)) >= 0) {
     res.setHeader('Content-Encoding', 'gzip');
   }
   return next();
