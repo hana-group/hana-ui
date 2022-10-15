@@ -185,13 +185,13 @@ export default class Slider extends Component {
       this.setState({
         value
       });
+      this.props.onChange(value);
     }
   }
 
   handleMouseUp = e => {
     if (this.isDragging) {
       this.isDragging = false;
-      this.props.onChange(this.state.value);
       this.props.onDragEnd(e);
     }
   }
