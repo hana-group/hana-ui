@@ -193,8 +193,6 @@ export default class Slider extends Component {
     if (this.isDragging) {
       this.isDragging = false;
       this.props.onDragEnd(e);
-    } else {
-      this.props.onChange(value);
     }
   }
 
@@ -206,6 +204,7 @@ export default class Slider extends Component {
     this.setState({
       value
     });
+    this.props.onChange(value);
   }
 
   render() {
