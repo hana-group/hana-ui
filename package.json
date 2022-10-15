@@ -1,6 +1,6 @@
 {
   "name": "hana-ui",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A React UIKit with fresh nijigen style.",
   "keywords": [
     "hana",
@@ -18,7 +18,7 @@
     "demo-build-client": "webpack -p --config ./webpack.demo-build.config.js",
     "demo-build-server": "webpack --config ./webpack.demo-server.config.js",
     "demo-run": "node demo/server.js",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "authors": [
     {
