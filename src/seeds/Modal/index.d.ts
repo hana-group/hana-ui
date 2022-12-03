@@ -9,6 +9,7 @@ export interface Props {
   titleStyle?: any;
   show: boolean;
   showClose?: boolean;
+  closeOnClickBg?: boolean,
   close?: React.ReactNode;
   confirm?: () => void;
   cancel?: () => void;

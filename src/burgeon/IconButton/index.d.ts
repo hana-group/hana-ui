@@ -11,6 +11,7 @@ export interface IPropTypes {
   tipColor?: string;
   tipPosition?: 'top' | 'bottom' | 'left' | 'right';
   disabled?: boolean;
+  className?: string;
   onClick?: (event: Event) => void;
 }
 
