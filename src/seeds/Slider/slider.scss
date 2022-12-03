@@ -49,7 +49,7 @@
   &-icon-wrap{
     position: absolute;
     right: 0;
-    top: $slider-size-middle / 2;
+    top: $slider-size-middle * 0.5;
     transform: translate(50%, -50%);
     cursor: pointer;
     color: darken($primary-color, 20%);
@@ -61,14 +61,14 @@
   }
 
   &-small &-icon-wrap{
-    top: $slider-size-small / 2;
+    top: $slider-size-small * 0.5;
     .hanaicon{
       font-size: 20px;
     }
   }
 
   &-large &-icon-wrap{
-    top: $slider-size-large / 2;
+    top: $slider-size-large * 0.5;
     .hanaicon{
       font-size: 30px;
     }

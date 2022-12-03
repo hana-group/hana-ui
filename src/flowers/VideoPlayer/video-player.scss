@@ -2,6 +2,7 @@
  * Github: https://github.com/dtysky
  * Create: 2017/2/9
  */
+@use 'sass:math';
 @import "../../styles/config";
 
 .hana-video-player {
@@ -261,7 +262,7 @@
     $height: 64px;
     $cover-margin: 6px;
     $cover-height: $height - $cover-margin * 2;
-    $cover-width: $cover-height * 16 / 9;
+    $cover-width: $cover-height * math.div(16, 9);
     padding: 8px 0;
     height: $cover-height;
     cursor: pointer;
@@ -301,7 +302,7 @@
   $height: 96px;
   $cover-margin: 8px;
   $cover-height: $height - $cover-margin * 2;
-  $cover-width: $cover-height * 16 / 9;
+  $cover-width: $cover-height * math.div(16, 9);
   &-full &-list-open {
     width: $list-width;
   }

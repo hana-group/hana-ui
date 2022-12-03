@@ -1,20 +1,19 @@
 {
-  "presets": ["env", "react", "stage-0"],
+  "presets": ["@babel/react", "@babel/env"],
+
   "plugins": [
-    "transform-runtime",
+    "@babel/plugin-transform-spread",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-function-bind",
+    ["@babel/plugin-proposal-decorators", {"decoratorsBeforeExport": true}],
+    "add-module-exports",
     "transform-decorators-legacy",
     "transform-react-display-name",
     "syntax-async-functions",
     "transform-regenerator",
     "transform-async-to-generator",
     "transform-class-properties",
-    "react-hot-loader/babel"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        "typecheck"
-      ]
-    }
-  }
+    "syntax-flow",
+    "transform-flow-strip-types"
+  ]
 }

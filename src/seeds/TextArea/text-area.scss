@@ -23,9 +23,9 @@
   transition: color 0.5s linear, border-color 0.5s linear, height 0.3s ease-out;
 }
 
-$text-desc-offset-large: $size-large-font-size / 2;
-$text-desc-offset-middle: $size-middle-font-size / 2;
-$text-desc-offset-small: $size-small-font-size / 2;
+$text-desc-offset-large: $size-large-font-size * 0.5;
+$text-desc-offset-middle: $size-middle-font-size * 0.5;
+$text-desc-offset-small: $size-small-font-size * 0.5;
 
 // container
 .hana-text-area {

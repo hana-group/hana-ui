@@ -95,6 +95,14 @@ class Modal extends React.Component {
     cancel: PropTypes.func,
     /**
      * @en
+     * Allow clicking background layer to close
+     *
+     * @cn
+     * 允许点击背景关闭弹窗
+     */
+     closeOnClickBg: PropTypes.bool,
+    /**
+     * @en
      * Show custom modal action button
      *
      * @cn
@@ -120,7 +128,8 @@ class Modal extends React.Component {
   };
 
   static defaultProps = {
-    showClose: false
+    showClose: false,
+    closeOnClickBg: true
   };
 
   constructor() {
@@ -215,11 +224,11 @@ class Modal extends React.Component {
   }
 
   renderOverlay() {
-    const {show} = this.props;
+    const {show, closeOnClickBg} = this.props;
     if (!show) return null;
     return (
       <CSSTransition classNames="hana-overlay" timeout={{enter: 200, exit: 200}}>
-        <div className={`${this.prefix}-overlay`} onClick={this.hideModal} />
+        <div className={`${this.prefix}-overlay`} onClick={closeOnClickBg && this.hideModal} />
       </CSSTransition>
     );
   }

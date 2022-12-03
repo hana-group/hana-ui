@@ -47,7 +47,7 @@ const navs = [
   }
 ];
 
-const NavItem = ({...name, icon, lang, path, useATag}) => (
+const NavItem = ({icon, lang, path, useATag, ...name}) => (
   <li className={cx('demo-topbar-item')}>
     <Icon type={icon} className={cx('demo-topbar-item-icon')} />
     {

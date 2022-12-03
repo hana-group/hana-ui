@@ -17,7 +17,7 @@
     -webkit-font-smoothing: antialiased;
     position: absolute;
     left: -8px;
-    top: -($switch-icon-size - 8px) / 2;
+    top: -($switch-icon-size - 8px) * 0.5;
     transform: rotate(45deg);
     transition: all 0.4s ease-in;
     -webkit-transition: all 0.4s ease-in;
@@ -26,7 +26,7 @@
   &::after {
     content: "";
     display: block;
-    margin-left: $switch-default-size / 2;
+    margin-left: $switch-default-size * 0.5;
     width: $switch-default-size;
     height: 8px;
     border-radius: 4px;

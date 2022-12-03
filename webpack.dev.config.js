@@ -1,23 +1,24 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// remove webpack-loader confused warning: https://github.com/webpack/loader-utils/issues/56
-process.noDeprecation = true;
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {PORT, HOST} = require('./server.dev');
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?/',
-    'webpack/hot/dev-server',
-    './demo/src/index.js'
-  ],
+  devtool: 'source-map',
+  mode: 'development',
+  entry: {
+    main: [
+      'react-hot-loader/patch',
+      './demo/src/index.js'
+    ]
+  },
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'main.[hash].js'
   },
-  // devtool: 'cheap-module-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.md'],
     alias: {
@@ -28,21 +29,11 @@ module.exports = {
   module: {
     rules: [
       {
-        // enforce: 'pre',
         test: /\.jsx?/,
         use: [
-          // {
-          //   loader: 'react-hot-loader/webpack'
-          // },
           {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true
-            }
+            loader: 'babel-loader'
           }
-          // {
-          //   loader: 'eslint-loader',
-          // }
         ],
         exclude: /(node_modules)/
       },
@@ -50,7 +41,7 @@ module.exports = {
         test: /\.(css|sass|scss)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCssExtractPlugin.loader
           },
           {
             loader: 'css-loader'
@@ -58,8 +49,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: path.resolve('./postcss.config.js')
+              postcssOptions: {
+                plugins: [
+                  ['postcss-preset-env'],
+                ],
               }
             }
           },
@@ -73,9 +66,6 @@ module.exports = {
               resources: './themes/himawari.scss'
             }
           }
-          // {
-          //   loader: 'sasslint-loader'
-          // }
         ],
         exclude: /node_modules/
       },
@@ -97,29 +87,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.json/,
-        use: [
-          {
-            loader: 'json-loader'
-          }
-        ]
-      },
-      {
         test: /\.(woff|woff2|eot|ttf|svg|jpg|png)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 100000
+        type: 'asset/resource',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024
           }
         }
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    new MiniCssExtractPlugin({filename: 'main.[hash].css'}),
     new webpack.ProvidePlugin({}),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new NodePolyfillPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
@@ -127,11 +108,21 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      inject: true,
       template: path.resolve(__dirname, './demo/index.html')
     })
   ],
-  performance: {
-    hints: false
+
+  devServer: {
+    host: HOST,
+    port: PORT,
+    hot: true,
+    client: {
+      overlay: false,
+    },
+    historyApiFallback: true,
+    proxy: [{
+      context: ['/upload', '/demo/'],
+      target: `http://localhost:${PORT + 1}`
+    }]
   }
 };

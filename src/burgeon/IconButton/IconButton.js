@@ -103,7 +103,16 @@ export default class IconButton extends Component {
      * @cn
      * 点击时的回调函数
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+
+    /**
+     * @en
+     * the loading's class
+     *
+     * @cn
+     * 加载器的`class`
+     */
+     className: PropTypes.string
   }
 
   static defaultProps = {

@@ -141,14 +141,14 @@ export default class Slider extends Component {
     this.refInner = null;
   }
 
-  componentWillMount() {
-    document.addEventListener('mousemove', this.handleMouseMove, false);
-    document.addEventListener('mouseup', this.handleMouseUp, false);
-  }
-
   componentDidMount() {
-    this.width = this.refSlider.clientWidth;
     this.inner = this.refInner;
+    document.addEventListener('mousemove', this.handleMouseMove);
+    document.addEventListener('mouseup', this.handleMouseUp);
+    document.addEventListener('mouseleave', this.handleMouseUp);
+    document.addEventListener('touchmove', this.handleMouseMove, {passive: false});
+    document.addEventListener('touchend', this.handleMouseUp, {passive: false});
+    document.addEventListener('touchcancel', this.handleMouseUp, {passive: false});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -156,8 +156,12 @@ export default class Slider extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousemove', this.handleMouseMove, false);
-    document.removeEventListener('mouseup', this.handleMouseUp, false);
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseup', this.handleMouseUp);
+    document.removeEventListener('mouseleave', this.handleMouseUp);
+    document.removeEventListener('touchmove', this.handleMouseMove, {passive: false});
+    document.removeEventListener('touchend', this.handleMouseUp, {passive: false});
+    document.removeEventListener('touchcancel', this.handleMouseUp, {passive: false});
   }
 
   getWidth = value => {
@@ -168,6 +172,9 @@ export default class Slider extends Component {
   }
 
   dragStart = e => {
+    if (e.touches) {
+      e = e.touches[0];
+    }
     this.isDragging = true;
     this.dragPosition = this.inner.getBoundingClientRect().right;
     this.currentValue = this.state.value;
@@ -176,10 +183,14 @@ export default class Slider extends Component {
 
   handleMouseMove = e => {
     if (this.isDragging) {
+      if (e.touches) {
+        e.preventDefault();
+        e = e.touches[0];
+      }
       const {min, max} = this.props;
-      const delta = e.pageX - this.dragPosition;
+      const delta = e.clientX - this.dragPosition;
 
-      let value = Math.round(this.currentValue + delta * (max - min) / this.width);
+      let value = Math.round(this.currentValue + delta * (max - min) / this.refSlider.clientWidth);
       if (value > max) value = max;
       if (value < min) value = min;
       this.setState({
@@ -191,6 +202,10 @@ export default class Slider extends Component {
 
   handleMouseUp = e => {
     if (this.isDragging) {
+      if (e.touches) {
+        e.preventDefault();
+        e = e.touches[0];
+      }
       this.isDragging = false;
       this.props.onDragEnd(e);
     }
@@ -198,9 +213,9 @@ export default class Slider extends Component {
 
   handleClick = e => {
     const {min, max} = this.props;
-    const startPosition = this.refSlider.getBoundingClientRect().left;
-    const delta = e.pageX - startPosition;
-    const value = Math.round((delta / this.width) * (max - min) + min);
+    const {left: startPosition, width} = this.refSlider.getBoundingClientRect();
+    const delta = e.clientX - startPosition;
+    const value = Math.round((delta / width) * (max - min) + min);
     this.setState({
       value
     });
@@ -230,6 +245,7 @@ export default class Slider extends Component {
             <div
               className="hana-slider-icon-wrap"
               onMouseDown={this.dragStart}
+              onTouchStart={this.dragStart}
             >
               {icon}
             </div>
@@ -237,6 +253,7 @@ export default class Slider extends Component {
             <i
               className="hana-slider-button"
               onMouseDown={this.dragStart}
+              onTouchStart={this.dragStart}
             />
           }
         </div>

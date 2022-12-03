@@ -186,9 +186,9 @@ $text-icon-padding-large: $size-large-height - $icon-size-large;
 $text-icon-padding-middle: $size-middle-height - $icon-size-middle;
 $text-icon-padding-small: $size-small-height - $icon-size-small;
 
-$text-icon-box-padding-large: $text-icon-padding-large / 2;
-$text-icon-box-padding-middle: $text-icon-padding-middle / 2;
-$text-icon-box-padding-small: $text-icon-padding-small / 2;
+$text-icon-box-padding-large: $text-icon-padding-large * 0.5;
+$text-icon-box-padding-middle: $text-icon-padding-middle * 0.5;
+$text-icon-box-padding-small: $text-icon-padding-small * 0.5;
 
 .hana-text-icon {
   @include text-transition;

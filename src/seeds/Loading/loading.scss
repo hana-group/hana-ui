@@ -14,10 +14,10 @@
     from {
       opacity: 0;
     }
-    #{$index * 15%} {
+    #{$index * 20%} {
       opacity: 0;
     }
-    #{($index + 1) * 15%} {
+    #{($index + 1) * 20%} {
       opacity: 1;
     }
     80% {
@@ -86,19 +86,19 @@
       opacity: 0;
 
       &:nth-child(1) {
-        @include loading-queue-item(1);
+        @include loading-queue-item(0);
       }
 
       &:nth-child(2) {
-        @include loading-queue-item(2);
+        @include loading-queue-item(1);
       }
 
       &:nth-child(3) {
-        @include loading-queue-item(3);
+        @include loading-queue-item(2);
       }
 
       &:nth-child(4) {
-        @include loading-queue-item(4);
+        @include loading-queue-item(3);
       }
     }
   }

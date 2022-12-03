@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import "../../styles/config";
 
 .hana-radio-inner {
@@ -17,11 +18,11 @@
   &::after {
     position: absolute;
     content: "";
-    left: $radio-default-size * 1 / 5;
-    top: $radio-default-size * 1 / 5;
-    width: $radio-default-size * 3 / 5;
-    height: $radio-default-size * 3 / 5;
-    border-radius: $radio-default-size * 3 / 5;
+    left: $radio-default-size * math.div(1, 5);
+    top: $radio-default-size * math.div(1, 5);
+    width: $radio-default-size * math.div(3, 5);
+    height: $radio-default-size * math.div(3, 5);
+    border-radius: $radio-default-size * math.div(3, 5);
     transition: all 0.2s ease-in;
   }
 }
