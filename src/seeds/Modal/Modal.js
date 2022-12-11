@@ -228,7 +228,7 @@ class Modal extends React.Component {
     if (!show) return null;
     return (
       <CSSTransition classNames="hana-overlay" timeout={{enter: 200, exit: 200}}>
-        <div className={`${this.prefix}-overlay`} onClick={closeOnClickBg && this.hideModal} />
+        <div className={`${this.prefix}-overlay`} onClick={closeOnClickBg ? this.hideModal : () => {}} />
       </CSSTransition>
     );
   }
