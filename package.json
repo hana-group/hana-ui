@@ -1,6 +1,6 @@
 {
   "name": "hana-ui",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "A React UIKit with fresh nijigen style.",
   "keywords": [
     "hana",
@@ -43,6 +43,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.20.7",
     "classnames": "^2.2.5",
     "d3-ease": "^1.0.3",
     "d3-interpolate": "^1.1.6",
