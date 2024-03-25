@@ -95,7 +95,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "express": "4.16.2",
+    "express": "4.19.2",
     "file-loader": "^1.1.6",
     "highlight.js": "9.12.0",
     "html-webpack-plugin": "^5.5.0",
